@@ -1,2 +1,2 @@
 alert icmp any any -> any any (msg:"test update!";sid:1;)
-alert icmp any any -> any any (msg:"test 2!";sid:1;)
+alert icmp any any -> any any (msg:"test 2!";sid:2;)
