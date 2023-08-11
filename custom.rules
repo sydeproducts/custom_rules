@@ -1,1 +1,541 @@
 alert icmp any any -> any any (msg:"Ping! this is a test"; sid:1000001;)
+# Block sc.exe
+alert tcp any any -> any any (msg:"Blocked sc.exe"; content:"sc.exe"; sid:10001204;)
+
+# Block net.exe
+alert tcp any any -> any any (msg:"Blocked net.exe"; content:"net.exe"; sid:10001205;)
+
+# Block wevtutil.exe
+alert tcp any any -> any any (msg:"Blocked wevtutil.exe"; content:"wevtutil.exe"; sid:10001206;)
+
+# Block takeown.exe
+alert tcp any any -> any any (msg:"Blocked takeown.exe"; content:"takeown.exe"; sid:10001207;)
+
+# Block cmd.exe
+alert tcp any any -> any any (msg:"Blocked cmd.exe"; content:"cmd.exe"; sid:10001208;)
+
+# Block bcdedit.exe
+alert tcp any any -> any any (msg:"Blocked bcdedit.exe"; content:"bcdedit.exe"; sid:10001209;)
+
+# Block taskkill.exe
+alert tcp any any -> any any (msg:"Blocked taskkill.exe"; content:"taskkill.exe"; sid:10001210;)
+
+# Block regedit.exe
+alert tcp any any -> any any (msg:"Blocked regedit.exe"; content:"regedit.exe"; sid:10001211;)
+
+# Block regedit
+alert tcp any any -> any any (msg:"Blocked regedit"; content:"regedit"; sid:10001212;)
+
+# Block .reg
+alert tcp any any -> any any (msg:"Blocked .reg"; content:".reg"; sid:10001213;)
+
+# Block reg add
+alert tcp any any -> any any (msg:"Blocked reg add"; content:"reg add"; sid:10001214;)
+
+# Block reg compare
+alert tcp any any -> any any (msg:"Blocked reg compare"; content:"reg compare"; sid:10001215;)
+
+# Block reg copy
+alert tcp any any -> any any (msg:"Blocked reg copy"; content:"reg copy"; sid:10001216;)
+
+# Block reg delete
+alert tcp any any -> any any (msg:"Blocked reg delete"; content:"reg delete"; sid:10001217;)
+
+# Block reg export
+alert tcp any any -> any any (msg:"Blocked reg export"; content:"reg export"; sid:10001218;)
+
+# Block reg import
+alert tcp any any -> any any (msg:"Blocked reg import"; content:"reg import"; sid:10001219;)
+
+# Block reg load
+alert tcp any any -> any any (msg:"Blocked reg load"; content:"reg load"; sid:10001220;)
+
+# Block reg query
+alert tcp any any -> any any (msg:"Blocked reg query"; content:"reg query"; sid:10001221;)
+
+# Block reg restore
+alert tcp any any -> any any (msg:"Blocked reg restore"; content:"reg restore"; sid:10001222;)
+
+# Block reg save
+alert tcp any any -> any any (msg:"Blocked reg save"; content:"reg save"; sid:10001223;)
+
+# Block reg unload
+alert tcp any any -> any any (msg:"Blocked reg unload"; content:"reg unload"; sid:10001224;)
+
+# Block regini
+alert tcp any any -> any any (msg:"Blocked regini"; content:"regini"; sid:10001225;)
+
+# Block regsvr32
+alert tcp any any -> any any (msg:"Blocked regsvr32"; content:"regsvr32"; sid:10001226;)
+
+# Block relog
+alert tcp any any -> any any (msg:"Blocked relog"; content:"relog"; sid:10001227;)
+
+# Block rem
+alert tcp any any -> any any (msg:"Blocked rem"; content:"rem"; sid:10001228;)
+
+# Block remove
+alert tcp any any -> any any (msg:"Blocked remove"; content:"remove"; sid:10001229;)
+
+# Block ren
+alert tcp any any -> any any (msg:"Blocked ren"; content:"ren"; sid:10001230;)
+
+# Block rename
+alert tcp any any -> any any (msg:"Blocked rename"; content:"rename"; sid:10001231;)
+
+# Block repair
+alert tcp any any -> any any (msg:"Blocked repair"; content:"repair"; sid:10001232;)
+
+# Block repair-bde
+alert tcp any any -> any any (msg:"Blocked repair-bde"; content:"repair-bde"; sid:10001233;)
+
+# Block replace
+alert tcp any any -> any any (msg:"Blocked replace"; content:"replace"; sid:10001234;)
+
+# Block reset
+alert tcp any any -> any any (msg:"Blocked reset"; content:"reset"; sid:10001235;)
+
+# Block reset session
+alert tcp any any -> any any (msg:"Blocked reset session"; content:"reset session"; sid:10001236;)
+
+# Block retain
+alert tcp any any -> any any (msg:"Blocked retain"; content:"retain"; sid:10001237;)
+
+# Block revert
+alert tcp any any -> any any (msg:"Blocked revert"; content:"revert"; sid:10001238;)
+
+alert tcp any any -> any any (msg:"Blocked rexec command"; content:"rexec"; sid:10001238; rev:1;)
+alert tcp any any -> any any (msg:"Blocked risetup command"; content:"risetup"; sid:10001239; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rmdir command"; content:"rmdir"; sid:10001240; rev:1;)
+alert tcp any any -> any any (msg:"Blocked robocopy command"; content:"robocopy"; sid:10001241; rev:1;)
+alert tcp any any -> any any (msg:"Blocked route ws2008 command"; content:"route ws2008"; sid:10001242; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rpcinfo command"; content:"rpcinfo"; sid:10001243; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rpcping command"; content:"rpcping"; sid:10001244; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rsh command"; content:"rsh"; sid:10001245; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rundll32 command"; content:"rundll32"; sid:10001246; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rundll32 printui command"; content:"rundll32 printui"; sid:10001247; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rwinsta command"; content:"rwinsta"; sid:10001248; rev:1;)
+alert tcp any any -> any any (msg:"Blocked san command"; content:"san"; sid:10001249; rev:1;)
+alert tcp any any -> any any (msg:"Blocked sc config command"; content:"sc config"; sid:10001250; rev:1;)
+alert tcp any any -> any any (msg:"Blocked sc create command"; content:"sc create"; sid:10001251; rev:1;)
+alert tcp any any -> any any (msg:"Blocked sc delete command"; content:"sc delete"; sid:10001252; rev:1;)
+alert tcp any any -> any any (msg:"Blocked sc query command"; content:"sc query"; sid:10001253; rev:1;)
+alert tcp any any -> any any (msg:"Blocked schtasks command"; content:"schtasks"; sid:10001254; rev:1;)
+alert tcp any any -> any any (msg:"Blocked scwcmd command"; content:"scwcmd"; sid:10001255; rev:1;)
+alert tcp any any -> any any (msg:"Blocked secedit command"; content:"secedit"; sid:10001256; rev:1;)
+alert tcp any any -> any any (msg:"Blocked mapadmin command"; content:"mapadmin"; sid:10001257; rev:1;)
+alert tcp any any -> any any (msg:"Blocked mount command"; content:"mount"; sid:10001258; rev:1;)
+alert tcp any any -> any any (msg:"Blocked nfsadmin command"; content:"nfsadmin"; sid:10001259; rev:1;)
+alert tcp any any -> any any (msg:"Blocked nfsshare command"; content:"nfsshare"; sid:10001260; rev:1;)
+alert tcp any any -> any any (msg:"Blocked nfsstat command"; content:"nfsstat"; sid:10001261; rev:1;)
+alert tcp any any -> any any (msg:"Blocked showmount command"; content:"showmount"; sid:10001262; rev:1;)
+alert tcp any any -> any any (msg:"Blocked arp command"; content:"arp"; sid:10001263; rev:1;)
+alert tcp any any -> any any (msg:"Blocked atmadn command"; content:"atmadn"; sid:10001264; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chcp command"; content:"chcp"; sid:10001265; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chdir command"; content:"chdir"; sid:10001266; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chglogon command"; content:"chglogon"; sid:10001267; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chgport command"; content:"chgport"; sid:10001268; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chgusr command"; content:"chgusr"; sid:10001269; rev:1;)
+alert tcp any any -> any any (msg:"Blocked CHKDSK command"; content:"CHKDSK"; sid:10001270; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chkntfs command"; content:"chkntfs"; sid:10001271; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cipher command"; content:"cipher"; sid:10001272; rev:1;)
+alert tcp any any -> any any (msg:"Blocked clean command"; content:"clean"; sid:10001273; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cleanmgr command"; content:"cleanmgr"; sid:10001274; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cmd command"; content:"cmd"; sid:10001275; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cmdkey command"; content:"cmdkey"; sid:10001276; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cmstp command"; content:"cmstp"; sid:10001277; rev:1;)
+alert tcp any any -> any any (msg:"Blocked comp command"; content:"comp"; sid:10001278; rev:1;)
+alert tcp any any -> any any (msg:"Blocked compact command"; content:"compact"; sid:10001279; rev:1;)
+alert tcp any any -> any any (msg:"Blocked compact vdisk command"; content:"compact vdisk"; sid:10001280; rev:1;)
+alert tcp any any -> any any (msg:"Blocked convert command"; content:"convert"; sid:10001281; rev:1;)
+
+# Block specific commands and utilities
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: cscript"; content:"cscript"; sid:10001281;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dcdiag"; content:"dcdiag"; sid:10001282;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dcgpofix"; content:"dcgpofix"; sid:10001283;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: defrag"; content:"defrag"; sid:10001284;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: del"; content:"del"; sid:10001285;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: detach vdisk"; content:"detach vdisk"; sid:10001286;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dfsdiag"; content:"dfsdiag"; sid:10001287;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dfsrmig"; content:"dfsrmig"; sid:10001288;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diantz"; content:"diantz"; sid:10001289;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dir"; content:"dir"; sid:10001290;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskcomp"; content:"diskcomp"; sid:10001291;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskcopy"; content:"diskcopy"; sid:10001292;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskpart"; content:"diskpart"; sid:10001293;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskperf"; content:"diskperf"; sid:10001294;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskraid"; content:"diskraid"; sid:10001295;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskshadow"; content:"diskshadow"; sid:10001296;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dispdiag"; content:"dispdiag"; sid:10001297;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dnscmd"; content:"dnscmd"; sid:10001298;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: doskey"; content:"doskey"; sid:10001299;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: driverquery"; content:"driverquery"; sid:10001300;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: echo"; content:"echo"; sid:10001301;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: endlocal"; content:"endlocal"; sid:10001302;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: end restore"; content:"end restore"; sid:10001303;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: erase"; content:"erase"; sid:10001304;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: eventcreate"; content:"eventcreate"; sid:10001305;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: Evntcmd"; content:"Evntcmd"; sid:10001306;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: exec"; content:"exec"; sid:10001307;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: exit"; content:"exit"; sid:10001308;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: expand vdisk"; content:"expand vdisk"; sid:10001309;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: expose"; content:"expose"; sid:10001310;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: extend"; content:"extend"; sid:10001311;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: extract"; content:"extract"; sid:10001312;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: fc"; content:"fc"; sid:10001313;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: filesystems"; content:"filesystems"; sid:10001314;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: findstr"; content:"findstr"; sid:10001315;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: finger"; content:"finger"; sid:10001316;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: flattemp"; content:"flattemp"; sid:10001317;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: forfiles"; content:"forfiles"; sid:10001318;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: format"; content:"format"; sid:10001319;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: freedisk"; content:"freedisk"; sid:10001320;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: fsutil"; content:"fsutil"; sid:10001321;)
+
+# Blokir FTP
+alert tcp any any -> any 21 (msg:"FTP Connection Detected"; sid:10001321;)
+
+# Blokir beberapa perintah cmd
+alert tcp any any -> any any (msg:"Blocked Command: ftype"; content:"ftype"; sid:10001322;)
+alert tcp any any -> any any (msg:"Blocked Command: getmac"; content:"getmac"; sid:10001323;)
+alert tcp any any -> any any (msg:"Blocked Command: ipconfig"; content:"ipconfig"; sid:10001324;)
+alert tcp any any -> any any (msg:"Blocked Command: gpfixup"; content:"gpfixup"; sid:10001325;)
+alert tcp any any -> any any (msg:"Blocked Command: gpresult"; content:"gpresult"; sid:10001326;)
+alert tcp any any -> any any (msg:"Blocked Command: gpupdate"; content:"gpupdate"; sid:10001327;)
+alert tcp any any -> any any (msg:"Blocked Command: icacls"; content:"icacls"; sid:10001328;)
+alert tcp any any -> any any (msg:"Blocked Command: import (shadowdisk)"; content:"import (shadowdisk)"; sid:10001329;)
+alert tcp any any -> any any (msg:"Blocked Command: import (diskpart)"; content:"import (diskpart)"; sid:10001330;)
+alert tcp any any -> any any (msg:"Blocked Command: ipxroute"; content:"ipxroute"; sid:10001331;)
+alert tcp any any -> any any (msg:"Blocked Command: irftp"; content:"irftp"; sid:10001332;)
+alert tcp any any -> any any (msg:"Blocked Command: klist"; content:"klist"; sid:10001333;)
+alert tcp any any -> any any (msg:"Blocked Command: ksetup"; content:"ksetup"; sid:10001334;)
+alert tcp any any -> any any (msg:"Blocked Command: ktmutil"; content:"ktmutil"; sid:10001335;)
+alert tcp any any -> any any (msg:"Blocked Command: ktpass"; content:"ktpass"; sid:10001336;)
+alert tcp any any -> any any (msg:"Blocked Command: load metadata"; content:"load metadata"; sid:10001337;)
+alert tcp any any -> any any (msg:"Blocked Command: lodctr"; content:"lodctr"; sid:10001338;)
+alert tcp any any -> any any (msg:"Blocked Command: logman"; content:"logman"; sid:10001339;)
+alert tcp any any -> any any (msg:"Blocked Command: lpr"; content:"lpr"; sid:10001340;)
+alert tcp any any -> any any (msg:"Blocked Command: makecab"; content:"makecab"; sid:10001341;)
+alert tcp any any -> any any (msg:"Blocked Command: md"; content:"md"; sid:10001342;)
+alert tcp any any -> any any (msg:"Blocked Command: mkdir"; content:"mkdir"; sid:10001343;)
+alert tcp any any -> any any (msg:"Blocked Command: mklink"; content:"mklink"; sid:10001344;)
+alert tcp any any -> any any (msg:"Blocked Command: mmc"; content:"mmc"; sid:10001345;)
+alert tcp any any -> any any (msg:"Blocked Command: mount"; content:"mount"; sid:10001346;)
+alert tcp any any -> any any (msg:"Blocked Command: mountvol"; content:"mountvol"; sid:10001347;)
+
+# Aturan untuk blokir mqtgsvc
+alert tcp any any -> any 135 (msg:"Blocked mqtgsvc"; sid:10001348;)
+
+# Aturan untuk blokir msdt
+alert tcp any any -> any any (msg:"Blocked msdt"; sid:10001349;)
+
+# Aturan untuk blokir msiexec
+alert tcp any any -> any any (msg:"Blocked msiexec"; sid:10001350;)
+
+# Aturan untuk blokir mstsc
+alert tcp any any -> any 3389 (msg:"Blocked mstsc"; sid:10001351;)
+
+# Aturan untuk blokir nbtstat
+alert udp any any -> any 137 (msg:"Blocked nbtstat"; sid:10001352;)
+
+# Aturan untuk blokir netcfg
+alert tcp any any -> any 445 (msg:"Blocked netcfg"; sid:10001353;)
+
+# Aturan untuk blokir net print
+alert tcp any any -> any 515 (msg:"Blocked net print"; sid:10001354;)
+
+# Aturan untuk blokir netsh
+alert tcp any any -> any 1025:65535 (msg:"Blocked netsh"; sid:10001355;)
+
+# Aturan untuk blokir netstat
+alert tcp any any -> any 1025:65535 (msg:"Blocked netstat"; sid:10001356;)
+
+# Aturan untuk blokir nfsadmin
+alert tcp any any -> any 2049 (msg:"Blocked nfsadmin"; sid:10001357;)
+
+# Aturan untuk blokir nfsshare
+alert tcp any any -> any 2049 (msg:"Blocked nfsshare"; sid:10001358;)
+
+# Aturan untuk blokir nfsstat
+alert tcp any any -> any 2049 (msg:"Blocked nfsstat"; sid:10001359;)
+
+# Aturan untuk blokir nlbmgr
+alert tcp any any -> any 137:139 (msg:"Blocked nlbmgr"; sid:10001360;)
+
+# Aturan untuk blokir nslookup
+alert udp any any -> any 53 (msg:"Blocked nslookup"; sid:10001361;)
+
+# Aturan untuk blokir ntbackup
+alert tcp any any -> any 1025:65535 (msg:"Blocked ntbackup"; sid:10001362;)
+
+# Aturan untuk blokir ntcmdprompt
+alert tcp any any -> any 1025:65535 (msg:"Blocked ntcmdprompt"; sid:10001363;)
+
+# Aturan untuk blokir ntfrsutl
+alert tcp any any -> any 1025:65535 (msg:"Blocked ntfrsutl"; sid:10001364;)
+
+# Aturan untuk blokir openfiles
+alert tcp any any -> any 135 (msg:"Blocked openfiles"; sid:10001365;)
+
+# Aturan untuk blokir path
+alert tcp any any -> any any (msg:"Blocked path"; sid:10001366;)
+
+# Aturan untuk blokir pathping
+alert icmp any any -> any any (msg:"Blocked pathping"; sid:10001367;)
+
+# Aturan untuk blokir pbadmin
+alert tcp any any -> any 445 (msg:"Blocked pbadmin"; sid:10001368;)
+
+# Aturan untuk blokir pentnt
+alert tcp any any -> any 1025:65535 (msg:"Blocked pentnt"; sid:10001369;)
+
+# Aturan untuk blokir perfmon
+alert tcp any any -> any 445 (msg:"Blocked perfmon"; sid:10001370;)
+
+# Aturan untuk blokir ping
+alert icmp any any -> any any (msg:"Blocked ping"; sid:10001371;)
+
+# Aturan untuk blokir pktmon
+alert tcp any any -> any 1025:65535 (msg:"Blocked pktmon"; sid:10001372;)
+
+# Aturan untuk blokir pnpunattend
+alert tcp any any -> any 1025:65535 (msg:"Blocked pnpunattend"; sid:10001373;)
+
+# Aturan untuk blokir pnputil
+alert tcp any any -> any 1025:65535 (msg:"Blocked pnputil"; sid:10001374;)
+
+# Aturan untuk blokir popd
+alert tcp any any -> any any (msg:"Blocked popd"; sid:10001375;)
+
+# Aturan untuk blokir powershell
+alert tcp any any -> any 5985:5986 (msg:"Blocked powershell"; sid:10001376;)
+
+# Aturan untuk blokir powershell ise
+alert tcp any any -> any 1025:65535 (msg:"Blocked powershell ise"; sid:10001377;)
+
+# Aturan untuk blokir print
+alert tcp any any -> any 515 (msg:"Blocked print"; sid:10001378;)
+
+# Aturan untuk blokir prncnfg
+alert tcp any any -> any 1025:65535 (msg:"Blocked prncnfg"; sid:10001379;)
+
+# Aturan untuk blokir prndrvr
+alert tcp any any -> any 1025:65535 (msg:"Blocked prndrvr"; sid:10001380;)
+
+# Aturan untuk blokir prnjobs
+alert tcp any any -> any 1025:65535 (msg:"Blocked prnjobs"; sid:10001381;)
+
+# Aturan untuk blokir prnmngr
+alert tcp any any -> any 1025:65535 (msg:"Blocked prnmngr"; sid:10001382;)
+
+# Aturan untuk blokir prnport
+alert tcp any any -> any 1025:65535 (msg:"Blocked prnport"; sid:10001383;)
+
+# Aturan untuk blokir prnqctl
+alert tcp any any -> any 1025:65535 (msg:"Blocked prnqctl"; sid:10001384;)
+
+# Aturan untuk blokir prompt
+alert tcp any any -> any any (msg:"Blocked prompt"; sid:10001385;)
+
+# Aturan untuk blokir pubprn
+alert tcp any any -> any 515 (msg:"Blocked pubprn"; sid:10001386;)
+
+# Aturan untuk blokir pushd
+alert tcp any any -> any any (msg:"Blocked pushd"; sid:10001387;)
+
+# Aturan untuk blokir pwlauncher
+alert tcp any any -> any any (msg:"Blocked pwlauncher"; sid:10001388;)
+
+# Aturan untuk blokir qappsrv
+alert tcp any any -> any any (msg:"Blocked qappsrv"; sid:10001389;)
+
+# Aturan untuk blokir qprocess
+alert tcp any any -> any any (msg:"Blocked qprocess"; sid:10001390;)
+
+# Aturan untuk blokir query
+alert tcp any any -> any any (msg:"Blocked query"; sid:10001391;)
+
+# Aturan untuk blokir quser
+alert tcp any any -> any any (msg:"Blocked quser"; sid:10001392;)
+
+# Aturan untuk blokir qwinsta
+alert tcp any any -> any any (msg:"Blocked qwinsta"; sid:10001393;)
+
+# Aturan untuk blokir rd
+alert tcp any any -> any 3389 (msg:"Blocked rd"; sid:10001394;)
+
+# Aturan untuk blokir rdpsign
+alert tcp any any -> any 3389 (msg:"Blocked rdpsign"; sid:10001395;)
+
+# Aturan untuk blokir refsutil
+alert tcp any any -> any 445 (msg:"Blocked refsutil"; sid:10001396;)
+
+# Aturan untuk blokir reg
+alert tcp any any -> any 1025:65535 (msg:"Blocked reg"; sid:10001397;)
+
+# Aturan untuk blokir regini
+alert tcp any any -> any 1025:65535 (msg:"Blocked regini"; sid:10001398;)
+
+# Aturan untuk blokir regsvr32
+alert tcp any any -> any 1025:65535 (msg:"Blocked regsvr32"; sid:10001399;)
+
+# Aturan untuk blokir rexec
+alert tcp any any -> any 512 (msg:"Blocked rexec"; sid:10001400;)
+
+# Aturan untuk blokir risetup
+alert tcp any any -> any 1025:65535 (msg:"Blocked risetup"; sid:10001401;)
+
+# Aturan untuk blokir rmdir
+alert tcp any any -> any any (msg:"Blocked rmdir"; sid:10001402;)
+
+# Aturan untuk blokir robocopy
+alert tcp any any -> any 1025:65535 (msg:"Blocked robocopy"; sid:10001403;)
+
+# Aturan untuk blokir route ws2008
+alert tcp any any -> any any (msg:"Blocked route ws2008"; sid:10001404;)
+
+# Snort Rules with Unique SIDs
+
+# Blocking rpcinfo activity
+alert tcp any any -> any 111 (msg:"Blocked rpcinfo activity"; sid:10001405; classtype:rpc-portmap-decode;)
+
+# Blocking rpcping activity
+alert udp any any -> any 111 (msg:"Blocked rpcping activity"; sid:10001406; classtype:rpc-portmap-decode;)
+
+# Blocking rsh activity
+alert tcp any any -> any 514 (msg:"Blocked rsh activity"; sid:10001407;)
+
+# Blocking setx activity
+alert tcp any any -> any 135 (msg:"Blocked setx activity"; sid:10001408; content:"setx";)
+
+# Blocking sfc activity
+alert tcp any any -> any 1025 (msg:"Blocked sfc activity"; sid:10001409; content:"sfc";)
+
+# Blocking shadow activity
+alert tcp any any -> any 514 (msg:"Blocked shadow activity"; sid:10001410; content:"shadow";)
+
+# Blocking shrink activity
+alert tcp any any -> any 514 (msg:"Blocked shrink activity"; sid:10001411; content:"shrink";)
+
+# Blocking shutdown activity
+alert tcp any any -> any 514 (msg:"Blocked shutdown activity"; sid:10001412; content:"shutdown";)
+
+# Blocking simulate restore activity
+alert tcp any any -> any 514 (msg:"Blocked simulate restore activity"; sid:10001413; content:"simulate restore";)
+
+# Blocking subst activity
+alert tcp any any -> any 514 (msg:"Blocked subst activity"; sid:10001414; content:"subst";)
+
+# Blocking sxstrace activity
+alert tcp any any -> any 514 (msg:"Blocked sxstrace activity"; sid:10001415; content:"sxstrace";)
+
+# Blocking sysocmgr activity
+alert tcp any any -> any 514 (msg:"Blocked sysocmgr activity"; sid:10001416; content:"sysocmgr";)
+
+# Blocking systeminfo activity
+alert tcp any any -> any 514 (msg:"Blocked systeminfo activity"; sid:10001417; content:"systeminfo";)
+
+# Blocking takeown activity
+alert tcp any any -> any 514 (msg:"Blocked takeown activity"; sid:10001418; content:"takeown";)
+
+# Blocking tapicfg activity
+alert tcp any any -> any 514 (msg:"Blocked tapicfg activity"; sid:10001419; content:"tapicfg";)
+
+# Blocking taskkill activity
+alert tcp any any -> any 514 (msg:"Blocked taskkill activity"; sid:10001420; content:"taskkill";)
+
+# Blocking tasklist activity
+alert tcp any any -> any 514 (msg:"Blocked tasklist activity"; sid:10001421; content:"tasklist";)
+
+# Blocking tcmsetup activity
+alert tcp any any -> any 514 (msg:"Blocked tcmsetup activity"; sid:10001422; content:"tcmsetup";)
+
+# Blocking telnet activity
+alert tcp any any -> any 23 (msg:"Blocked telnet activity"; sid:10001423;)
+
+# Blocking tftp activity
+alert udp any any -> any 69 (msg:"Blocked tftp activity"; sid:10001424;)
+
+# Blocking tlntadmn activity
+alert tcp any any -> any 514 (msg:"Blocked tlntadmn activity"; sid:10001425; content:"tlntadmn";)
+
+# Blocking tpmtool activity
+alert tcp any any -> any 514 (msg:"Blocked tpmtool activity"; sid:10001426; content:"tpmtool";)
+
+# Blocking tpmvscmgr activity
+alert tcp any any -> any 514 (msg:"Blocked tpmvscmgr activity"; sid:10001427; content:"tpmvscmgr";)
+
+# Blocking tracerpt activity
+alert tcp any any -> any 514 (msg:"Blocked tracerpt activity"; sid:10001428; content:"tracerpt";)
+
+# Blocking tracert activity
+alert icmp any any -> any any (msg:"Blocked tracert activity"; sid:10001429; icode:0; itype:8;)
+
+# Blocking tscon activity
+alert tcp any any -> any 3389 (msg:"Blocked tscon activity"; sid:10001430; content:"tscon";)
+
+# Blocking tsdiscon activity
+alert tcp any any -> any 3389 (msg:"Blocked tsdiscon activity"; sid:10001431; content:"tsdiscon";)
+
+# Blocking tsecimp activity
+alert tcp any any -> any 514 (msg:"Blocked tsecimp activity"; sid:10001432; content:"tsecimp";)
+
+# Blocking tskill activity
+alert tcp any any -> any 514 (msg:"Blocked tskill activity"; sid:10001433; content:"tskill";)
+
+# Blocking tsprof activity
+alert tcp any any -> any 514 (msg:"Blocked tsprof activity"; sid:10001434; content:"tsprof";)
+
+# Blocking tzutil activity
+alert tcp any any -> any 514 (msg:"Blocked tzutil activity"; sid:10001435; content:"tzutil";)
+
+# Blocking unlodctr activity
+alert tcp any any -> any 514 (msg:"Blocked unlodctr activity"; sid:10001436; content:"unlodctr";)
+
+# Blocking ver activity
+alert tcp any any -> any 514 (msg:"Blocked ver activity"; sid:10001437; content:"ver";)
+
+# Blocking vssadmin activity
+alert tcp any any -> any 514 (msg:"Blocked vssadmin activity"; sid:10001438; content:"vssadmin";)
+
+# Blocking wbadmin activity
+alert tcp any any -> any 514 (msg:"Blocked wbadmin activity"; sid:10001439; content:"wbadmin";)
+
+# Blocking wdsutil activity
+alert tcp any any -> any 514 (msg:"Blocked wdsutil activity"; sid:10001440; content:"wdsutil";)
+
+# Blocking wecutil activity
+alert tcp any any -> any 514 (msg:"Blocked wecutil activity"; sid:10001441; content:"wecutil";)
+
+# Blocking wevtutil activity
+alert tcp any any -> any 514 (msg:"Blocked wevtutil activity"; sid:10001442; content:"wevtutil";)
+
+# Blocking where activity
+alert tcp any any -> any 514 (msg:"Blocked where activity"; sid:10001443; content:"where";)
+
+# Blocking whoami activity
+alert tcp any any -> any 514 (msg:"Blocked whoami activity"; sid:10001444; content:"whoami";)
+
+# Blocking winnt activity
+alert tcp any any -> any 514 (msg:"Blocked winnt activity"; sid:10001445; content:"winnt";)
+
+# Blocking winnt32 activity
+alert tcp any any -> any 514 (msg:"Blocked winnt32 activity"; sid:10001446; content:"winnt32";)
+
+# Blocking winrs activity
+alert tcp any any -> any 514 (msg:"Blocked winrs activity"; sid:10001447; content:"winrs";)
+
+# Blocking winsat mem activity
+alert tcp any any -> any 514 (msg:"Blocked winsat mem activity"; sid:10001448; content:"winsat mem";)
+
+# Blocking winsat mfmedia activity
+alert tcp any any -> any 514 (msg:"Blocked winsat mfmedia activity"; sid:10001449; content:"winsat mfmedia";)
+
+# Blocking wmic activity
+alert tcp any any -> any 514 (msg:"Blocked wmic activity"; sid:10001450; content:"wmic";)
+
+# Blocking wscript activity
+alert tcp any any -> any 514 (msg:"Blocked wscript activity"; sid:10001451; content:"wscript";)
+
+# Blocking xcopy activity
+alert tcp any any -> any 514 (msg:"Blocked xcopy activity"; sid:10001452; content:"xcopy";)
