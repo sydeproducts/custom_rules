@@ -540,3 +540,360 @@ alert tcp any any -> any 514 (msg:"Blocked wscript activity"; sid:10001451; cont
 
 # Blocking xcopy activity
 alert tcp any any -> any 514 (msg:"Blocked xcopy activity"; sid:10001452; content:"xcopy";)
+
+# Aturan untuk mendeteksi penggunaan Fernet
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet"; content:"Fernet("; sid:10001453;)
+
+# Aturan untuk mendeteksi penggunaan Fernet dengan key
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet dengan Key"; content:"Fernet(key)"; sid:10001454;)
+
+# Aturan untuk mendeteksi generasi key Fernet
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Generasi Key Fernet"; content:"Fernet.generate_key"; sid:10001455;)
+
+# Aturan untuk mendeteksi enkripsi menggunakan cipher suite
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Enkripsi dengan Cipher Suite"; content:"cipher_suite.encrypt"; sid:10001456;)
+
+# Aturan untuk mendeteksi penggunaan plaintext
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Penggunaan Plaintext"; content:"plaintext"; sid:10001457;)
+
+# Aturan untuk mendeteksi inisialisasi dan generasi kunci
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Inisialisasi dan Generasi Kunci"; content:"keyGenerator.init|keyGenerator.generateKey"; sid:10001458;)
+
+# Aturan untuk mendeteksi penggunaan Cipher instance
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Penggunaan Cipher Instance"; content:"Cipher.getInstance"; sid:10001459;)
+
+# Aturan untuk mendeteksi inisialisasi cipher
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Inisialisasi Cipher"; content:"cipher.init"; sid:10001460;)
+
+# Aturan untuk mendeteksi operasi cipher.doFinal
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Operasi cipher.doFinal"; content:"cipher.doFinal"; sid:10001461;)
+
+# Aturan untuk mendeteksi konversi byte ke string
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Konversi Byte ke String"; content:"new String"; sid:10001462;)
+
+# Aturan untuk mendeteksi generasi AES key
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Generasi AES Key"; content:"aesAlg.Generate"; sid:10001463;)
+
+# Aturan untuk mendeteksi manipulasi byte array
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Manipulasi Byte Array"; content:"byte[]"; sid:10001464;)
+
+# Aturan untuk mendeteksi konversi ke Base64
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Konversi ke Base64"; content:"Convert.ToBase"; sid:10001465;)
+
+# Aturan untuk mendeteksi generasi private key
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Generasi Private Key"; content:"generate_private_key"; sid:10001466;)
+
+# Aturan untuk mendeteksi penggunaan private key dalam format pem
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Penggunaan Private Key PEM"; content:"private_key_pem"; sid:10001467;)
+
+# Aturan untuk mendeteksi operasi serialization
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Operasi Serialization"; content:"serialization"; sid:10001468;)
+
+# Aturan untuk mendeteksi operasi write binary
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Operasi Write Binary"; content:"‘wb’"; sid:10001469;)
+
+# Aturan untuk mendeteksi operasi read binary
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Operasi Read Binary"; content:"‘rb’"; sid:10001470;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"private_key.pem"; nocase; sid:10001471;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"private_key_data"; nocase; sid:10001472;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"key="; nocase; sid:10001473;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"iv="; nocase; sid:10001474;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"cipher"; nocase; sid:10001475;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"encryptor"; nocase; sid:10001476;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"padding"; nocase; sid:10001477;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"KeyGenerator.getInstance"; nocase; sid:10001478;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"secretKey"; nocase; sid:10001479;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"ivSpec"; nocase; sid:10001480;)
+    
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensi Penggunaan Kriptografi"; \
+    content:"cipher.doFinal"; nocase; sid:10001481;)
+
+# Plaintext
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext data detected"; content:"Plaintext"; sid:10001482;)
+
+# Ciphertext
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext data detected"; content:"Ciphertext"; sid:10001483;)
+
+# Key
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Sensitive data leak: Key"; content:"Key"; sid:10001484;)
+
+# Initialization Vector (IV)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Suspicious Initialization Vector (IV)"; content:"IV"; sid:10001485;)
+
+# Block Cipher
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Block cipher usage detected"; content:"Block Cipher"; sid:10001486;)
+
+# Stream Cipher
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Stream cipher usage detected"; content:"Stream Cipher"; sid:10001487;)
+
+# Encryption Mode
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Encryption mode identified"; content:"Encryption Mode"; sid:10001488;)
+
+# Padding
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Padding scheme detected"; content:"Padding"; sid:10001489;)
+
+# Key Generation
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key generation event"; content:"Key Generation"; sid:10001490;)
+
+# Key Length
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key length anomaly"; content:"Key Length"; sid:10001491;)
+
+# Symmetric Encryption
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Symmetric encryption detected"; content:"Symmetric Encryption"; sid:10001492;)
+
+# Asymmetric Encryption (Public Key Cryptography)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Asymmetric encryption detected"; content:"Public Key Cryptography"; sid:10001493;)
+
+# Digital Signature
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital signature detected"; content:"Digital Signature"; sid:10001494;)
+
+# Hash Function
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash function usage detected"; content:"Hash Function"; sid:10001495;)
+
+# Nonce
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce compromise detected"; content:"Nonce"; sid:10001496;)
+
+# Salting
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salting operation detected"; content:"Salting"; sid:10001497;)
+
+# Key Exchange
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key exchange detected"; content:"Key Exchange"; sid:10001498;)
+
+# Cryptanalysis
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Cryptanalysis attempt detected"; content:"Cryptanalysis"; sid:10001499;)
+
+# Authentication
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication data intercepted"; content:"Authentication"; sid:10001500;)
+
+# Integrity
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Integrity violation detected"; content:"Integrity"; sid:10001501;)
+
+# Confidentiality
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Confidential data breach"; content:"Confidentiality"; sid:10001502;)
+
+# Public Key Infrastructure (PKI)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"PKI usage identified"; content:"Public Key Infrastructure"; sid:10001503;)
+
+# Certificate Authority (CA)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"CA interaction detected"; content:"Certificate Authority"; sid:10001504;)
+
+# Revocation
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Certificate revocation attempt"; content:"Revocation"; sid:10001505;)
+
+# Digital Envelope
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Envelope detected"; content:"Digital Envelope"; sid:10001506;)
+
+# Key Escrow
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Escrow operation detected"; content:"Key Escrow"; sid:10001507;)
+
+# Entropy Source
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy Source anomaly"; content:"Entropy Source"; sid:10001508;)
+
+# Side Channel Attacks
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Possible Side Channel Attack"; content:"Side Channel Attacks"; sid:10001509;)
+
+# Homomorphic Encryption
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Homomorphic Encryption usage detected"; content:"Homomorphic Encryption"; sid:10001510;)
+
+# Zero-Knowledge Proof
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Zero-Knowledge Proof exchange detected"; content:"Zero-Knowledge Proof"; sid:10001511;)
+
+# Snort rules for blocking various cryptographic terms
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Differential Cryptanalysis"; content:"Differential Cryptanalysis"; sid:10001512;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Meet-in-the-Middle Attack"; content:"Meet-in-the-Middle Attack"; sid:10001513;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Stretching"; content:"Key Stretching"; sid:10001514;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Entropy Pool"; content:"Entropy Pool"; sid:10001515;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Elliptic Curve Cryptography (ECC)"; content:"Elliptic Curve Cryptography (ECC)"; sid:10001516;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Quantum Cryptography"; content:"Quantum Cryptography"; sid:10001517;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Initialize"; content:"Initialize"; sid:10001518;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Encrypt"; content:"Encrypt"; sid:10001519;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Decrypt"; content:"Decrypt"; sid:10001520;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Algorithm"; content:"Algorithm"; sid:10001521;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key"; content:"Key"; sid:10001522;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Block"; content:"Block"; sid:10001523;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round"; content:"Round"; sid:10001524;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Substitution"; content:"Substitution"; sid:10001525;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Permutation"; content:"Permutation"; sid:10001526;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Schedule"; content:"Key Schedule"; sid:10001527;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Expansion"; content:"Expansion"; sid:10001528;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Subkey"; content:"Subkey"; sid:10001529;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Key"; content:"Round Key"; sid:10001530;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Function"; content:"Round Function"; sid:10001531;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked XOR (Exclusive OR)"; content:"XOR (Exclusive OR)"; sid:10001532;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Bit"; content:"Bit"; sid:10001533;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Byte"; content:"Byte"; sid:10001534;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked S-Box"; content:"S-Box"; sid:10001535;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked P-Box"; content:"P-Box"; sid:10001536;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Transformation"; content:"Transformation"; sid:10001537;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Shift"; content:"Shift"; sid:10001538;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Mix"; content:"Mix"; sid:10001539;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Padding"; content:"Padding"; sid:10001540;)
+
+# Aturan untuk Mode
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Mode detected"; content:"Mode"; sid:10001541;)
+
+# Aturan untuk Initialization Vector (IV)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Initialization Vector detected"; content:"Initialization Vector"; sid:10001542;)
+
+# Aturan untuk Authentication Tag
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication Tag detected"; content:"Authentication Tag"; sid:10001543;)
+
+# Aturan untuk Salt
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salt detected"; content:"Salt"; sid:10001544;)
+
+# Aturan untuk Nonce
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce detected"; content:"Nonce"; sid:10001545;)
+
+# Aturan untuk Plaintext
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext detected"; content:"Plaintext"; sid:10001546;)
+
+# Aturan untuk Ciphertext
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext detected"; content:"Ciphertext"; sid:10001547;)
+
+# Aturan untuk Hash
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash detected"; content:"Hash"; sid:10001548;)
+
+# Aturan untuk Digest
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digest detected"; content:"Digest"; sid:10001549;)
+
+# Aturan untuk Compression Function
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Compression Function detected"; content:"Compression Function"; sid:10001550;)
+
+# Aturan untuk Feistel Network
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Feistel Network detected"; content:"Feistel Network"; sid:10001551;)
+
+# Aturan untuk Key Exchange
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Exchange detected"; content:"Key Exchange"; sid:10001552;)
+
+# Aturan untuk Public Key
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Public Key detected"; content:"Public Key"; sid:10001553;)
+
+# Aturan untuk Private Key
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Private Key detected"; content:"Private Key"; sid:10001554;)
+
+# Aturan untuk Signature
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Signature detected"; content:"Signature"; sid:10001555;)
+
+# Aturan untuk Verifier
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Verifier detected"; content:"Verifier"; sid:10001556;)
+
+# Aturan untuk Hash Function
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash Function detected"; content:"Hash Function"; sid:10001557;)
+
+# Aturan untuk Digital Certificate
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Certificate detected"; content:"Digital Certificate"; sid:10001558;)
+
+# Aturan untuk Key Length
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Length detected"; content:"Key Length"; sid:10001559;)
+
+# Aturan untuk Entropy
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy detected"; content:"Entropy"; sid:10001560;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"new byte["; content:"secureRandom.nextBytes"; sid:10001561;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"stdlib.h"; sid:10001562;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"#include<random>"; sid:10001563;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"randomBytes"; sid:10001564;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"RandomNumberGenerator.Create()"; sid:10001565;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"rng.GetBytes"; sid:10001566;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"SecureRandom.random_bytes"; sid:10001567;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const crypto"; sid:10001568;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"require(\'crypto\')"; sid:10001569;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const randomBytes"; sid:10001570;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"crypto.randomBytes"; sid:10001571;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"$randomBytes"; sid:10001572;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"crypto/rand\""; sid:10001573;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"fmt\""; sid:10001574;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"make([]byte, 16 )"; sid:10001575;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"get_random_bytes()"; sid:10001576;)
+
+# Rule untuk mendeteksi penggunaan random.randint(a, b)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.randint"; content:"random.randint("; sid:10001577;)
+
+# Rule untuk mendeteksi penggunaan random.randrange(start, stop[, step])
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.randrange"; content:"random.randrange("; sid:10001578;)
+
+# Rule untuk mendeteksi penggunaan random.choice(seq)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.choice"; content:"random.choice("; sid:10001579;)
+
+# Rule untuk mendeteksi penggunaan random.shuffle(x[, random])
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.shuffle"; content:"random.shuffle("; sid:10001580;)
+
+# Rule untuk mendeteksi penggunaan secrets.token_bytes(n)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_bytes"; content:"secrets.token_bytes("; sid:10001581;)
+
+# Rule untuk mendeteksi penggunaan secrets.token_hex(n)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_hex"; content:"secrets.token_hex("; sid:10001582;)
+
+# Rule untuk mendeteksi penggunaan secrets.token_urlsafe(n)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_urlsafe"; content:"secrets.token_urlsafe("; sid:10001583;)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial AES256Key1234567890"; content:"AES256Key1234567890"; sid:10001584;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial RSA.generateKeyPair()"; content:"RSA.generateKeyPair()"; sid:10001585;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial BlowfishSecretKey"; content:"BlowfishSecretKey"; sid:10001586;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial SuperSecretDESKey"; content:"SuperSecretDESKey"; sid:10001587;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial ChaCha20SecretKey"; content:"ChaCha20SecretKey"; sid:10001588;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial secp256r1"; content:"secp256r1"; sid:10001589;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial 3DESSecretKey"; content:"3DESSecretKey"; sid:10001590;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Create()"; content:"Create()"; sid:10001591;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial GenerateKey"; content:"GenerateKey"; sid:10001592;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial GenerateIV"; content:"GenerateIV"; sid:10001593;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial RSASignaturePadding"; content:"RSASignaturePadding"; sid:10001594;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial SafeEvpPKeyHandle"; content:"SafeEvpPKeyHandle"; sid:10001595;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial swEncrypt.Write"; content:"swEncrypt.Write"; sid:10001596;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial AesCcm"; content:"AesCcm"; sid:10001597;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial ReadOnlySpan<Byte>"; content:"ReadOnlySpan<Byte>"; sid:10001598;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer."; content:"Buffer."; sid:10001599;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial This array is to be modified and displayed"; content:"This array is to be modified and displayed"; sid:10001600;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.BlockCopy"; content:"Buffer.BlockCopy"; sid:10001601;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.SetByte"; content:"Buffer.SetByte"; sid:10001602;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.ByteLength"; content:"Buffer.ByteLength"; sid:10001603;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Byte"; content:"Byte"; sid:10001604;)
