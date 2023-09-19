@@ -825,3 +825,5 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.Bloc
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.SetByte"; content:"Buffer.SetByte"; sid:10001602;)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.ByteLength"; content:"Buffer.ByteLength"; sid:10001603;)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Byte"; content:"Byte"; sid:10001604;)
+
+alert udp any any -> any 1194 (msg:"OpenVPN Traffic Detected"; sid:10001605;)
