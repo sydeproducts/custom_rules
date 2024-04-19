@@ -831,9 +831,9 @@ alert udp any any -> any 1194 (msg:"OpenVPN Traffic Detected"; sid:10001605;)
 # update 19 apr 2024 
 block tcp any any -> any any (msg:"Potential mshta.exe Execution Detected"; flow:to_server,established; content:"mshta.exe";  classtype:trojan-activity; sid:10001606; )
 block tcp any any -> any any (msg:"Blocking word_update.exe Execution"; flow:to_server,established; content:"word_update.exe";  classtype:trojan-activity; sid:10001607; )
-block tcp any any -> any any (msg:"Blocking offer.docx Transfer"; flow:to_server,established; content:"offer.docx";  classtype:file-transfer; sid:10001608; )
+block tcp any any -> any any (msg:"Blocking offer.docx Transfer"; flow:to_server,established; content:"offer.docx";   sid:10001608; )
 block tcp any any -> any any (msg:"Blocking Task_dbg.exe Execution"; flow:to_server,established; content:"Task_dbg.exe";  classtype:trojan-activity; sid:10001609; )
-block tcp any any -> any any (msg:"Blocking libcef.dll Transfer"; flow:to_server,established; content:"libcef.dll";  classtype:file-transfer; sid:10001610; )
+block tcp any any -> any any (msg:"Blocking libcef.dll Transfer"; flow:to_server,established; content:"libcef.dll";   sid:10001610; )
 
 block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah ps dengan machdep.cpu.vendor"; content:"ps"; content:"machdep.cpu.vendor"; sid:10001611;)
 block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah Shell dengan machdep.cpu.vendor"; content:"machdep.cpu.vendor"; content:"shell"; sid:10001612;)
