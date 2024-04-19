@@ -900,6 +900,13 @@ block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply
 block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdaterLs2"; content:"GET /VisualStudioUpdaterLs2"; http_uri; sid:10001667;)
 block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdater"; content:"GET /VisualStudioUpdater"; http_uri; sid:10001668;)
 
+block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke maconlineoffice.com"; content:"Host\: maconlineoffice.com"; http_header; sid:10001669;)
+block ip $HOME_NET any -> 193.29.13.167 any (msg:"Deteksi akses ke 193.29.13.167"; sid:10001670;)
+block ip $HOME_NET any -> 88.214.26.22 any (msg:"Deteksi akses ke 88.214.26.22"; sid:10001671;)
+block tcp $HOME_NET any -> any any (msg:"Deteksi akses HTTP ke serviceicloud.com"; content:"Host\: serviceicloud.com"; http_header; sid:10001672;)
+
+
+
 
 
 
