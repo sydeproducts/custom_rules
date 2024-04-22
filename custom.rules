@@ -965,100 +965,22 @@ block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp 
 block tcp $EXTERNAL_NET any -> $HOME_NET 88 (msg:"Deteksi Potensial ASEPRoast - Permintaan Tiket TGT"; content:"KRB_AS_REQ"; content:"TGT"; sid:10001708; )
 
 block tcp $EXTERNAL_NET any -> $HOME_NET 88 (msg:"Deteksi Potensial KRBRelayUp - Permintaan Tiket TGT untuk asepuser"; content:"KRB_AS_REQ"; content:"asepuser"; sid:10001709; )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C"; content:"gcc"; sid:10001710; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C++"; content:"g++"; sid:10001711; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Rustc"; content:"rustc"; sid:10001712; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Go"; content:"go"; sid:10001713; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Java"; content:"javac"; sid:10001714; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C#"; content:"csc"; sid:10001715; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Fortran"; content:"gfortran"; sid:10001716; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Pascal"; content:"fpc"; sid:10001717; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Ada"; content:"gnatmake"; sid:10001718; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Assembly"; content:"nasm"; sid:10001719; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Python"; content:"python"; sid:10001720; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command JavaScript (Node.js)"; content:"node"; sid:10001721; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Ruby"; content:"ruby"; sid:10001722; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Perl"; content:"perl"; sid:10001723; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command PHP"; content:"php"; sid:10001724; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Bash"; content:"bash"; sid:10001725; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command PowerShell"; content:"powershell"; sid:10001726; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Lua"; content:"lua"; sid:10001727; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Tcl"; content:"tclsh"; sid:10001728; )
