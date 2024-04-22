@@ -855,11 +855,7 @@ block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand
 block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"rm";  sid:10001627;)
 block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"rmdir";  sid:10001628;)
 block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"sleep";  sid:10001629;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Upload"; content:"POST";  content:"upload";  sid:10001630;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Botkill"; content:"botkill";  sid:10001631;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah dialog"; content:"dialog";  sid:10001632;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah taskkill"; content:"taskkill";  sid:10001633;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Download"; content:"GET";  content:".exe";  sid:10001634;)
+
 
 block tcp any any -> any any (msg:"Deteksi Aktivitas ps dan kern.osproductversion"; content:"ps";  content:"kern.osproductversion";  sid:10001635;)
 block tcp any any -> any any (msg:"Deteksi Aktivitas Shell untuk kern.osproductversion"; content:"kern.osproductversion";  sid:10001636;)
@@ -869,23 +865,11 @@ block tcp any any -> any any (msg:"Deteksi Perintah Rm dalam Lalu Lintas Jaringa
 block tcp any any -> any any (msg:"Deteksi Perintah Rmdir dalam Lalu Lintas Jaringan"; content:"rmdir";  sid:10001640;)
 block tcp any any -> any any (msg:"Deteksi Perintah Sleep dalam Lalu Lintas Jaringan"; content:"sleep";  sid:10001641;)
 block tcp any any -> any any (msg:"Deteksi Aktivitas Upload"; content:"POST";  content:"Content-Disposition: form-data; name=\"file\"";  sid:10001642;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Botkill"; content:"botkill";  sid:10001643;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Dialog"; content:"dialog";  sid:10001644;)
-block tcp any any -> any any (msg:"Deteksi Perintah Taskkill dalam Lalu Lintas Jaringan"; content:"taskkill";  sid:10001645;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Pengunduhan File"; content:"GET";  content:".exe";  sid:10001646;)
+
 
 block tcp any any -> any any (msg:"Deteksi Aktivitas Info CPU Frequency"; content:"hw.cpufrequency";  sid:10001647;)
 block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan CPU Frequency"; content:"shell";  content:"hw.cpufrequency";  sid:10001648;)
 block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001649;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001650;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001651;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001652;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001653;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001654;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001655;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001656;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001657;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency";  sid:10001658;)
 
 block tcp any any -> any any (msg:"Deteksi lock_in_cron"; content:"lock_in_cron"; sid:10001659;)
 block tcp any any -> any any (msg:"Deteksi lock_in_launch"; content:"lock_in_launch"; sid:10001660;)
@@ -894,16 +878,113 @@ block tcp any any -> any any (msg:"Deteksi lock_in_rc"; content:"lock_in_rc"; si
 
 block tcp any any -> any any (msg:"Deteksi NoteStore.sqlite"; content:"NoteStore.sqlite"; sid:10001663;)
 
-block tcp $HOME_NET any -> any 443 (msg:"Deteksi akses ke https://sarkerrentacars.com/zshrc"; content:"/zshrc"; http_uri; sid:10001664;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke https://turkishfurniture.blog/Previewers"; content:"GET /Previewers"; http_uri; sid:10001665;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/zshrc2"; content:"GET /zshrc2"; http_uri; sid:10001666;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdaterLs2"; content:"GET /VisualStudioUpdaterLs2"; http_uri; sid:10001667;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdater"; content:"GET /VisualStudioUpdater"; http_uri; sid:10001668;)
+block tcp $HOME_NET any -> https://sarkerrentacars.com/zshrc 443 (msg:"Deteksi akses ke https://sarkerrentacars.com/zshrc"; content:"/zshrc"; http_uri; sid:10001664;)
+block tcp $HOME_NET any -> https://turkishfurniture.blog/Previewers any (msg:"Deteksi akses ke https://turkishfurniture.blog/Previewers"; content:"GET /Previewers"; http_uri; sid:10001665;)
+block tcp $HOME_NET any -> http://linksammosupply.com/zshrc2 any (msg:"Deteksi akses ke http://linksammosupply.com/zshrc2"; content:"GET /zshrc2"; http_uri; sid:10001666;)
+block tcp $HOME_NET any -> http://linksammosupply.com/VisualStudioUpdaterLs2 any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdaterLs2"; content:"GET /VisualStudioUpdaterLs2"; http_uri; sid:10001667;)
+block tcp $HOME_NET any -> http://linksammosupply.com/VisualStudioUpdater any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdater"; content:"GET /VisualStudioUpdater"; http_uri; sid:10001668;)
 
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke maconlineoffice.com"; content:"Host\: maconlineoffice.com"; http_header; sid:10001669;)
+block tcp $HOME_NET any -> maconlineoffice.com any (msg:"Deteksi akses ke maconlineoffice.com"; content:"Host\: maconlineoffice.com"; http_header; sid:10001669;)
 block ip $HOME_NET any -> 193.29.13.167 any (msg:"Deteksi akses ke 193.29.13.167"; sid:10001670;)
 block ip $HOME_NET any -> 88.214.26.22 any (msg:"Deteksi akses ke 88.214.26.22"; sid:10001671;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses HTTP ke serviceicloud.com"; content:"Host\: serviceicloud.com"; http_header; sid:10001672;)
+block tcp $HOME_NET any -> https://serviceicloud.com any (msg:"Deteksi akses HTTP ke serviceicloud.com"; content:"Host\: serviceicloud.com"; http_header; sid:10001672;)
+
+
+# update 22 apr 2024
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"42e21aa1131fdaa1eda366f2e20ba96f"; sid:10001673; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|"; offset: 0; depth: 2; content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; sid:10001674; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"6048b1592bd0c15efa93eaa2c8c518392bf19f1a"; sid:10001675; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|"; offset: 0; depth: 2; content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; sid:10001676; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"e523b1c3486bd9353c85d9699e5d35788dae77cbe6d3fc0fcb68cdb7fe654c27"; sid:10001677; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|"; offset: 0; depth: 2; content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; sid:10001678; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated dengan SSDEEP"; file_data; content:"wqDUT6aSRZpqpkx6DIJ3z27Pp9pR3c9s6iZaR6PZ/6jZN6DZM6NRZR6IupZIBCER"; sid:10001679; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary dengan SSDEEP"; file_data; content:"jBOJR"; sid:10001680; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Akses Registry Potensial ke HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"; content:"|48 4B 4C 4D 3A 5C 53 6F 66 74 77 61 72 65 5C 57 6F 77 36 34 33 32 4E 6F 64 65 5C 4D 69 63 72 6F 73 6F 66 74 5C 57 69 6E 64 6F 77 73 5C 43 75 72 72 65 6E 74 56 65 72 73 69 6F 6E 5C 55 6E 69 6E 73 74 61 6C 6C 5C 2A|"; sid:10001681; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|40 25 44 5a 67 4a 4e 3a 7e 32 34 2c 31 25 25 44 5a 67 4a 4e 3a 7e 31 35 2c 31 25|"; sid:10001682; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'start GetToken.exe' dalam Batch File"; content:"|73 74 61 72 74 20 47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; content:"|73 74 61 72 74 20 47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; sid:10001682; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah PowerShell 'Compress-Archive %locaLApPdatA%\Google\Chrome\User' dalam Batch File"; content:"|43 6f 6d 70 72 65 73 73 2d 41 72 63 68 69 76 65 20 25 6c 6f 63 61 4c 41 70 50 64 61 74 41 25 5c 47 6f 6f 67 6c 65 5c 43 68 72 6f 6d 65 5c 55 73 65 72|"; sid:10001683; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan CompressionLevel Fastest dalam Batch File"; content:"|43 6f 6d 70 72 65 73 73 69 6f 6e 4c 65 76 65 6c 20 22 46 61 73 74 65 73 74 22|"; sid:10001684; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'GetToken.exe' dalam Batch File"; content:"|47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; sid:10001685; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'Attrib' dalam Batch File"; content:"|41 74 74 72 69 62|"; sid:10001686; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi File Binari .NET Terkait dengan Penggunaan Perintah 'Attrib'"; content:"|4D 5A|"; offset: 0; depth: 2; content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; sid:10001687; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan %WEBhoOk%"; content:"%WEBhoOk%"; sid:10001688; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Perintah Kompresi"; content:"Compress-Archive %locaLApPdatA%\Google\Chrome\User Data\Default\Cookies %uSerprOfiLE%\ChromeCookies.zip"; sid:10001689; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Variabel Lingkungan dalam HTTP"; content:"document=@"%uSerprofILe%\ChromeCookies.zip""; sid:10001690; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'Compress-Archive' dalam HTTP"; content:"Compress-Archive"; sid:10001691; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Variabel Lingkungan dalam HTTP"; content:".zip %webHOOK%"; sid:10001692; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial launcher_msa_credentials.bin"; content:"launcher_msa_credentials.bin"; sid:10001693; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial launcher_msa_credentials"; content:"launcher_msa_credentials"; sid:10001694; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial Eksekusi GetToken.exe"; content:"GetToken.exe"; sid:10001695; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial GetToken.pdb"; content:"GetToken.pdb"; sid:10001696; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Hash Batch Script"; content:"Batch Script: e523b1c3486bd9353c85d9699e5d35788dae77cbe6d3fc0fcb68cdb7fe654c27"; sid:10001696; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Hash GetToken.exe"; content:"GetToken.exe: 6ad08fe301caae18941487412e96ceb0b561de4482da25ea4bb8eeb6c1a40983"; sid:10001696; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Registry Run"; content:"HKCU\Software\Microsoft\Windows\CurrentVersion\Run"; sid:10001697; )
+
+block tcp any any -> any 80 (msg:"Deteksi Pola yang Mencurigakan"; content:"<https://github.com/manasmbellani/mycode_public/blob/master/yara/win_malicious_batch_script.yar>"; sid:10001698; )
+
+block tcp $HOME_NET any -> any any (msg:"Deteksi Potensial Serangan KRBRelayUP"; content:"<https://medium.com/system-weakness/krbrelayup-attack-and-detection-6fcd491af4fc>"; sid:10001699; action:block;)
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Whoami /all"; content:"whoami /all"; sid:10001700; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan win2016backupop"; content:"win2016backupop"; sid:10001701; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan GptTmpl.inf"; content:"GptTmpl.inf"; sid:10001702; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi String *S-1-5-32-544__Members = *S"; content:"*S-1-5-32-544__Members = *S"; sid:10001703; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi KRBRelayUp - Pembuatan Akun Komputer Baru"; content:"CreateNewComputerAccount"; sid:10001704; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - KrbRelayUp.exe"; content:"KrbRelayUp.exe"; sid:10001705; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - KrbRelayUp.exe"; content:"c:\\Users\\Administrator\\Desktop\\opt\\lateralmovt\\windows\\KrbRelayUp.exe"; sid:10001706; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - gpupdate /force"; content:"gpupdate /force"; sid:10001707; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET 88 (msg:"Deteksi Potensial ASEPRoast - Permintaan Tiket TGT"; content:"KRB_AS_REQ"; content:"TGT"; sid:10001708; )
+
+block tcp $EXTERNAL_NET any -> $HOME_NET 88 (msg:"Deteksi Potensial KRBRelayUp - Permintaan Tiket TGT untuk asepuser"; content:"KRB_AS_REQ"; content:"asepuser"; sid:10001709; )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
