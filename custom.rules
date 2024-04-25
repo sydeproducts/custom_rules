@@ -515,246 +515,246 @@ alert tcp any any -> any 514 (msg:"Blocked wscript activity"; priority:1; sid:10
 alert tcp any any -> any 514 (msg:"Blocked xcopy activity"; priority:1; sid:10001452; content:"xcopy";)
 
 # Aturan untuk mendeteksi penggunaan Fernet
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet"; content:"Fernet("; sid:10001453;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet"; content:"Fernet("; priority:2; sid:10001453;)
 
 # Aturan untuk mendeteksi penggunaan Fernet dengan key
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet dengan Key"; content:"Fernet(key)"; sid:10001454;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet dengan Key"; content:"Fernet(key)"; priority:2; sid:10001454;)
 
 # Aturan untuk mendeteksi generasi key Fernet
-alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Generasi Key Fernet"; content:"Fernet.generate_key"; sid:10001455;)
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Generasi Key Fernet"; content:"Fernet.generate_key"; priority:2; sid:10001455;)
 
 # Aturan untuk mendeteksi enkripsi menggunakan cipher suite
-alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Enkripsi dengan Cipher Suite"; content:"cipher_suite.encrypt"; sid:10001456;)
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Enkripsi dengan Cipher Suite"; content:"cipher_suite.encrypt"; priority:4; sid:10001456;)
 
 # Aturan untuk mendeteksi penggunaan plaintext
-alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Penggunaan Plaintext"; content:"plaintext"; sid:10001457;)
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Penggunaan Plaintext"; content:"plaintext"; priority:1; sid:10001457;)
 
 # Plaintext
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext data detected"; content:"Plaintext"; sid:10001482;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext data detected"; content:"Plaintext"; priority:1; sid:10001482;)
 
 # Ciphertext
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext data detected"; content:"Ciphertext"; sid:10001483;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext data detected"; content:"Ciphertext"; priority:1; sid:10001483;)
 
 # Key
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Sensitive data leak: Key"; content:"Key"; sid:10001484;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Sensitive data leak: Key"; content:"Key"; priority:3; sid:10001484;)
 
 # Initialization Vector (IV)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Suspicious Initialization Vector (IV)"; content:"IV"; sid:10001485;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Suspicious Initialization Vector (IV)"; content:"IV"; priority:1; sid:10001485;)
 
 # Block Cipher
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Block cipher usage detected"; content:"Block Cipher"; sid:10001486;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Block cipher usage detected"; content:"Block Cipher"; priority:2; sid:10001486;)
 
 # Stream Cipher
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Stream cipher usage detected"; content:"Stream Cipher"; sid:10001487;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Stream cipher usage detected"; content:"Stream Cipher"; priority:2; sid:10001487;)
 
 # Encryption Mode
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Encryption mode identified"; content:"Encryption Mode"; sid:10001488;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Encryption mode identified"; content:"Encryption Mode"; priority:2;  sid:10001488;)
 
 # Padding
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Padding scheme detected"; content:"Padding"; sid:10001489;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Padding scheme detected"; content:"Padding"; priority:3;  sid:10001489;)
 
 # Key Generation
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key generation event"; content:"Key Generation"; sid:10001490;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key generation event"; content:"Key Generation"; priority:4; sid:10001490;)
 
 # Key Length
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key length anomaly"; content:"Key Length"; sid:10001491;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key length anomaly"; content:"Key Length"; priority:4; sid:10001491;)
 
 # Symmetric Encryption
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Symmetric encryption detected"; content:"Symmetric Encryption"; sid:10001492;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Symmetric encryption detected"; content:"Symmetric Encryption"; priority:1; sid:10001492;)
 
 # Asymmetric Encryption (Public Key Cryptography)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Asymmetric encryption detected"; content:"Public Key Cryptography"; sid:10001493;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Asymmetric encryption detected"; content:"Public Key Cryptography"; priority:1; sid:10001493;)
 
 # Digital Signature
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital signature detected"; content:"Digital Signature"; sid:10001494;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital signature detected"; content:"Digital Signature"; priority:3; sid:10001494;)
 
 # Hash Function
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash function usage detected"; content:"Hash Function"; sid:10001495;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash function usage detected"; content:"Hash Function"; priority:1;  sid:10001495;)
 
 # Nonce
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce compromise detected"; content:"Nonce"; sid:10001496;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce compromise detected"; content:"Nonce"; priority:4; sid:10001496;)
 
 # Salting
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salting operation detected"; content:"Salting"; sid:10001497;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salting operation detected"; content:"Salting"; priority:3; sid:10001497;)
 
 # Key Exchange
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key exchange detected"; content:"Key Exchange"; sid:10001498;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key exchange detected"; content:"Key Exchange"; priority:4;   sid:10001498;)
 
 # Cryptanalysis
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Cryptanalysis attempt detected"; content:"Cryptanalysis"; sid:10001499;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Cryptanalysis attempt detected"; content:"Cryptanalysis"; priority:2; sid:10001499;)
 
 # Authentication
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication data intercepted"; content:"Authentication"; sid:10001500;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication data intercepted"; content:"Authentication"; priority:1; sid:10001500;)
 
 # Integrity
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Integrity violation detected"; content:"Integrity"; sid:10001501;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Integrity violation detected"; content:"Integrity"; priority:3; sid:10001501;)
 
 # Confidentiality
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Confidential data breach"; content:"Confidentiality"; sid:10001502;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Confidential data breach"; content:"Confidentiality"; priority:3; sid:10001502;)
 
 # Public Key Infrastructure (PKI)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"PKI usage identified"; content:"Public Key Infrastructure"; sid:10001503;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"PKI usage identified"; content:"Public Key Infrastructure"; priority:2; sid:10001503;)
 
 # Certificate Authority (CA)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"CA interaction detected"; content:"Certificate Authority"; sid:10001504;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"CA interaction detected"; content:"Certificate Authority"; priority:3; sid:10001504;)
 
 # Revocation
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Certificate revocation attempt"; content:"Revocation"; sid:10001505;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Certificate revocation attempt"; content:"Revocation"; priority:3; sid:10001505;)
 
 # Digital Envelope
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Envelope detected"; content:"Digital Envelope"; sid:10001506;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Envelope detected"; content:"Digital Envelope"; priority:3; sid:10001506;)
 
 # Key Escrow
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Escrow operation detected"; content:"Key Escrow"; sid:10001507;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Escrow operation detected"; content:"Key Escrow"; priority:3; sid:10001507;)
 
 # Entropy Source
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy Source anomaly"; content:"Entropy Source"; sid:10001508;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy Source anomaly"; content:"Entropy Source"; priority:3; sid:10001508;)
 
 # Side Channel Attacks
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Possible Side Channel Attack"; content:"Side Channel Attacks"; sid:10001509;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Possible Side Channel Attack"; content:"Side Channel Attacks"; priority:2; sid:10001509;)
 
 # Homomorphic Encryption
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Homomorphic Encryption usage detected"; content:"Homomorphic Encryption"; sid:10001510;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Homomorphic Encryption usage detected"; content:"Homomorphic Encryption"; priority:3; sid:10001510;)
 
 # Zero-Knowledge Proof
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Zero-Knowledge Proof exchange detected"; content:"Zero-Knowledge Proof"; sid:10001511;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Zero-Knowledge Proof exchange detected"; content:"Zero-Knowledge Proof"; priority:3; sid:10001511;)
 
 # Snort rules for blocking various cryptographic terms
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Differential Cryptanalysis"; content:"Differential Cryptanalysis"; sid:10001512;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Differential Cryptanalysis"; content:"Differential Cryptanalysis"; priority:2;  sid:10001512;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Meet-in-the-Middle Attack"; content:"Meet-in-the-Middle Attack"; sid:10001513;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Meet-in-the-Middle Attack"; content:"Meet-in-the-Middle Attack"; priority:1; sid:10001513;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Stretching"; content:"Key Stretching"; sid:10001514;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Stretching"; content:"Key Stretching"; priority:4; sid:10001514;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Entropy Pool"; content:"Entropy Pool"; sid:10001515;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Entropy Pool"; content:"Entropy Pool"; priority:4; sid:10001515;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Elliptic Curve Cryptography (ECC)"; content:"Elliptic Curve Cryptography (ECC)"; sid:10001516;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Elliptic Curve Cryptography (ECC)"; content:"Elliptic Curve Cryptography (ECC)"; priority:1; sid:10001516;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Quantum Cryptography"; content:"Quantum Cryptography"; sid:10001517;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Quantum Cryptography"; content:"Quantum Cryptography"; priority:4; sid:10001517;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Initialize"; content:"Initialize"; sid:10001518;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Initialize"; content:"Initialize"; priority:4; sid:10001518;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Encrypt"; content:"Encrypt"; sid:10001519;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Encrypt"; content:"Encrypt"; priority:1; sid:10001519;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Decrypt"; content:"Decrypt"; sid:10001520;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Decrypt"; content:"Decrypt"; priority:1; sid:10001520;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Algorithm"; content:"Algorithm"; sid:10001521;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Algorithm"; content:"Algorithm"; priority:2; sid:10001521;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key"; content:"Key"; sid:10001522;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key"; content:"Key"; priority:3; sid:10001522;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Block"; content:"Block"; sid:10001523;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Block"; content:"Block"; priority:2;  sid:10001523;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round"; content:"Round"; sid:10001524;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round"; content:"Round"; priority:2; sid:10001524;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Substitution"; content:"Substitution"; sid:10001525;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Substitution"; content:"Substitution"; priority:1; sid:10001525;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Permutation"; content:"Permutation"; sid:10001526;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Permutation"; content:"Permutation"; priority:1; sid:10001526;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Schedule"; content:"Key Schedule"; sid:10001527;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Schedule"; content:"Key Schedule"; priority:3; sid:10001527;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Expansion"; content:"Expansion"; sid:10001528;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Expansion"; content:"Expansion"; priority:4; sid:10001528;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Subkey"; content:"Subkey"; sid:10001529;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Subkey"; content:"Subkey"; priority:4; sid:10001529;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Key"; content:"Round Key"; sid:10001530;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Key"; content:"Round Key"; priority:4; sid:10001530;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Function"; content:"Round Function"; sid:10001531;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Function"; content:"Round Function"; priority:4; sid:10001531;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked XOR (Exclusive OR)"; content:"XOR (Exclusive OR)"; sid:10001532;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked XOR (Exclusive OR)"; content:"XOR (Exclusive OR)"; priority:1; sid:10001532;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Bit"; content:"Bit"; sid:10001533;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Bit"; content:"Bit"; priority:2; sid:10001533;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Byte"; content:"Byte"; sid:10001534;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Byte"; content:"Byte"; priority:2; sid:10001534;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked S-Box"; content:"S-Box"; sid:10001535;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked S-Box"; content:"S-Box"; priority:3; sid:10001535;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked P-Box"; content:"P-Box"; sid:10001536;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked P-Box"; content:"P-Box"; priority:3; sid:10001536;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Transformation"; content:"Transformation"; sid:10001537;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Transformation"; content:"Transformation"; priority:1; sid:10001537;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Shift"; content:"Shift"; sid:10001538;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Shift"; content:"Shift";  priority:1; sid:10001538;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Mix"; content:"Mix"; sid:10001539;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Mix"; content:"Mix"; priority:1; sid:10001539;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Padding"; content:"Padding"; sid:10001540;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Padding"; content:"Padding"; priority:2; sid:10001540;)
 
 # Aturan untuk Mode
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Mode detected"; content:"Mode"; sid:10001541;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Mode detected"; content:"Mode"; priority:1; sid:10001541;)
 
 # Aturan untuk Initialization Vector (IV)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Initialization Vector detected"; content:"Initialization Vector"; sid:10001542;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Initialization Vector detected"; content:"Initialization Vector"; priority:1; sid:10001542;)
 
 # Aturan untuk Authentication Tag
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication Tag detected"; content:"Authentication Tag"; sid:10001543;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication Tag detected"; content:"Authentication Tag"; priority:1; sid:10001543;)
 
 # Aturan untuk Salt
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salt detected"; content:"Salt"; sid:10001544;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salt detected"; content:"Salt"; priority:1; sid:10001544;)
 
 # Aturan untuk Nonce
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce detected"; content:"Nonce"; sid:10001545;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce detected"; content:"Nonce"; priority:1; sid:10001545;)
 
 # Aturan untuk Plaintext
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext detected"; content:"Plaintext"; sid:10001546;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext detected"; content:"Plaintext"; priority:1; sid:10001546;)
 
 # Aturan untuk Ciphertext
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext detected"; content:"Ciphertext"; sid:10001547;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext detected"; content:"Ciphertext"; priority:1; sid:10001547;)
 
 # Aturan untuk Hash
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash detected"; content:"Hash"; sid:10001548;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash detected"; content:"Hash"; priority:1; sid:10001548;)
 
 # Aturan untuk Digest
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digest detected"; content:"Digest"; sid:10001549;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digest detected"; content:"Digest"; priority:1; sid:10001549;)
 
 # Aturan untuk Compression Function
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Compression Function detected"; content:"Compression Function"; sid:10001550;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Compression Function detected"; content:"Compression Function"; priority:1; sid:10001550;)
 
 # Aturan untuk Feistel Network
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Feistel Network detected"; content:"Feistel Network"; sid:10001551;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Feistel Network detected"; content:"Feistel Network"; priority:1; sid:10001551;)
 
 # Aturan untuk Key Exchange
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Exchange detected"; content:"Key Exchange"; sid:10001552;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Exchange detected"; content:"Key Exchange"; priority:1; sid:10001552;)
 
 # Aturan untuk Public Key
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Public Key detected"; content:"Public Key"; sid:10001553;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Public Key detected"; content:"Public Key"; priority:1; sid:10001553;)
 
 # Aturan untuk Private Key
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Private Key detected"; content:"Private Key"; sid:10001554;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Private Key detected"; content:"Private Key"; priority:1; sid:10001554;)
 
 # Aturan untuk Signature
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Signature detected"; content:"Signature"; sid:10001555;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Signature detected"; content:"Signature"; priority:3; sid:10001555;)
 
 # Aturan untuk Verifier
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Verifier detected"; content:"Verifier"; sid:10001556;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Verifier detected"; content:"Verifier"; priority:3; sid:10001556;)
 
 # Aturan untuk Hash Function
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash Function detected"; content:"Hash Function"; sid:10001557;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash Function detected"; content:"Hash Function"; priority:1; sid:10001557;)
 
 # Aturan untuk Digital Certificate
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Certificate detected"; content:"Digital Certificate"; sid:10001558;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Certificate detected"; content:"Digital Certificate"; priority:1; sid:10001558;)
 
 # Aturan untuk Key Length
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Length detected"; content:"Key Length"; sid:10001559;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Length detected"; content:"Key Length"; priority:4; sid:10001559;)
 
 # Aturan untuk Entropy
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy detected"; content:"Entropy"; sid:10001560;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy detected"; content:"Entropy"; priority:1; sid:10001560;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"new byte["; content:"secureRandom.nextBytes"; sid:10001561;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"stdlib.h"; sid:10001562;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"#include<random>"; sid:10001563;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"randomBytes"; sid:10001564;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"RandomNumberGenerator.Create()"; sid:10001565;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"rng.GetBytes"; sid:10001566;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"SecureRandom.random_bytes"; sid:10001567;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const crypto"; sid:10001568;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"require(\'crypto\')"; sid:10001569;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const randomBytes"; sid:10001570;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"crypto.randomBytes"; sid:10001571;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"$randomBytes"; sid:10001572;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"crypto/rand\""; sid:10001573;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"fmt\""; sid:10001574;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"make([]byte, 16 )"; sid:10001575;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"get_random_bytes()"; sid:10001576;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"new byte["; content:"secureRandom.nextBytes"; priority:4; sid:10001561;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"stdlib.h"; priority:4; sid:10001562;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"#include<random>"; priority:1; sid:10001563;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"randomBytes"; priority:4; sid:10001564;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"RandomNumberGenerator.Create()"; priority:3; sid:10001565;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"rng.GetBytes"; priority:3; sid:10001566;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"SecureRandom.random_bytes"; priority:3; sid:10001567;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const crypto"; priority:3; sid:10001568;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"require(\'crypto\')"; priority:3; sid:10001569;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const randomBytes"; priority:3; sid:10001570;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"crypto.randomBytes"; priority:3; sid:10001571;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"$randomBytes"; priority:5; sid:10001572;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"crypto/rand\""; priority:3; sid:10001573;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"fmt\""; priority:5; sid:10001574;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"make([]byte, 16 )"; priority:3; sid:10001575;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"get_random_bytes()"; priority:3; sid:10001576;)
 
 # Rule untuk mendeteksi penggunaan random.randint(a, b)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.randint"; content:"random.randint("; sid:10001577;)
