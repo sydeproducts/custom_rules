@@ -377,7 +377,7 @@ alert tcp any any -> any 1025:65535 (msg:"Blocked reg"; priority:4; sid:10001397
 # Snort Rules with Unique SIDs
 
 # Blocking rsh activity
-alert tcp any any -> any 514 (msg:"Blocked rsh activity"; priority:4; sid:10001407;)
+alert tcp any any -> any 514 (msg:"Blocked rsh activity"; priority:3; sid:10001407;)
 
 # Blocking setx activity
 alert tcp any any -> any 135 (msg:"Blocked setx activity"; priority:4; sid:10001408; content:"setx";)
@@ -389,10 +389,10 @@ alert tcp any any -> any 1025 (msg:"Blocked sfc activity"; priority:4; sid:10001
 alert tcp any any -> any 514 (msg:"Blocked shadow activity"; priority:4; sid:10001410; content:"shadow";)
 
 # Blocking shrink activity
-alert tcp any any -> any 514 (msg:"Blocked shrink activity"; priority:4; sid:10001411; content:"shrink";)
+alert tcp any any -> any 514 (msg:"Blocked shrink activity"; priority:3; sid:10001411; content:"shrink";)
 
 # Blocking shutdown activity
-alert tcp any any -> any 514 (msg:"Blocked shutdown activity"; priority:4; sid:10001412; content:"shutdown";)
+alert tcp any any -> any 514 (msg:"Blocked shutdown activity"; priority:2; sid:10001412; content:"shutdown";)
 
 # Blocking simulate restore activity
 alert tcp any any -> any 514 (msg:"Blocked simulate restore activity"; priority:4; sid:10001413; content:"simulate restore";)
@@ -413,106 +413,106 @@ alert tcp any any -> any 514 (msg:"Blocked systeminfo activity"; priority:4; sid
 alert tcp any any -> any 514 (msg:"Blocked takeown activity"; priority:3; sid:10001418; content:"takeown";)
 
 # Blocking tapicfg activity
-alert tcp any any -> any 514 (msg:"Blocked tapicfg activity"; priority:4; sid:10001419; content:"tapicfg";)
+alert tcp any any -> any 514 (msg:"Blocked tapicfg activity"; priority:3; sid:10001419; content:"tapicfg";)
 
 # Blocking taskkill activity
-alert tcp any any -> any 514 (msg:"Blocked taskkill activity"; priority:4; sid:10001420; content:"taskkill";)
+alert tcp any any -> any 514 (msg:"Blocked taskkill activity"; priority:2; sid:10001420; content:"taskkill";)
 
 # Blocking tasklist activity
-alert tcp any any -> any 514 (msg:"Blocked tasklist activity"; priority:4; sid:10001421; content:"tasklist";)
+alert tcp any any -> any 514 (msg:"Blocked tasklist activity"; priority:3; sid:10001421; content:"tasklist";)
 
 # Blocking tcmsetup activity
 alert tcp any any -> any 514 (msg:"Blocked tcmsetup activity"; priority:4; sid:10001422; content:"tcmsetup";)
 
 # Blocking telnet activity
-alert tcp any any -> any 23 (msg:"Blocked telnet activity"; sid:10001423;)
+alert tcp any any -> any 23 (msg:"Blocked telnet activity"; priority:2; sid:10001423;)
 
 # Blocking tftp activity
-alert udp any any -> any 69 (msg:"Blocked tftp activity"; sid:10001424;)
+alert udp any any -> any 69 (msg:"Blocked tftp activity"; priority:1; sid:10001424;)
 
 # Blocking tlntadmn activity
-alert tcp any any -> any 514 (msg:"Blocked tlntadmn activity"; sid:10001425; content:"tlntadmn";)
+alert tcp any any -> any 514 (msg:"Blocked tlntadmn activity"; priority:3; sid:10001425; content:"tlntadmn";)
 
 # Blocking tpmtool activity
-alert tcp any any -> any 514 (msg:"Blocked tpmtool activity"; sid:10001426; content:"tpmtool";)
+alert tcp any any -> any 514 (msg:"Blocked tpmtool activity"; priority:4; sid:10001426; content:"tpmtool";)
 
 # Blocking tpmvscmgr activity
-alert tcp any any -> any 514 (msg:"Blocked tpmvscmgr activity"; sid:10001427; content:"tpmvscmgr";)
+alert tcp any any -> any 514 (msg:"Blocked tpmvscmgr activity"; priority:1; sid:10001427; content:"tpmvscmgr";)
 
 # Blocking tracerpt activity
-alert tcp any any -> any 514 (msg:"Blocked tracerpt activity"; sid:10001428; content:"tracerpt";)
+alert tcp any any -> any 514 (msg:"Blocked tracerpt activity"; priority:1; sid:10001428; content:"tracerpt";)
 
 # Blocking tracert activity
-alert icmp any any -> any any (msg:"Blocked tracert activity"; sid:10001429; icode:0; itype:8;)
+alert icmp any any -> any any (msg:"Blocked tracert activity"; priority:3; sid:10001429; icode:0; itype:8;)
 
 # Blocking tscon activity
-alert tcp any any -> any 3389 (msg:"Blocked tscon activity"; sid:10001430; content:"tscon";)
+alert tcp any any -> any 3389 (msg:"Blocked tscon activity"; priority:1; sid:10001430; content:"tscon";)
 
 # Blocking tsdiscon activity
-alert tcp any any -> any 3389 (msg:"Blocked tsdiscon activity"; sid:10001431; content:"tsdiscon";)
+alert tcp any any -> any 3389 (msg:"Blocked tsdiscon activity"; priority:3; sid:10001431; content:"tsdiscon";)
 
 # Blocking tsecimp activity
-alert tcp any any -> any 514 (msg:"Blocked tsecimp activity"; sid:10001432; content:"tsecimp";)
+alert tcp any any -> any 514 (msg:"Blocked tsecimp activity"; priority:4; sid:10001432; content:"tsecimp";)
 
 # Blocking tskill activity
-alert tcp any any -> any 514 (msg:"Blocked tskill activity"; sid:10001433; content:"tskill";)
+alert tcp any any -> any 514 (msg:"Blocked tskill activity"; priority:1; sid:10001433; content:"tskill";)
 
 # Blocking tsprof activity
-alert tcp any any -> any 514 (msg:"Blocked tsprof activity"; sid:10001434; content:"tsprof";)
+alert tcp any any -> any 514 (msg:"Blocked tsprof activity"; priority:4; sid:10001434; content:"tsprof";)
 
 # Blocking tzutil activity
-alert tcp any any -> any 514 (msg:"Blocked tzutil activity"; sid:10001435; content:"tzutil";)
+alert tcp any any -> any 514 (msg:"Blocked tzutil activity"; priority:4; sid:10001435; content:"tzutil";)
 
 # Blocking unlodctr activity
-alert tcp any any -> any 514 (msg:"Blocked unlodctr activity"; sid:10001436; content:"unlodctr";)
+alert tcp any any -> any 514 (msg:"Blocked unlodctr activity"; priority:4; sid:10001436; content:"unlodctr";)
 
 # Blocking ver activity
-alert tcp any any -> any 514 (msg:"Blocked ver activity"; sid:10001437; content:"ver";)
+alert tcp any any -> any 514 (msg:"Blocked ver activity"; priority:4; sid:10001437; content:"ver";)
 
 # Blocking vssadmin activity
-alert tcp any any -> any 514 (msg:"Blocked vssadmin activity"; sid:10001438; content:"vssadmin";)
+alert tcp any any -> any 514 (msg:"Blocked vssadmin activity"; priority:1; sid:10001438; content:"vssadmin";)
 
 # Blocking wbadmin activity
-alert tcp any any -> any 514 (msg:"Blocked wbadmin activity"; sid:10001439; content:"wbadmin";)
+alert tcp any any -> any 514 (msg:"Blocked wbadmin activity"; priority:1; sid:10001439; content:"wbadmin";)
 
 # Blocking wdsutil activity
-alert tcp any any -> any 514 (msg:"Blocked wdsutil activity"; sid:10001440; content:"wdsutil";)
+alert tcp any any -> any 514 (msg:"Blocked wdsutil activity"; priority:1; sid:10001440; content:"wdsutil";)
 
 # Blocking wecutil activity
-alert tcp any any -> any 514 (msg:"Blocked wecutil activity"; sid:10001441; content:"wecutil";)
+alert tcp any any -> any 514 (msg:"Blocked wecutil activity"; priority:4; sid:10001441; content:"wecutil";)
 
 # Blocking wevtutil activity
-alert tcp any any -> any 514 (msg:"Blocked wevtutil activity"; sid:10001442; content:"wevtutil";)
+alert tcp any any -> any 514 (msg:"Blocked wevtutil activity"; priority:4; sid:10001442; content:"wevtutil";)
 
 # Blocking where activity
-alert tcp any any -> any 514 (msg:"Blocked where activity"; sid:10001443; content:"where";)
+alert tcp any any -> any 514 (msg:"Blocked where activity"; priority:3; sid:10001443; content:"where";)
 
 # Blocking whoami activity
-alert tcp any any -> any 514 (msg:"Blocked whoami activity"; sid:10001444; content:"whoami";)
+alert tcp any any -> any 514 (msg:"Blocked whoami activity"; priority:3; sid:10001444; content:"whoami";)
 
 # Blocking winnt activity
-alert tcp any any -> any 514 (msg:"Blocked winnt activity"; sid:10001445; content:"winnt";)
+alert tcp any any -> any 514 (msg:"Blocked winnt activity"; priority:1; sid:10001445; content:"winnt";)
 
 # Blocking winnt32 activity
-alert tcp any any -> any 514 (msg:"Blocked winnt32 activity"; sid:10001446; content:"winnt32";)
+alert tcp any any -> any 514 (msg:"Blocked winnt32 activity"; priority:1; sid:10001446; content:"winnt32";)
 
 # Blocking winrs activity
-alert tcp any any -> any 514 (msg:"Blocked winrs activity"; sid:10001447; content:"winrs";)
+alert tcp any any -> any 514 (msg:"Blocked winrs activity"; priority:1; sid:10001447; content:"winrs";)
 
 # Blocking winsat mem activity
-alert tcp any any -> any 514 (msg:"Blocked winsat mem activity"; sid:10001448; content:"winsat mem";)
+alert tcp any any -> any 514 (msg:"Blocked winsat mem activity"; priority:4; sid:10001448; content:"winsat mem";)
 
 # Blocking winsat mfmedia activity
-alert tcp any any -> any 514 (msg:"Blocked winsat mfmedia activity"; sid:10001449; content:"winsat mfmedia";)
+alert tcp any any -> any 514 (msg:"Blocked winsat mfmedia activity"; priority:4; sid:10001449; content:"winsat mfmedia";)
 
 # Blocking wmic activity
-alert tcp any any -> any 514 (msg:"Blocked wmic activity"; sid:10001450; content:"wmic";)
+alert tcp any any -> any 514 (msg:"Blocked wmic activity"; priority:1; sid:10001450; content:"wmic";)
 
 # Blocking wscript activity
-alert tcp any any -> any 514 (msg:"Blocked wscript activity"; sid:10001451; content:"wscript";)
+alert tcp any any -> any 514 (msg:"Blocked wscript activity"; priority:1; sid:10001451; content:"wscript";)
 
 # Blocking xcopy activity
-alert tcp any any -> any 514 (msg:"Blocked xcopy activity"; sid:10001452; content:"xcopy";)
+alert tcp any any -> any 514 (msg:"Blocked xcopy activity"; priority:1; sid:10001452; content:"xcopy";)
 
 # Aturan untuk mendeteksi penggunaan Fernet
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet"; content:"Fernet("; sid:10001453;)
