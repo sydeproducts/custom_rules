@@ -957,3 +957,4 @@ block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Bash"; content:
 block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command PowerShell"; content:"powershell"; priority:5; sid:10001726; )
 block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Lua"; content:"lua"; priority:5; sid:10001727; )
 block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Tcl"; content:"tclsh"; priority:5; sid:10001728; )
+block tcp any any -> any 443 (msg:"Detecting Software Execution - Cobalt Strike (T1059.001)"; tls.app_data; content:"|4f 70 65 6e 57 69 6e 64 6f 77 20 53 65 72 76 69 63 65 73|"; fast_pattern:only; priority:1; sid:1000001; )
