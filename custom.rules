@@ -1,4 +1,4 @@
-alert icmp any any -> any any (msg:"Ping! this is a test"; sid:1000001;)
+# alert icmp any any -> any any (msg:"Ping! this is a test"; sid:1000001;)
 
 # Block sc.exe
 alert tcp any any -> any any (msg:"Blocked sc.exe"; content:"sc.exe"; priority:4; sid:10001204;)
@@ -139,7 +139,7 @@ alert tcp any any -> any any (msg:"Blocked chgport command"; content:"chgport"; 
 alert tcp any any -> any any (msg:"Blocked chgusr command"; content:"chgusr"; priority:4; sid:10001269; rev:1;)
 alert tcp any any -> any any (msg:"Blocked CHKDSK command"; content:"CHKDSK"; priority:4; sid:10001270; rev:1;)
 alert tcp any any -> any any (msg:"Blocked chkntfs command"; content:"chkntfs"; priority:4; sid:10001271; rev:1;)
-alert tcp any any -> any any (msg:"Blocked cipher command"; content:"cipher"; priority:4; sid:10001272; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cipher command"; content:"cipher"; priority:2; sid:10001272; rev:1;)
 alert tcp any any -> any any (msg:"Blocked clean command"; content:"clean"; priority:4; sid:10001273; rev:1;)
 alert tcp any any -> any any (msg:"Blocked cleanmgr command"; content:"cleanmgr"; priority:3; sid:10001274; rev:1;)
 alert tcp any any -> any any (msg:"Blocked cmd command"; content:"cmd"; priority:3; sid:10001275; rev:1;)
@@ -234,7 +234,7 @@ alert tcp any any -> any any (msg:"Blocked msdt"; priority:4; sid:10001349;)
 alert tcp any any -> any any (msg:"Blocked msiexec"; priority:3; sid:10001350;)
 
 # Aturan untuk blokir mstsc
-alert tcp any any -> any 3389 (msg:"Blocked mstsc"; priority:4; sid:10001351;)
+alert tcp any any -> any 3389 (msg:"Blocked mstsc";  content:"block remote desktop protocol"; priority:4; sid:10001351;)
 
 # Aturan untuk blokir nbtstat
 alert udp any any -> any 137 (msg:"Blocked nbtstat"; priority:4; sid:10001352;)
@@ -288,22 +288,19 @@ alert icmp any any -> any any (msg:"Blocked pathping"; priority:4; sid:10001367;
 alert tcp any any -> any 445 (msg:"Blocked pbadmin"; priority:3; sid:10001368;)
 
 # Aturan untuk blokir pentnt
-alert tcp any any -> any 1025:65535 (msg:"Blocked pentnt"; priority:3; sid:10001369;)
+alert tcp any any -> any 1025:65535 (msg:"Blocked unusual pentnt"; priority:3; sid:10001369;)
 
 # Aturan untuk blokir perfmon
 alert tcp any any -> any 445 (msg:"Blocked perfmon"; priority:4; sid:10001370;)
 
-# Aturan untuk blokir ping
-alert icmp any any -> any any (msg:"Blocked ping"; priority:4; sid:10001371;)
-
 # Aturan untuk blokir pktmon
-alert tcp any any -> any 1025:65535 (msg:"Blocked pktmon"; priority:4; sid:10001372;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked pktmon"; priority:4; sid:10001372;)
 
 # Aturan untuk blokir pnpunattend
-alert tcp any any -> any 1025:65535 (msg:"Blocked pnpunattend"; priority:4; sid:10001373;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked pnpunattend"; priority:4; sid:10001373;)
 
 # Aturan untuk blokir pnputil
-alert tcp any any -> any 1025:65535 (msg:"Blocked pnputil"; priority:4; sid:10001374;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked pnputil"; priority:4; sid:10001374;)
 
 # Aturan untuk blokir popd
 alert tcp any any -> any any (msg:"Blocked popd"; priority:4; sid:10001375;)
@@ -312,72 +309,72 @@ alert tcp any any -> any any (msg:"Blocked popd"; priority:4; sid:10001375;)
 alert tcp any any -> any 5985:5986 (msg:"Blocked powershell"; priority:3; sid:10001376;)
 
 # Aturan untuk blokir powershell ise
-alert tcp any any -> any 1025:65535 (msg:"Blocked powershell ise"; priority:3; sid:10001377;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked powershell ise"; priority:3; sid:10001377;)
 
 # Aturan untuk blokir print
-alert tcp any any -> any 515 (msg:"Blocked print"; priority:4; sid:10001378;)
+# alert tcp any any -> any 515 (msg:"Blocked print"; priority:4; sid:10001378;)
 
 # Aturan untuk blokir prncnfg
-alert tcp any any -> any 1025:65535 (msg:"Blocked prncnfg"; priority:4; sid:10001379;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prncnfg"; priority:4; sid:10001379;)
 
 # Aturan untuk blokir prndrvr
-alert tcp any any -> any 1025:65535 (msg:"Blocked prndrvr"; priority:4; sid:10001380;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prndrvr"; priority:4; sid:10001380;)
 
 # Aturan untuk blokir prnjobs
-alert tcp any any -> any 1025:65535 (msg:"Blocked prnjobs"; priority:4; sid:10001381;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prnjobs"; priority:4; sid:10001381;)
 
 # Aturan untuk blokir prnmngr
-alert tcp any any -> any 1025:65535 (msg:"Blocked prnmngr"; priority:4; sid:10001382;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prnmngr"; priority:4; sid:10001382;)
 
 # Aturan untuk blokir prnport
-alert tcp any any -> any 1025:65535 (msg:"Blocked prnport"; priority:4; sid:10001383;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prnport"; priority:4; sid:10001383;)
 
 # Aturan untuk blokir prnqctl
-alert tcp any any -> any 1025:65535 (msg:"Blocked prnqctl"; priority:4; sid:10001384;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prnqctl"; priority:4; sid:10001384;)
 
 # Aturan untuk blokir prompt
 alert tcp any any -> any any (msg:"Blocked prompt"; priority:4; sid:10001385;)
 
 # Aturan untuk blokir pubprn
-alert tcp any any -> any 515 (msg:"Blocked pubprn"; priority:4; sid:10001386;)
+# alert tcp any any -> any 515 (msg:"Blocked pubprn"; priority:4; sid:10001386;)
 
 # Aturan untuk blokir pushd
-alert tcp any any -> any any (msg:"Blocked pushd"; priority:4; sid:10001387;)
+# alert tcp any any -> any any (msg:"Blocked pushd"; priority:4; sid:10001387;)
 
 # Aturan untuk blokir pwlauncher
-alert tcp any any -> any any (msg:"Blocked pwlauncher"; priority:4; sid:10001388;)
+# alert tcp any any -> any any (msg:"Blocked pwlauncher"; priority:4; sid:10001388;)
 
 # Aturan untuk blokir qappsrv
-alert tcp any any -> any any (msg:"Blocked qappsrv"; priority:3; sid:10001389;)
+# alert tcp any any -> any any (msg:"Blocked qappsrv"; priority:3; sid:10001389;)
 
 # Aturan untuk blokir qprocess
-alert tcp any any -> any any (msg:"Blocked qprocess"; priority:4; sid:10001390;)
+# alert tcp any any -> any any (msg:"Blocked qprocess"; priority:4; sid:10001390;)
 
 # Aturan untuk blokir query
-alert tcp any any -> any any (msg:"Blocked query"; priority:4; sid:10001391;)
+# alert tcp any any -> any any (msg:"Blocked query"; priority:4; sid:10001391;)
 
 # Aturan untuk blokir quser
-alert tcp any any -> any any (msg:"Blocked quser"; priority:4; sid:10001392;)
+# alert tcp any any -> any any (msg:"Blocked quser"; priority:4; sid:10001392;)
 
 # Aturan untuk blokir qwinsta
-alert tcp any any -> any any (msg:"Blocked qwinsta"; priority:4; sid:10001393;)
+# alert tcp any any -> any any (msg:"Blocked qwinsta"; priority:4; sid:10001393;)
 
 # Aturan untuk blokir rd
-alert tcp any any -> any 3389 (msg:"Blocked rd"; priority:4; sid:10001394;)
+# alert tcp any any -> any 3389 (msg:"Blocked rd"; priority:4; sid:10001394;)
 
 # Aturan untuk blokir rdpsign
-alert tcp any any -> any 3389 (msg:"Blocked rdpsign"; priority:4; sid:10001395;)
+# alert tcp any any -> any 3389 (msg:"Blocked rdpsign"; priority:4; sid:10001395;)
 
 # Aturan untuk blokir refsutil
-alert tcp any any -> any 445 (msg:"Blocked refsutil"; priority:4; sid:10001396;)
+# alert tcp any any -> any 445 (msg:"Blocked refsutil"; priority:4; sid:10001396;)
 
 # Aturan untuk blokir reg
-alert tcp any any -> any 1025:65535 (msg:"Blocked reg"; priority:4; sid:10001397;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked reg"; priority:4; sid:10001397;)
 
 # Snort Rules with Unique SIDs
 
 # Blocking rsh activity
-alert tcp any any -> any 514 (msg:"Blocked rsh activity"; priority:3; sid:10001407;)
+# alert tcp any any -> any 514 (msg:"Blocked rsh activity"; priority:3; sid:10001407;)
 
 # Blocking setx activity
 alert tcp any any -> any 135 (msg:"Blocked setx activity"; priority:4; sid:10001408; content:"setx";)
@@ -425,10 +422,10 @@ alert tcp any any -> any 514 (msg:"Blocked tasklist activity"; priority:3; sid:1
 alert tcp any any -> any 514 (msg:"Blocked tcmsetup activity"; priority:4; sid:10001422; content:"tcmsetup";)
 
 # Blocking telnet activity
-alert tcp any any -> any 23 (msg:"Blocked telnet activity"; priority:2; sid:10001423;)
+# alert tcp any any -> any 23 (msg:"Blocked telnet activity"; priority:2; sid:10001423;)
 
 # Blocking tftp activity
-alert udp any any -> any 69 (msg:"Blocked tftp activity"; priority:1; sid:10001424;)
+# alert udp any any -> any 69 (msg:"Blocked tftp activity"; priority:1; sid:10001424;)
 
 # Blocking tlntadmn activity
 alert tcp any any -> any 514 (msg:"Blocked tlntadmn activity"; priority:3; sid:10001425; content:"tlntadmn";)
@@ -443,7 +440,7 @@ alert tcp any any -> any 514 (msg:"Blocked tpmvscmgr activity"; priority:1; sid:
 alert tcp any any -> any 514 (msg:"Blocked tracerpt activity"; priority:1; sid:10001428; content:"tracerpt";)
 
 # Blocking tracert activity
-alert icmp any any -> any any (msg:"Blocked tracert activity"; priority:3; sid:10001429; icode:0; itype:8;)
+# alert icmp any any -> any any (msg:"Blocked tracert activity"; priority:3; sid:10001429; icode:0; itype:8;)
 
 # Blocking tscon activity
 alert tcp any any -> any 3389 (msg:"Blocked tscon activity"; priority:1; sid:10001430; content:"tscon";)
@@ -524,7 +521,7 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet den
 alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Generasi Key Fernet"; content:"Fernet.generate_key"; priority:2; sid:10001455;)
 
 # Aturan untuk mendeteksi enkripsi menggunakan cipher suite
-alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Enkripsi dengan Cipher Suite"; content:"cipher_suite.encrypt"; priority:4; sid:10001456;)
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Enkripsi dengan Cipher Suite"; content:"cipher_suite.encrypt"; priority:2; sid:10001456;)
 
 # Aturan untuk mendeteksi penggunaan plaintext
 alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Penggunaan Plaintext"; content:"plaintext"; priority:1; sid:10001457;)
@@ -572,13 +569,13 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital signature detected"; 
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash function usage detected"; content:"Hash Function"; priority:1;  sid:10001495;)
 
 # Nonce
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce compromise detected"; content:"Nonce"; priority:4; sid:10001496;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce compromise detected"; content:"Nonce"; priority:1; sid:10001496;)
 
 # Salting
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salting operation detected"; content:"Salting"; priority:3; sid:10001497;)
 
 # Key Exchange
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key exchange detected"; content:"Key Exchange"; priority:4;   sid:10001498;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key exchange detected"; content:"Key Exchange"; priority:1;   sid:10001498;)
 
 # Cryptanalysis
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Cryptanalysis attempt detected"; content:"Cryptanalysis"; priority:2; sid:10001499;)
@@ -633,7 +630,7 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Elliptic Curve Crypto
 
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Quantum Cryptography"; content:"Quantum Cryptography"; priority:4; sid:10001517;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Initialize"; content:"Initialize"; priority:4; sid:10001518;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Initialize"; content:"Initialize"; priority:1; sid:10001518;)
 
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Encrypt"; content:"Encrypt"; priority:1; sid:10001519;)
 
@@ -665,7 +662,7 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked XOR (Exclusive OR)"; 
 
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Bit"; content:"Bit"; priority:2; sid:10001533;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Byte"; content:"Byte"; priority:2; sid:10001534;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Byte"; content:"Byte"; priority:1; sid:10001534;)
 
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked S-Box"; content:"S-Box"; priority:3; sid:10001535;)
 
@@ -677,7 +674,7 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Shift"; content:"Shif
 
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Mix"; content:"Mix"; priority:1; sid:10001539;)
 
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Padding"; content:"Padding"; priority:2; sid:10001540;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Padding"; content:"Padding"; priority:3; sid:10001540;)
 
 # Aturan untuk Mode
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Mode detected"; content:"Mode"; priority:1; sid:10001541;)
@@ -731,7 +728,7 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Verifier detected"; content:"
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash Function detected"; content:"Hash Function"; priority:1; sid:10001557;)
 
 # Aturan untuk Digital Certificate
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Certificate detected"; content:"Digital Certificate"; priority:1; sid:10001558;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Certificate detected"; content:"Digital Certificate"; priority:3; sid:10001558;)
 
 # Aturan untuk Key Length
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Length detected"; content:"Key Length"; priority:4; sid:10001559;)
