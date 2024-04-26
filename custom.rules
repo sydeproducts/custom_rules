@@ -1,4 +1,4 @@
-alert icmp any any -> any any (msg:"Ping! this is a test"; priority:4; sid:1000001;)
+alert icmp any any -> any any (msg:"Ping! this is a test"; sid:1000001;)
 
 # Block sc.exe
 alert tcp any any -> any any (msg:"Blocked sc.exe"; content:"sc.exe"; priority:4; sid:10001204;)
