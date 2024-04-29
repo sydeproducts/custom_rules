@@ -1,28 +1,28 @@
 # alert icmp any any -> any any (msg:"Ping! this is a test"; sid:1000001;)
 
 # Block sc.exe
-alert tcp any any -> any any (msg:"Blocked sc.exe"; content:"sc.exe"; priority:4; sid:10001204;)
+alert tcp any any -> any any (msg:"Blocked sc.exe"; content:"sc.exe"; priority:1; sid:10001204;)
 
 # Block net.exe
-alert tcp any any -> any any (msg:"Blocked net.exe"; content:"net.exe"; priority:4; sid:10001205;)
+alert tcp any any -> any any (msg:"Blocked net.exe"; content:"net.exe"; priority:1; sid:10001205;)
 
 # Block wevtutil.exe
-alert tcp any any -> any any (msg:"Blocked wevtutil.exe"; content:"wevtutil.exe"; priority:4; sid:10001206;)
+alert tcp any any -> any any (msg:"Blocked wevtutil.exe"; content:"wevtutil.exe"; priority:1; sid:10001206;)
 
 # Block takeown.exe
-alert tcp any any -> any any (msg:"Blocked takeown.exe"; content:"takeown.exe"; priority:4; sid:10001207;)
+alert tcp any any -> any any (msg:"Blocked takeown.exe"; content:"takeown.exe"; priority:1; sid:10001207;)
 
 # Block cmd.exe
-alert tcp any any -> any any (msg:"Blocked cmd.exe"; content:"cmd.exe"; priority:4; sid:10001208;)
+alert tcp any any -> any any (msg:"Blocked cmd.exe"; content:"cmd.exe"; priority:1; sid:10001208;)
 
 # Block bcdedit.exe
 alert tcp any any -> any any (msg:"Blocked bcdedit.exe"; content:"bcdedit.exe"; priority:4; sid:10001209;)
 
 # Block taskkill.exe
-alert tcp any any -> any any (msg:"Blocked taskkill.exe"; content:"taskkill.exe"; priority:4; sid:10001210;)
+alert tcp any any -> any any (msg:"Blocked taskkill.exe"; content:"taskkill.exe"; priority:1; sid:10001210;)
 
 # Block regedit.exe
-alert tcp any any -> any any (msg:"Blocked regedit.exe"; content:"regedit.exe"; priority:4; sid:10001211;)
+alert tcp any any -> any any (msg:"Blocked regedit.exe"; content:"regedit.exe"; priority:1; sid:10001211;)
 
 # Block regedit
 alert tcp any any -> any any (msg:"Blocked regedit"; content:"regedit"; priority:4; sid:10001212;)
@@ -800,10 +800,10 @@ alert udp any any -> any 1194 (msg:"OpenVPN Traffic Detected"; priority:5; sid:1
 
 # update 19 apr 2024 
 block tcp any any -> any any (msg:"Potential mshta.exe Execution Detected"; flow:to_server,established; content:"mshta.exe";  classtype:trojan-activity; priority:1; sid:10001606; )
-block tcp any any -> any any (msg:"Blocking word_update.exe Execution"; flow:to_server,established; content:"word_update.exe";  classtype:trojan-activity; priority:3; sid:10001607; )
+block tcp any any -> any any (msg:"Blocking word_update.exe Execution"; flow:to_server,established; content:"word_update.exe";  classtype:trojan-activity; priority:1; sid:10001607; )
 block tcp any any -> any any (msg:"Blocking offer.docx Transfer"; flow:to_server,established; content:"offer.docx";  priority:1;  sid:10001608; )
-block tcp any any -> any any (msg:"Blocking Task_dbg.exe Execution"; flow:to_server,established; content:"Task_dbg.exe";  classtype:trojan-activity; priority:3; sid:10001609; )
-block tcp any any -> any any (msg:"Blocking libcef.dll Transfer"; flow:to_server,established; content:"libcef.dll"; priority:3;   sid:10001610; )
+block tcp any any -> any any (msg:"Blocking Task_dbg.exe Execution"; flow:to_server,established; content:"Task_dbg.exe";  classtype:trojan-activity; priority:1; sid:10001609; )
+block tcp any any -> any any (msg:"Blocking libcef.dll Transfer"; flow:to_server,established; content:"libcef.dll"; priority:1;   sid:10001610; )
 
 block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah ps dengan machdep.cpu.vendor"; content:"ps"; content:"machdep.cpu.vendor"; priority:2; sid:10001611;)
 block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah Shell dengan machdep.cpu.vendor"; content:"machdep.cpu.vendor"; content:"shell"; priority:2;  sid:10001612;)
