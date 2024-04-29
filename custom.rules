@@ -16,7 +16,7 @@ alert tcp any any -> any any (msg:"Blocked takeown.exe"; content:"takeown.exe"; 
 alert tcp any any -> any any (msg:"Blocked cmd.exe"; content:"cmd.exe"; priority:1; sid:10001208;)
 
 # Block bcdedit.exe
-alert tcp any any -> any any (msg:"Blocked bcdedit.exe"; content:"bcdedit.exe"; priority:4; sid:10001209;)
+alert tcp any any -> any any (msg:"Blocked bcdedit.exe"; content:"bcdedit.exe"; priority:1; sid:10001209;)
 
 # Block taskkill.exe
 alert tcp any any -> any any (msg:"Blocked taskkill.exe"; content:"taskkill.exe"; priority:1; sid:10001210;)
@@ -107,7 +107,7 @@ alert tcp any any -> any any (msg:"Blocked revert"; content:"revert"; priority:3
 
 alert tcp any any -> any any (msg:"Blocked rexec command"; content:"rexec"; priority:3; sid:10001238; rev:1;)
 alert tcp any any -> any any (msg:"Blocked risetup command"; content:"risetup"; priority:3; sid:10001239; rev:1;)
-alert tcp any any -> any any (msg:"Blocked rmdir command"; content:"rmdir"; priority:4; sid:10001240; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rmdir command"; content:"rmdir"; priority:1; sid:10001240; rev:1;)
 alert tcp any any -> any any (msg:"Blocked robocopy command"; content:"robocopy"; priority:4; sid:10001241; rev:1;)
 alert tcp any any -> any any (msg:"Blocked route ws2008 command"; content:"route ws2008"; priority:4; sid:10001242; rev:1;)
 alert tcp any any -> any any (msg:"Blocked rpcinfo command"; content:"rpcinfo"; priority:3; sid:10001243; rev:1; classtype:rpc-portmap-decode;)
@@ -155,7 +155,7 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: cscript"; co
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dcdiag"; content:"dcdiag"; priority:4;sid:10001282;)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dcgpofix"; content:"dcgpofix"; priority:4; sid:10001283;)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: defrag"; content:"defrag"; priority:4; sid:10001284;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: del"; content:"del"; priority:4; sid:10001285;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: del"; content:"del"; priority:1; sid:10001285;)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: detach vdisk"; content:"detach vdisk"; priority:4; sid:10001286;)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dfsdiag"; content:"dfsdiag"; priority:4; sid:10001287;)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dfsrmig"; content:"dfsrmig"; priority:4; sid:10001288;)
@@ -218,7 +218,7 @@ alert tcp any any -> any any (msg:"Blocked Command: logman"; content:"logman"; p
 alert tcp any any -> any any (msg:"Blocked Command: lpr"; content:"lpr"; priority:4; sid:10001340;)
 alert tcp any any -> any any (msg:"Blocked Command: makecab"; content:"makecab"; priority:4; sid:10001341;)
 alert tcp any any -> any any (msg:"Blocked Command: md"; content:"md"; priority:4; sid:10001342;)
-alert tcp any any -> any any (msg:"Blocked Command: mkdir"; content:"mkdir"; priority:4; sid:10001343;)
+alert tcp any any -> any any (msg:"Blocked Command: mkdir"; content:"mkdir"; priority:1; sid:10001343;)
 alert tcp any any -> any any (msg:"Blocked Command: mklink"; content:"mklink"; priority:4; sid:10001344;)
 alert tcp any any -> any any (msg:"Blocked Command: mmc"; content:"mmc"; priority:4; sid:10001345;)
 alert tcp any any -> any any (msg:"Blocked Command: mount"; content:"mount"; priority:4; sid:10001346;)
