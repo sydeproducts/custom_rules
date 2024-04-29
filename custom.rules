@@ -246,10 +246,10 @@ alert tcp any any -> any 445 (msg:"Blocked netcfg"; priority:4; sid:10001353;)
 alert tcp any any -> any 515 (msg:"Blocked net print"; priority:4; sid:10001354;)
 
 # Aturan untuk blokir netsh
-alert tcp any any -> any 1025:65535 (msg:"Blocked netsh"; priority:4; sid:10001355;)
+alert tcp any any -> any 1025:65535 (msg:"Connection to unsual port"; priority:4; sid:10001355;)
 
 # Aturan untuk blokir netstat
-alert tcp any any -> any 1025:65535 (msg:"Blocked netstat"; priority:4; sid:10001356;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked netstat"; priority:4; sid:10001356;)
 
 # Aturan untuk blokir nfsadmin
 alert tcp any any -> any 2049 (msg:"Blocked nfsadmin"; priority:4; sid:10001357;)
@@ -267,13 +267,13 @@ alert tcp any any -> any 137:139 (msg:"Blocked nlbmgr"; priority:4; sid:10001360
 alert udp any any -> any 53 (msg:"Blocked nslookup"; priority:4; sid:10001361;)
 
 # Aturan untuk blokir ntbackup
-alert tcp any any -> any 1025:65535 (msg:"Blocked ntbackup"; priority:4; sid:10001362;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked ntbackup"; priority:4; sid:10001362;)
 
 # Aturan untuk blokir ntcmdprompt
-alert tcp any any -> any 1025:65535 (msg:"Blocked ntcmdprompt"; priority:3; sid:10001363;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked ntcmdprompt"; priority:3; sid:10001363;)
 
 # Aturan untuk blokir ntfrsutl
-alert tcp any any -> any 1025:65535 (msg:"Blocked ntfrsutl"; priority:4; sid:10001364;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked ntfrsutl"; priority:4; sid:10001364;)
 
 # Aturan untuk blokir openfiles
 alert tcp any any -> any 135 (msg:"Blocked openfiles"; priority:4; sid:10001365;)
@@ -288,7 +288,7 @@ alert icmp any any -> any any (msg:"Blocked pathping"; priority:4; sid:10001367;
 alert tcp any any -> any 445 (msg:"Blocked pbadmin"; priority:3; sid:10001368;)
 
 # Aturan untuk blokir pentnt
-alert tcp any any -> any 1025:65535 (msg:"Blocked unusual pentnt"; priority:3; sid:10001369;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked unusual pentnt"; priority:3; sid:10001369;)
 
 # Aturan untuk blokir perfmon
 alert tcp any any -> any 445 (msg:"Blocked perfmon"; priority:4; sid:10001370;)
