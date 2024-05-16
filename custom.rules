@@ -1,957 +1,497 @@
-# alert icmp any any -> any any (msg:"Ping! this is a test"; sid:1000001;)
-
-# Block sc.exe
-alert tcp any any -> any any (msg:"Blocked sc.exe"; content:"sc.exe"; priority:1; sid:10001204;)
-
-# Block net.exe
-alert tcp any any -> any any (msg:"Blocked net.exe"; content:"net.exe"; priority:1; sid:10001205;)
-
-# Block wevtutil.exe
-alert tcp any any -> any any (msg:"Blocked wevtutil.exe"; content:"wevtutil.exe"; priority:1; sid:10001206;)
-
-# Block takeown.exe
-alert tcp any any -> any any (msg:"Blocked takeown.exe"; content:"takeown.exe"; priority:1; sid:10001207;)
-
-# Block cmd.exe
-alert tcp any any -> any any (msg:"Blocked cmd.exe"; content:"cmd.exe"; priority:1; sid:10001208;)
-
-# Block bcdedit.exe
-alert tcp any any -> any any (msg:"Blocked bcdedit.exe"; content:"bcdedit.exe"; priority:1; sid:10001209;)
-
-# Block taskkill.exe
-alert tcp any any -> any any (msg:"Blocked taskkill.exe"; content:"taskkill.exe"; priority:1; sid:10001210;)
-
-# Block regedit.exe
-alert tcp any any -> any any (msg:"Blocked regedit.exe"; content:"regedit.exe"; priority:1; sid:10001211;)
-
-# Block regedit
-alert tcp any any -> any any (msg:"Blocked regedit"; content:"regedit"; priority:4; sid:10001212;)
-
-# Block .reg
-alert tcp any any -> any any (msg:"Blocked .reg"; content:".reg"; priority:4; sid:10001213;)
-
-# Block reg add
-alert tcp any any -> any any (msg:"Blocked reg add"; content:"reg add"; priority:4; sid:10001214;)
-
-# Block reg compare
-alert tcp any any -> any any (msg:"Blocked reg compare"; content:"reg compare"; priority:4; sid:10001215;)
-
-# Block reg copy
-alert tcp any any -> any any (msg:"Blocked reg copy"; content:"reg copy"; priority:4; sid:10001216;)
-
-# Block reg delete
-alert tcp any any -> any any (msg:"Blocked reg delete"; content:"reg delete"; priority:4; sid:10001217;)
-
-# Block reg export
-alert tcp any any -> any any (msg:"Blocked reg export"; content:"reg export"; priority:4; sid:10001218;)
-
-# Block reg import
-alert tcp any any -> any any (msg:"Blocked reg import"; content:"reg import"; priority:4; sid:10001219;)
-
-# Block reg load
-alert tcp any any -> any any (msg:"Blocked reg load"; content:"reg load"; priority:4; sid:10001220;)
-
-# Block reg query
-alert tcp any any -> any any (msg:"Blocked reg query"; content:"reg query"; priority:4; sid:10001221;)
-
-# Block reg restore
-alert tcp any any -> any any (msg:"Blocked reg restore"; content:"reg restore"; priority:4; sid:10001222;)
-
-# Block reg save
-alert tcp any any -> any any (msg:"Blocked reg save"; content:"reg save"; priority:4; sid:10001223;)
-
-# Block reg unload
-alert tcp any any -> any any (msg:"Blocked reg unload"; content:"reg unload"; priority:4; sid:10001224;)
-
-# Block regini
-alert tcp any any -> any any (msg:"Blocked regini"; content:"regini"; priority:4; sid:10001225;)
-
-# Block regsvr32
-alert tcp any any -> any any (msg:"Blocked regsvr32"; content:"regsvr32"; priority:4; sid:10001226;)
-
-# Block relog
-alert tcp any any -> any any (msg:"Blocked relog"; content:"relog"; priority:4; sid:10001227;)
-
-# Block rem
-alert tcp any any -> any any (msg:"Blocked rem"; content:"rem"; priority:4; sid:10001228;)
-
-# Block remove
-alert tcp any any -> any any (msg:"Blocked remove"; content:"remove"; priority:4; sid:10001229;)
-
-# Block ren
-alert tcp any any -> any any (msg:"Blocked ren"; content:"ren"; priority:4; sid:10001230;)
-
-# Block rename
-alert tcp any any -> any any (msg:"Blocked rename"; content:"rename"; priority:4; sid:10001231;)
-
-# Block repair
-alert tcp any any -> any any (msg:"Blocked repair"; content:"repair"; priority:4; sid:10001232;)
-
-# Block repair-bde
-alert tcp any any -> any any (msg:"Blocked repair-bde"; content:"repair-bde"; priority:4; sid:10001233;)
-
-# Block replace
-alert tcp any any -> any any (msg:"Blocked replace"; content:"replace"; priority:3; sid:10001234;)
-
-# Block reset
-alert tcp any any -> any any (msg:"Blocked reset"; content:"reset"; priority:3; sid:10001235;)
-
-# Block reset session
-alert tcp any any -> any any (msg:"Blocked reset session"; content:"reset session"; priority:3; sid:10001236;)
-
-# Block retain
-alert tcp any any -> any any (msg:"Blocked retain"; content:"retain"; priority:3; sid:10001237;)
-
-# Block revert
-alert tcp any any -> any any (msg:"Blocked revert"; content:"revert"; priority:3; sid:10001238;)
-
-alert tcp any any -> any any (msg:"Blocked rexec command"; content:"rexec"; priority:3; sid:10001238; rev:1;)
-alert tcp any any -> any any (msg:"Blocked risetup command"; content:"risetup"; priority:3; sid:10001239; rev:1;)
-alert tcp any any -> any any (msg:"Blocked rmdir command"; content:"rmdir"; priority:1; sid:10001240; rev:1;)
-alert tcp any any -> any any (msg:"Blocked robocopy command"; content:"robocopy"; priority:4; sid:10001241; rev:1;)
-alert tcp any any -> any any (msg:"Blocked route ws2008 command"; content:"route ws2008"; priority:4; sid:10001242; rev:1;)
-alert tcp any any -> any any (msg:"Blocked rpcinfo command"; content:"rpcinfo"; priority:3; sid:10001243; rev:1; classtype:rpc-portmap-decode;)
-alert tcp any any -> any any (msg:"Blocked rpcping command"; content:"rpcping"; priority:4; sid:10001244; rev:1; classtype:rpc-portmap-decode;)
-alert tcp any any -> any any (msg:"Blocked rsh command"; content:"rsh"; priority:2;  sid:10001245; rev:1;)
-alert tcp any any -> any any (msg:"Blocked rundll32 command"; content:"rundll32"; priority:3; sid:10001246; rev:1;)
-alert tcp any any -> any any (msg:"Blocked rundll32 printui command"; content:"rundll32 printui"; priority:4; sid:10001247; rev:1;)
-alert tcp any any -> any any (msg:"Blocked rwinsta command"; content:"rwinsta"; priority:4; sid:10001248; rev:1;)
-alert tcp any any -> any any (msg:"Blocked san command"; content:"san"; priority:3; sid:10001249; rev:1;)
-alert tcp any any -> any any (msg:"Blocked sc config command"; content:"sc config"; priority:4; sid:10001250; rev:1;)
-alert tcp any any -> any any (msg:"Blocked sc create command"; content:"sc create"; priority:4; sid:10001251; rev:1;)
-alert tcp any any -> any any (msg:"Blocked sc delete command"; content:"sc delete"; priority:4; sid:10001252; rev:1;)
-alert tcp any any -> any any (msg:"Blocked sc query command"; content:"sc query"; priority:4; sid:10001253; rev:1;)
-alert tcp any any -> any any (msg:"Blocked schtasks command"; content:"schtasks"; priority:4; sid:10001254; rev:1;)
-alert tcp any any -> any any (msg:"Blocked scwcmd command"; content:"scwcmd"; priority:4; sid:10001255; rev:1;)
-alert tcp any any -> any any (msg:"Blocked secedit command"; content:"secedit"; priority:4; sid:10001256; rev:1;)
-alert tcp any any -> any any (msg:"Blocked mapadmin command"; content:"mapadmin"; priority:4; sid:10001257; rev:1;)
-alert tcp any any -> any any (msg:"Blocked mount command"; content:"mount"; priority:4; sid:10001258; rev:1;)
-alert tcp any any -> any any (msg:"Blocked nfsadmin command"; content:"nfsadmin"; priority:4; sid:10001259; rev:1;)
-alert tcp any any -> any any (msg:"Blocked nfsshare command"; content:"nfsshare"; priority:4; sid:10001260; rev:1;)
-alert tcp any any -> any any (msg:"Blocked nfsstat command"; content:"nfsstat"; priority:4; sid:10001261; rev:1;)
-alert tcp any any -> any any (msg:"Blocked showmount command"; content:"showmount"; priority:4; sid:10001262; rev:1;)
-alert tcp any any -> any any (msg:"Blocked arp command"; content:"arp"; priority:3; sid:10001263; rev:1;)
-alert tcp any any -> any any (msg:"Blocked atmadn command"; content:"atmadn"; priority:4; sid:10001264; rev:1;)
-alert tcp any any -> any any (msg:"Blocked chcp command"; content:"chcp"; priority:4; sid:10001265; rev:1;)
-alert tcp any any -> any any (msg:"Blocked chdir command"; content:"chdir"; priority:4; sid:10001266; rev:1;)
-alert tcp any any -> any any (msg:"Blocked chglogon command"; content:"chglogon"; priority:4; sid:10001267; rev:1;)
-alert tcp any any -> any any (msg:"Blocked chgport command"; content:"chgport"; priority:4; sid:10001268; rev:1;)
-alert tcp any any -> any any (msg:"Blocked chgusr command"; content:"chgusr"; priority:4; sid:10001269; rev:1;)
-alert tcp any any -> any any (msg:"Blocked CHKDSK command"; content:"CHKDSK"; priority:4; sid:10001270; rev:1;)
-alert tcp any any -> any any (msg:"Blocked chkntfs command"; content:"chkntfs"; priority:4; sid:10001271; rev:1;)
-alert tcp any any -> any any (msg:"Blocked cipher command"; content:"cipher"; priority:2; sid:10001272; rev:1;)
-alert tcp any any -> any any (msg:"Blocked clean command"; content:"clean"; priority:4; sid:10001273; rev:1;)
-alert tcp any any -> any any (msg:"Blocked cleanmgr command"; content:"cleanmgr"; priority:3; sid:10001274; rev:1;)
-alert tcp any any -> any any (msg:"Blocked cmd command"; content:"cmd"; priority:3; sid:10001275; rev:1;)
-alert tcp any any -> any any (msg:"Blocked cmdkey command"; content:"cmdkey"; priority:3; sid:10001276; rev:1;)
-alert tcp any any -> any any (msg:"Blocked cmstp command"; content:"cmstp"; priority:3; sid:10001277; rev:1;)
-alert tcp any any -> any any (msg:"Blocked comp command"; content:"comp"; priority:3; sid:10001278; rev:1;)
-alert tcp any any -> any any (msg:"Blocked compact command"; content:"compact"; priority:3; sid:10001279; rev:1;)
-alert tcp any any -> any any (msg:"Blocked compact vdisk command"; content:"compact vdisk"; priority:3; sid:10001280; rev:1;)
-alert tcp any any -> any any (msg:"Blocked convert command"; content:"convert"; priority:3; sid:10001281; rev:1;)
-
-# Block specific commands and utilities
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: cscript"; content:"cscript"; priority:4; sid:10001281;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dcdiag"; content:"dcdiag"; priority:4;sid:10001282;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dcgpofix"; content:"dcgpofix"; priority:4; sid:10001283;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: defrag"; content:"defrag"; priority:4; sid:10001284;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: del"; content:"del"; priority:1; sid:10001285;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: detach vdisk"; content:"detach vdisk"; priority:4; sid:10001286;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dfsdiag"; content:"dfsdiag"; priority:4; sid:10001287;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dfsrmig"; content:"dfsrmig"; priority:4; sid:10001288;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diantz"; content:"diantz"; priority:4; sid:10001289;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dir"; content:"dir"; priority:4; sid:10001290;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskcomp"; content:"diskcomp"; priority:4; sid:10001291;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskcopy"; content:"diskcopy"; priority:4; sid:10001292;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskpart"; content:"diskpart"; priority:4; sid:10001293;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskperf"; content:"diskperf"; priority:4; sid:10001294;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskraid"; content:"diskraid"; priority:4; sid:10001295;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskshadow"; content:"diskshadow"; priority:4; sid:10001296;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dispdiag"; content:"dispdiag"; priority:4; sid:10001297;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dnscmd"; content:"dnscmd"; priority:4; sid:10001298;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: doskey"; content:"doskey"; priority:4; sid:10001299;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: driverquery"; content:"driverquery"; priority:4; sid:10001300;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: echo"; content:"echo"; priority:4; sid:10001301;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: endlocal"; content:"endlocal"; priority:4; sid:10001302;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: end restore"; content:"end restore"; priority:4; sid:10001303;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: erase"; content:"erase"; priority:4; sid:10001304;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: eventcreate"; content:"eventcreate"; priority:4; sid:10001305;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: Evntcmd"; content:"Evntcmd"; priority:4; sid:10001306;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: exec"; content:"exec"; priority:4; sid:10001307;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: exit"; content:"exit"; priority:4; sid:10001308;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: expand vdisk"; content:"expand vdisk"; priority:4; sid:10001309;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: expose"; content:"expose"; priority:4; sid:10001310;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: extend"; content:"extend"; priority:4; sid:10001311;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: extract"; content:"extract"; priority:4; sid:10001312;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: fc"; content:"fc"; priority:4; sid:10001313;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: filesystems"; content:"filesystems"; priority:4; sid:10001314;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: findstr"; content:"findstr"; priority:4; sid:10001315;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: finger"; content:"finger"; priority:4; sid:10001316;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: flattemp"; content:"flattemp"; priority:4; sid:10001317;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: forfiles"; content:"forfiles"; priority:4; sid:10001318;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: format"; content:"format"; priority:4; sid:10001319;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: freedisk"; content:"freedisk"; priority:4; sid:10001320;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: fsutil"; content:"fsutil"; priority:4; sid:10001321;)
-
-# Blokir FTP
-alert tcp any any -> any 21 (msg:"FTP Connection Detected"; priority:4; sid:10001321;)
-
-# Blokir beberapa perintah cmd
-alert tcp any any -> any any (msg:"Blocked Command: ftype"; content:"ftype"; priority:4; sid:10001322;)
-alert tcp any any -> any any (msg:"Blocked Command: getmac"; content:"getmac"; priority:4; sid:10001323;)
-alert tcp any any -> any any (msg:"Blocked Command: ipconfig"; content:"ipconfig"; priority:4; sid:10001324;)
-alert tcp any any -> any any (msg:"Blocked Command: gpfixup"; content:"gpfixup"; priority:4; sid:10001325;)
-alert tcp any any -> any any (msg:"Blocked Command: gpresult"; content:"gpresult"; priority:4; sid:10001326;)
-alert tcp any any -> any any (msg:"Blocked Command: gpupdate"; content:"gpupdate"; priority:4; sid:10001327;)
-alert tcp any any -> any any (msg:"Blocked Command: icacls"; content:"icacls"; priority:4; sid:10001328;)
-alert tcp any any -> any any (msg:"Blocked Command: import (shadowdisk)"; content:"import (shadowdisk)"; priority:4; sid:10001329;)
-alert tcp any any -> any any (msg:"Blocked Command: import (diskpart)"; content:"import (diskpart)"; priority:4; sid:10001330;)
-alert tcp any any -> any any (msg:"Blocked Command: ipxroute"; content:"ipxroute"; priority:4; sid:10001331;)
-alert tcp any any -> any any (msg:"Blocked Command: irftp"; content:"irftp"; priority:4; sid:10001332;)
-alert tcp any any -> any any (msg:"Blocked Command: klist"; content:"klist"; priority:4; sid:10001333;)
-alert tcp any any -> any any (msg:"Blocked Command: ksetup"; content:"ksetup"; priority:4; sid:10001334;)
-alert tcp any any -> any any (msg:"Blocked Command: ktmutil"; content:"ktmutil"; priority:4; sid:10001335;)
-alert tcp any any -> any any (msg:"Blocked Command: ktpass"; content:"ktpass"; priority:4; sid:10001336;)
-alert tcp any any -> any any (msg:"Blocked Command: load metadata"; content:"load metadata"; priority:4; sid:10001337;)
-alert tcp any any -> any any (msg:"Blocked Command: lodctr"; content:"lodctr"; priority:4; sid:10001338;)
-alert tcp any any -> any any (msg:"Blocked Command: logman"; content:"logman"; priority:4; sid:10001339;)
-alert tcp any any -> any any (msg:"Blocked Command: lpr"; content:"lpr"; priority:4; sid:10001340;)
-alert tcp any any -> any any (msg:"Blocked Command: makecab"; content:"makecab"; priority:4; sid:10001341;)
-alert tcp any any -> any any (msg:"Blocked Command: md"; content:"md"; priority:4; sid:10001342;)
-alert tcp any any -> any any (msg:"Blocked Command: mkdir"; content:"mkdir"; priority:1; sid:10001343;)
-alert tcp any any -> any any (msg:"Blocked Command: mklink"; content:"mklink"; priority:4; sid:10001344;)
-alert tcp any any -> any any (msg:"Blocked Command: mmc"; content:"mmc"; priority:4; sid:10001345;)
-alert tcp any any -> any any (msg:"Blocked Command: mount"; content:"mount"; priority:4; sid:10001346;)
-alert tcp any any -> any any (msg:"Blocked Command: mountvol"; content:"mountvol"; priority:4; sid:10001347;)
-
-# Aturan untuk blokir mqtgsvc
-alert tcp any any -> any 135 (msg:"Blocked mqtgsvc"; priority:4; sid:10001348;)
-
-# Aturan untuk blokir msdt
-alert tcp any any -> any any (msg:"Blocked msdt"; priority:4; sid:10001349;)
-
-# Aturan untuk blokir msiexec
-alert tcp any any -> any any (msg:"Blocked msiexec"; priority:3; sid:10001350;)
-
-# Aturan untuk blokir mstsc
-alert tcp any any -> any 3389 (msg:"Blocked mstsc";  content:"block remote desktop protocol"; priority:4; sid:10001351;)
-
-# Aturan untuk blokir nbtstat
-alert udp any any -> any 137 (msg:"Blocked nbtstat"; priority:4; sid:10001352;)
-
-# Aturan untuk blokir netcfg
-alert tcp any any -> any 445 (msg:"Blocked netcfg"; priority:4; sid:10001353;)
-
-# Aturan untuk blokir net print
-alert tcp any any -> any 515 (msg:"Blocked net print"; priority:4; sid:10001354;)
-
-# Aturan untuk blokir netsh
-alert tcp any any -> any 1025:65535 (msg:"Connection to unsual port"; priority:4; sid:10001355;)
-
-# Aturan untuk blokir netstat
-#alert tcp any any -> any 1025:65535 (msg:"Blocked netstat"; priority:4; sid:10001356;)
-
-# Aturan untuk blokir nfsadmin
-alert tcp any any -> any 2049 (msg:"Blocked nfsadmin"; priority:4; sid:10001357;)
-
-# Aturan untuk blokir nfsshare
-alert tcp any any -> any 2049 (msg:"Blocked nfsshare"; priority:4; sid:10001358;)
-
-# Aturan untuk blokir nfsstat
-alert tcp any any -> any 2049 (msg:"Blocked nfsstat"; priority:4; sid:10001359;)
-
-# Aturan untuk blokir nlbmgr
-alert tcp any any -> any 137:139 (msg:"Blocked nlbmgr"; priority:4; sid:10001360;)
-
-# Aturan untuk blokir nslookup
-alert udp any any -> any 53 (msg:"Blocked nslookup"; priority:4; sid:10001361;)
-
-# Aturan untuk blokir ntbackup
-#alert tcp any any -> any 1025:65535 (msg:"Blocked ntbackup"; priority:4; sid:10001362;)
-
-# Aturan untuk blokir ntcmdprompt
-#alert tcp any any -> any 1025:65535 (msg:"Blocked ntcmdprompt"; priority:3; sid:10001363;)
-
-# Aturan untuk blokir ntfrsutl
-#alert tcp any any -> any 1025:65535 (msg:"Blocked ntfrsutl"; priority:4; sid:10001364;)
-
-# Aturan untuk blokir openfiles
-alert tcp any any -> any 135 (msg:"Blocked openfiles"; priority:4; sid:10001365;)
-
-# Aturan untuk blokir path
-alert tcp any any -> any any (msg:"Blocked path"; priority:4; sid:10001366;)
-
-# Aturan untuk blokir pathping
-alert icmp any any -> any any (msg:"Blocked pathping"; priority:4; sid:10001367;)
-
-# Aturan untuk blokir pbadmin
-alert tcp any any -> any 445 (msg:"Blocked pbadmin"; priority:3; sid:10001368;)
-
-# Aturan untuk blokir pentnt
-#alert tcp any any -> any 1025:65535 (msg:"Blocked unusual pentnt"; priority:3; sid:10001369;)
-
-# Aturan untuk blokir perfmon
-alert tcp any any -> any 445 (msg:"Blocked perfmon"; priority:4; sid:10001370;)
-
-# Aturan untuk blokir pktmon
-# alert tcp any any -> any 1025:65535 (msg:"Blocked pktmon"; priority:4; sid:10001372;)
-
-# Aturan untuk blokir pnpunattend
-# alert tcp any any -> any 1025:65535 (msg:"Blocked pnpunattend"; priority:4; sid:10001373;)
-
-# Aturan untuk blokir pnputil
-# alert tcp any any -> any 1025:65535 (msg:"Blocked pnputil"; priority:4; sid:10001374;)
-
-# Aturan untuk blokir popd
-alert tcp any any -> any any (msg:"Blocked popd"; priority:4; sid:10001375;)
-
-# Aturan untuk blokir powershell
-alert tcp any any -> any 5985:5986 (msg:"Blocked powershell"; priority:3; sid:10001376;)
-
-# Aturan untuk blokir powershell ise
-# alert tcp any any -> any 1025:65535 (msg:"Blocked powershell ise"; priority:3; sid:10001377;)
-
-# Aturan untuk blokir print
-# alert tcp any any -> any 515 (msg:"Blocked print"; priority:4; sid:10001378;)
-
-# Aturan untuk blokir prncnfg
-# alert tcp any any -> any 1025:65535 (msg:"Blocked prncnfg"; priority:4; sid:10001379;)
-
-# Aturan untuk blokir prndrvr
-# alert tcp any any -> any 1025:65535 (msg:"Blocked prndrvr"; priority:4; sid:10001380;)
-
-# Aturan untuk blokir prnjobs
-# alert tcp any any -> any 1025:65535 (msg:"Blocked prnjobs"; priority:4; sid:10001381;)
-
-# Aturan untuk blokir prnmngr
-# alert tcp any any -> any 1025:65535 (msg:"Blocked prnmngr"; priority:4; sid:10001382;)
-
-# Aturan untuk blokir prnport
-# alert tcp any any -> any 1025:65535 (msg:"Blocked prnport"; priority:4; sid:10001383;)
-
-# Aturan untuk blokir prnqctl
-# alert tcp any any -> any 1025:65535 (msg:"Blocked prnqctl"; priority:4; sid:10001384;)
-
-# Aturan untuk blokir prompt
-alert tcp any any -> any any (msg:"Blocked prompt"; priority:4; sid:10001385;)
-
-# Aturan untuk blokir pubprn
-# alert tcp any any -> any 515 (msg:"Blocked pubprn"; priority:4; sid:10001386;)
-
-# Aturan untuk blokir pushd
-# alert tcp any any -> any any (msg:"Blocked pushd"; priority:4; sid:10001387;)
-
-# Aturan untuk blokir pwlauncher
-# alert tcp any any -> any any (msg:"Blocked pwlauncher"; priority:4; sid:10001388;)
-
-# Aturan untuk blokir qappsrv
-# alert tcp any any -> any any (msg:"Blocked qappsrv"; priority:3; sid:10001389;)
-
-# Aturan untuk blokir qprocess
-# alert tcp any any -> any any (msg:"Blocked qprocess"; priority:4; sid:10001390;)
-
-# Aturan untuk blokir query
-# alert tcp any any -> any any (msg:"Blocked query"; priority:4; sid:10001391;)
-
-# Aturan untuk blokir quser
-# alert tcp any any -> any any (msg:"Blocked quser"; priority:4; sid:10001392;)
-
-# Aturan untuk blokir qwinsta
-# alert tcp any any -> any any (msg:"Blocked qwinsta"; priority:4; sid:10001393;)
-
-# Aturan untuk blokir rd
-# alert tcp any any -> any 3389 (msg:"Blocked rd"; priority:4; sid:10001394;)
-
-# Aturan untuk blokir rdpsign
-# alert tcp any any -> any 3389 (msg:"Blocked rdpsign"; priority:4; sid:10001395;)
-
-# Aturan untuk blokir refsutil
-# alert tcp any any -> any 445 (msg:"Blocked refsutil"; priority:4; sid:10001396;)
-
-# Aturan untuk blokir reg
-# alert tcp any any -> any 1025:65535 (msg:"Blocked reg"; priority:4; sid:10001397;)
-
-# Snort Rules with Unique SIDs
-
-# Blocking rsh activity
-# alert tcp any any -> any 514 (msg:"Blocked rsh activity"; priority:3; sid:10001407;)
-
-# Blocking setx activity
-alert tcp any any -> any 135 (msg:"Blocked setx activity"; priority:4; sid:10001408; content:"setx";)
-
-# Blocking sfc activity
-alert tcp any any -> any 1025 (msg:"Blocked sfc activity"; priority:4; sid:10001409; content:"sfc";)
-
-# Blocking shadow activity
-alert tcp any any -> any 514 (msg:"Blocked shadow activity"; priority:4; sid:10001410; content:"shadow";)
-
-# Blocking shrink activity
-alert tcp any any -> any 514 (msg:"Blocked shrink activity"; priority:3; sid:10001411; content:"shrink";)
-
-# Blocking shutdown activity
-alert tcp any any -> any 514 (msg:"Blocked shutdown activity"; priority:2; sid:10001412; content:"shutdown";)
-
-# Blocking simulate restore activity
-alert tcp any any -> any 514 (msg:"Blocked simulate restore activity"; priority:4; sid:10001413; content:"simulate restore";)
-
-# Blocking subst activity
-alert tcp any any -> any 514 (msg:"Blocked subst activity"; priority:4; sid:10001414; content:"subst";)
-
-# Blocking sxstrace activity
-alert tcp any any -> any 514 (msg:"Blocked sxstrace activity"; priority:4; sid:10001415; content:"sxstrace";)
-
-# Blocking sysocmgr activity
-alert tcp any any -> any 514 (msg:"Blocked sysocmgr activity"; priority:4; sid:10001416; content:"sysocmgr";)
-
-# Blocking systeminfo activity
-alert tcp any any -> any 514 (msg:"Blocked systeminfo activity"; priority:4; sid:10001417; content:"systeminfo";)
-
-# Blocking takeown activity
-alert tcp any any -> any 514 (msg:"Blocked takeown activity"; priority:3; sid:10001418; content:"takeown";)
-
-# Blocking tapicfg activity
-alert tcp any any -> any 514 (msg:"Blocked tapicfg activity"; priority:3; sid:10001419; content:"tapicfg";)
-
-# Blocking taskkill activity
-alert tcp any any -> any 514 (msg:"Blocked taskkill activity"; priority:2; sid:10001420; content:"taskkill";)
-
-# Blocking tasklist activity
-alert tcp any any -> any 514 (msg:"Blocked tasklist activity"; priority:3; sid:10001421; content:"tasklist";)
-
-# Blocking tcmsetup activity
-alert tcp any any -> any 514 (msg:"Blocked tcmsetup activity"; priority:4; sid:10001422; content:"tcmsetup";)
-
-# Blocking telnet activity
-# alert tcp any any -> any 23 (msg:"Blocked telnet activity"; priority:2; sid:10001423;)
-
-# Blocking tftp activity
-# alert udp any any -> any 69 (msg:"Blocked tftp activity"; priority:1; sid:10001424;)
-
-# Blocking tlntadmn activity
-alert tcp any any -> any 514 (msg:"Blocked tlntadmn activity"; priority:3; sid:10001425; content:"tlntadmn";)
-
-# Blocking tpmtool activity
-alert tcp any any -> any 514 (msg:"Blocked tpmtool activity"; priority:4; sid:10001426; content:"tpmtool";)
-
-# Blocking tpmvscmgr activity
-alert tcp any any -> any 514 (msg:"Blocked tpmvscmgr activity"; priority:1; sid:10001427; content:"tpmvscmgr";)
-
-# Blocking tracerpt activity
-alert tcp any any -> any 514 (msg:"Blocked tracerpt activity"; priority:1; sid:10001428; content:"tracerpt";)
-
-# Blocking tracert activity
-# alert icmp any any -> any any (msg:"Blocked tracert activity"; priority:3; sid:10001429; icode:0; itype:8;)
-
-# Blocking tscon activity
-alert tcp any any -> any 3389 (msg:"Blocked tscon activity"; priority:1; sid:10001430; content:"tscon";)
-
-# Blocking tsdiscon activity
-alert tcp any any -> any 3389 (msg:"Blocked tsdiscon activity"; priority:3; sid:10001431; content:"tsdiscon";)
-
-# Blocking tsecimp activity
-alert tcp any any -> any 514 (msg:"Blocked tsecimp activity"; priority:4; sid:10001432; content:"tsecimp";)
-
-# Blocking tskill activity
-alert tcp any any -> any 514 (msg:"Blocked tskill activity"; priority:1; sid:10001433; content:"tskill";)
-
-# Blocking tsprof activity
-alert tcp any any -> any 514 (msg:"Blocked tsprof activity"; priority:4; sid:10001434; content:"tsprof";)
-
-# Blocking tzutil activity
-alert tcp any any -> any 514 (msg:"Blocked tzutil activity"; priority:4; sid:10001435; content:"tzutil";)
-
-# Blocking unlodctr activity
-alert tcp any any -> any 514 (msg:"Blocked unlodctr activity"; priority:4; sid:10001436; content:"unlodctr";)
-
-# Blocking ver activity
-alert tcp any any -> any 514 (msg:"Blocked ver activity"; priority:4; sid:10001437; content:"ver";)
-
-# Blocking vssadmin activity
-alert tcp any any -> any 514 (msg:"Blocked vssadmin activity"; priority:1; sid:10001438; content:"vssadmin";)
-
-# Blocking wbadmin activity
-alert tcp any any -> any 514 (msg:"Blocked wbadmin activity"; priority:1; sid:10001439; content:"wbadmin";)
-
-# Blocking wdsutil activity
-alert tcp any any -> any 514 (msg:"Blocked wdsutil activity"; priority:1; sid:10001440; content:"wdsutil";)
-
-# Blocking wecutil activity
-alert tcp any any -> any 514 (msg:"Blocked wecutil activity"; priority:4; sid:10001441; content:"wecutil";)
-
-# Blocking wevtutil activity
-alert tcp any any -> any 514 (msg:"Blocked wevtutil activity"; priority:4; sid:10001442; content:"wevtutil";)
-
-# Blocking where activity
-alert tcp any any -> any 514 (msg:"Blocked where activity"; priority:3; sid:10001443; content:"where";)
-
-# Blocking whoami activity
-alert tcp any any -> any 514 (msg:"Blocked whoami activity"; priority:3; sid:10001444; content:"whoami";)
-
-# Blocking winnt activity
-alert tcp any any -> any 514 (msg:"Blocked winnt activity"; priority:1; sid:10001445; content:"winnt";)
-
-# Blocking winnt32 activity
-alert tcp any any -> any 514 (msg:"Blocked winnt32 activity"; priority:1; sid:10001446; content:"winnt32";)
-
-# Blocking winrs activity
-alert tcp any any -> any 514 (msg:"Blocked winrs activity"; priority:1; sid:10001447; content:"winrs";)
-
-# Blocking winsat mem activity
-alert tcp any any -> any 514 (msg:"Blocked winsat mem activity"; priority:4; sid:10001448; content:"winsat mem";)
-
-# Blocking winsat mfmedia activity
-alert tcp any any -> any 514 (msg:"Blocked winsat mfmedia activity"; priority:4; sid:10001449; content:"winsat mfmedia";)
-
-# Blocking wmic activity
-alert tcp any any -> any 514 (msg:"Blocked wmic activity"; priority:1; sid:10001450; content:"wmic";)
-
-# Blocking wscript activity
-alert tcp any any -> any 514 (msg:"Blocked wscript activity"; priority:1; sid:10001451; content:"wscript";)
-
-# Blocking xcopy activity
-alert tcp any any -> any 514 (msg:"Blocked xcopy activity"; priority:1; sid:10001452; content:"xcopy";)
-
-# Aturan untuk mendeteksi penggunaan Fernet
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet"; content:"Fernet("; priority:2; sid:10001453;)
-
-# Aturan untuk mendeteksi penggunaan Fernet dengan key
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet dengan Key"; content:"Fernet(key)"; priority:2; sid:10001454;)
-
-# Aturan untuk mendeteksi generasi key Fernet
-alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Generasi Key Fernet"; content:"Fernet.generate_key"; priority:2; sid:10001455;)
-
-# Aturan untuk mendeteksi enkripsi menggunakan cipher suite
-alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Enkripsi dengan Cipher Suite"; content:"cipher_suite.encrypt"; priority:2; sid:10001456;)
-
-# Aturan untuk mendeteksi penggunaan plaintext
-alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Penggunaan Plaintext"; content:"plaintext"; priority:1; sid:10001457;)
-
-# Plaintext
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext data detected"; content:"Plaintext"; priority:1; sid:10001482;)
-
-# Ciphertext
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext data detected"; content:"Ciphertext"; priority:1; sid:10001483;)
-
-# Key
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Sensitive data leak: Key"; content:"Key"; priority:3; sid:10001484;)
-
-# Initialization Vector (IV)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Suspicious Initialization Vector (IV)"; content:"IV"; priority:1; sid:10001485;)
-
-# Block Cipher
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Block cipher usage detected"; content:"Block Cipher"; priority:2; sid:10001486;)
-
-# Stream Cipher
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Stream cipher usage detected"; content:"Stream Cipher"; priority:2; sid:10001487;)
-
-# Encryption Mode
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Encryption mode identified"; content:"Encryption Mode"; priority:2;  sid:10001488;)
-
-# Padding
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Padding scheme detected"; content:"Padding"; priority:3;  sid:10001489;)
-
-# Key Generation
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key generation event"; content:"Key Generation"; priority:4; sid:10001490;)
-
-# Key Length
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key length anomaly"; content:"Key Length"; priority:4; sid:10001491;)
-
-# Symmetric Encryption
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Symmetric encryption detected"; content:"Symmetric Encryption"; priority:1; sid:10001492;)
-
-# Asymmetric Encryption (Public Key Cryptography)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Asymmetric encryption detected"; content:"Public Key Cryptography"; priority:1; sid:10001493;)
-
-# Digital Signature
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital signature detected"; content:"Digital Signature"; priority:3; sid:10001494;)
-
-# Hash Function
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash function usage detected"; content:"Hash Function"; priority:1;  sid:10001495;)
-
-# Nonce
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce compromise detected"; content:"Nonce"; priority:1; sid:10001496;)
-
-# Salting
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salting operation detected"; content:"Salting"; priority:3; sid:10001497;)
-
-# Key Exchange
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key exchange detected"; content:"Key Exchange"; priority:1;   sid:10001498;)
-
-# Cryptanalysis
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Cryptanalysis attempt detected"; content:"Cryptanalysis"; priority:2; sid:10001499;)
-
-# Authentication
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication data intercepted"; content:"Authentication"; priority:1; sid:10001500;)
-
-# Integrity
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Integrity violation detected"; content:"Integrity"; priority:3; sid:10001501;)
-
-# Confidentiality
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Confidential data breach"; content:"Confidentiality"; priority:3; sid:10001502;)
-
-# Public Key Infrastructure (PKI)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"PKI usage identified"; content:"Public Key Infrastructure"; priority:2; sid:10001503;)
-
-# Certificate Authority (CA)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"CA interaction detected"; content:"Certificate Authority"; priority:3; sid:10001504;)
-
-# Revocation
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Certificate revocation attempt"; content:"Revocation"; priority:3; sid:10001505;)
-
-# Digital Envelope
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Envelope detected"; content:"Digital Envelope"; priority:3; sid:10001506;)
-
-# Key Escrow
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Escrow operation detected"; content:"Key Escrow"; priority:3; sid:10001507;)
-
-# Entropy Source
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy Source anomaly"; content:"Entropy Source"; priority:3; sid:10001508;)
-
-# Side Channel Attacks
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Possible Side Channel Attack"; content:"Side Channel Attacks"; priority:2; sid:10001509;)
-
-# Homomorphic Encryption
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Homomorphic Encryption usage detected"; content:"Homomorphic Encryption"; priority:3; sid:10001510;)
-
-# Zero-Knowledge Proof
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Zero-Knowledge Proof exchange detected"; content:"Zero-Knowledge Proof"; priority:3; sid:10001511;)
-
-# Snort rules for blocking various cryptographic terms
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Differential Cryptanalysis"; content:"Differential Cryptanalysis"; priority:2;  sid:10001512;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Meet-in-the-Middle Attack"; content:"Meet-in-the-Middle Attack"; priority:1; sid:10001513;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Stretching"; content:"Key Stretching"; priority:4; sid:10001514;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Entropy Pool"; content:"Entropy Pool"; priority:4; sid:10001515;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Elliptic Curve Cryptography (ECC)"; content:"Elliptic Curve Cryptography (ECC)"; priority:1; sid:10001516;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Quantum Cryptography"; content:"Quantum Cryptography"; priority:4; sid:10001517;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Initialize"; content:"Initialize"; priority:1; sid:10001518;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Encrypt"; content:"Encrypt"; priority:1; sid:10001519;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Decrypt"; content:"Decrypt"; priority:1; sid:10001520;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Algorithm"; content:"Algorithm"; priority:2; sid:10001521;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key"; content:"Key"; priority:3; sid:10001522;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Block"; content:"Block"; priority:2;  sid:10001523;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round"; content:"Round"; priority:2; sid:10001524;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Substitution"; content:"Substitution"; priority:1; sid:10001525;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Permutation"; content:"Permutation"; priority:1; sid:10001526;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Schedule"; content:"Key Schedule"; priority:3; sid:10001527;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Expansion"; content:"Expansion"; priority:4; sid:10001528;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Subkey"; content:"Subkey"; priority:4; sid:10001529;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Key"; content:"Round Key"; priority:4; sid:10001530;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Function"; content:"Round Function"; priority:4; sid:10001531;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked XOR (Exclusive OR)"; content:"XOR (Exclusive OR)"; priority:1; sid:10001532;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Bit"; content:"Bit"; priority:2; sid:10001533;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Byte"; content:"Byte"; priority:1; sid:10001534;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked S-Box"; content:"S-Box"; priority:3; sid:10001535;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked P-Box"; content:"P-Box"; priority:3; sid:10001536;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Transformation"; content:"Transformation"; priority:1; sid:10001537;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Shift"; content:"Shift";  priority:1; sid:10001538;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Mix"; content:"Mix"; priority:1; sid:10001539;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Padding"; content:"Padding"; priority:3; sid:10001540;)
-
-# Aturan untuk Mode
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Mode detected"; content:"Mode"; priority:1; sid:10001541;)
-
-# Aturan untuk Initialization Vector (IV)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Initialization Vector detected"; content:"Initialization Vector"; priority:1; sid:10001542;)
-
-# Aturan untuk Authentication Tag
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication Tag detected"; content:"Authentication Tag"; priority:1; sid:10001543;)
-
-# Aturan untuk Salt
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salt detected"; content:"Salt"; priority:1; sid:10001544;)
-
-# Aturan untuk Nonce
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce detected"; content:"Nonce"; priority:1; sid:10001545;)
-
-# Aturan untuk Plaintext
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext detected"; content:"Plaintext"; priority:1; sid:10001546;)
-
-# Aturan untuk Ciphertext
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext detected"; content:"Ciphertext"; priority:1; sid:10001547;)
-
-# Aturan untuk Hash
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash detected"; content:"Hash"; priority:1; sid:10001548;)
-
-# Aturan untuk Digest
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digest detected"; content:"Digest"; priority:1; sid:10001549;)
-
-# Aturan untuk Compression Function
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Compression Function detected"; content:"Compression Function"; priority:1; sid:10001550;)
-
-# Aturan untuk Feistel Network
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Feistel Network detected"; content:"Feistel Network"; priority:1; sid:10001551;)
-
-# Aturan untuk Key Exchange
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Exchange detected"; content:"Key Exchange"; priority:1; sid:10001552;)
-
-# Aturan untuk Public Key
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Public Key detected"; content:"Public Key"; priority:1; sid:10001553;)
-
-# Aturan untuk Private Key
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Private Key detected"; content:"Private Key"; priority:1; sid:10001554;)
-
-# Aturan untuk Signature
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Signature detected"; content:"Signature"; priority:3; sid:10001555;)
-
-# Aturan untuk Verifier
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Verifier detected"; content:"Verifier"; priority:3; sid:10001556;)
-
-# Aturan untuk Hash Function
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash Function detected"; content:"Hash Function"; priority:1; sid:10001557;)
-
-# Aturan untuk Digital Certificate
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Certificate detected"; content:"Digital Certificate"; priority:3; sid:10001558;)
-
-# Aturan untuk Key Length
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Length detected"; content:"Key Length"; priority:4; sid:10001559;)
-
-# Aturan untuk Entropy
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy detected"; content:"Entropy"; priority:1; sid:10001560;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"new byte["; content:"secureRandom.nextBytes"; priority:4; sid:10001561;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"stdlib.h"; priority:4; sid:10001562;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"#include<random>"; priority:1; sid:10001563;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"randomBytes"; priority:4; sid:10001564;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"RandomNumberGenerator.Create()"; priority:3; sid:10001565;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"rng.GetBytes"; priority:3; sid:10001566;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"SecureRandom.random_bytes"; priority:3; sid:10001567;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const crypto"; priority:3; sid:10001568;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"require(\'crypto\')"; priority:3; sid:10001569;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const randomBytes"; priority:3; sid:10001570;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"crypto.randomBytes"; priority:3; sid:10001571;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"$randomBytes"; priority:5; sid:10001572;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"crypto/rand\""; priority:3; sid:10001573;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"fmt\""; priority:5; sid:10001574;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"make([]byte, 16 )"; priority:3; sid:10001575;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"get_random_bytes()"; priority:3; sid:10001576;)
-
-# Rule untuk mendeteksi penggunaan random.randint(a, b)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.randint"; content:"random.randint("; priority:3; sid:10001577;)
-
-# Rule untuk mendeteksi penggunaan random.randrange(start, stop[, step])
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.randrange"; content:"random.randrange("; priority:3; sid:10001578;)
-
-# Rule untuk mendeteksi penggunaan random.choice(seq)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.choice"; content:"random.choice("; priority:3; sid:10001579;)
-
-# Rule untuk mendeteksi penggunaan random.shuffle(x[, random])
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.shuffle"; content:"random.shuffle("; priority:3; sid:10001580;)
-
-# Rule untuk mendeteksi penggunaan secrets.token_bytes(n)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_bytes"; content:"secrets.token_bytes("; priority:3; sid:10001581;)
-
-# Rule untuk mendeteksi penggunaan secrets.token_hex(n)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_hex"; content:"secrets.token_hex("; priority:3; sid:10001582;)
-
-# Rule untuk mendeteksi penggunaan secrets.token_urlsafe(n)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_urlsafe"; content:"secrets.token_urlsafe("; priority:3; sid:10001583;)
-
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial AES256Key1234567890"; content:"AES256Key1234567890"; priority:5; sid:10001584;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial RSA.generateKeyPair()"; content:"RSA.generateKeyPair()"; priority:5; sid:10001585;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial BlowfishSecretKey"; content:"BlowfishSecretKey"; priority:5; sid:10001586;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial SuperSecretDESKey"; content:"SuperSecretDESKey"; priority:5; sid:10001587;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial ChaCha20SecretKey"; content:"ChaCha20SecretKey"; priority:3; sid:10001588;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial secp256r1"; content:"secp256r1"; priority:3; sid:10001589;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial 3DESSecretKey"; content:"3DESSecretKey"; priority:3; sid:10001590;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Create()"; content:"Create()"; priority:5; sid:10001591;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial GenerateKey"; content:"GenerateKey"; priority:3; sid:10001592;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial GenerateIV"; content:"GenerateIV"; priority:2; sid:10001593;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial RSASignaturePadding"; content:"RSASignaturePadding"; priority:3; sid:10001594;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial SafeEvpPKeyHandle"; content:"SafeEvpPKeyHandle"; priority:4; sid:10001595;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial swEncrypt.Write"; content:"swEncrypt.Write"; priority:4; sid:10001596;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial AesCcm"; content:"AesCcm"; priority:4; sid:10001597;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial ReadOnlySpan<Byte>"; content:"ReadOnlySpan<Byte>"; priority:5; sid:10001598;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer."; content:"Buffer."; priority:4; sid:10001599;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial This array is to be modified and displayed"; content:"This array is to be modified and displayed"; priority:4; sid:10001600;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.BlockCopy"; content:"Buffer.BlockCopy";  priority:3; sid:10001601;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.SetByte"; content:"Buffer.SetByte"; priority:3; sid:10001602;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.ByteLength"; content:"Buffer.ByteLength"; priority:3; sid:10001603;)
-alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Byte"; content:"Byte"; priority:1; sid:10001604;)
-
-alert udp any any -> any 1194 (msg:"OpenVPN Traffic Detected"; priority:5; sid:10001605;)
-
-# update 19 apr 2024 
-block tcp any any -> any any (msg:"Potential mshta.exe Execution Detected"; flow:to_server,established; content:"mshta.exe";  classtype:trojan-activity; priority:1; sid:10001606; )
-block tcp any any -> any any (msg:"Blocking word_update.exe Execution"; flow:to_server,established; content:"word_update.exe";  classtype:trojan-activity; priority:1; sid:10001607; )
-block tcp any any -> any any (msg:"Blocking offer.docx Transfer"; flow:to_server,established; content:"offer.docx";  priority:1;  sid:10001608; )
-block tcp any any -> any any (msg:"Blocking Task_dbg.exe Execution"; flow:to_server,established; content:"Task_dbg.exe";  classtype:trojan-activity; priority:1; sid:10001609; )
-block tcp any any -> any any (msg:"Blocking libcef.dll Transfer"; flow:to_server,established; content:"libcef.dll"; priority:1;   sid:10001610; )
-
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah ps dengan machdep.cpu.vendor"; content:"ps"; content:"machdep.cpu.vendor"; priority:2; sid:10001611;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah Shell dengan machdep.cpu.vendor"; content:"machdep.cpu.vendor"; content:"shell"; priority:2;  sid:10001612;)
-block tcp any any -> any any (msg:"Deteksi Perintah Shell yang Memuat String 'cd'"; content:"cd"; content:"machdep.cpu.vendor";  priority:2;  sid:10001613;)
-block tcp any any -> any any (msg:"Deteksi Perintah Shell yang Mengandung String 'mkdir'"; content:"mkdir"; content:"machdep.cpu.vendor";  priority:2;  sid:10001614;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah rm"; content:"rm"; content:"machdep.cpu.vendor";  priority:2;  sid:10001615;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah rmdir"; content:"rmdir"; content:"machdep.cpu.vendor";  priority:2;  sid:10001616;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah sleep"; content:"sleep"; content:"machdep.cpu.vendor";  priority:2;  sid:10001617;)
-block tcp any any -> any any (msg:"Deteksi Upaya Upload File"; content:"POST";  content:"upload"; content:"machdep.cpu.vendor";  priority:2;  sid:10001618;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah botkill"; content:"botkill"; content:"machdep.cpu.vendor";  priority:2;  sid:10001619;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah dialog"; content:"dialog"; content:"machdep.cpu.vendor";  priority:2;  sid:10001620;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah taskkill"; content:"taskkill"; content:"machdep.cpu.vendor";  priority:2;  sid:10001621;)
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah download"; content:"download"; content:"machdep.cpu.vendor";  priority:2;  sid:10001622;)
-
-block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah ps"; content:"machdep.cpu.brand_string";  content:"ps"; priority:2;  sid:10001623;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string"; content:"shell"; priority:2; sid:10001624;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"cd"; priority:2; sid:10001625;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"mkdir"; priority:2; sid:10001626;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"rm"; priority:2; sid:10001627;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"rmdir"; priority:2; sid:10001628;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"sleep"; priority:2; sid:10001629;)
-
-
-block tcp any any -> any any (msg:"Deteksi Aktivitas ps dan kern.osproductversion"; content:"ps";  content:"kern.osproductversion"; priority:2;  sid:10001635;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Shell untuk kern.osproductversion"; content:"kern.osproductversion"; priority:2;  sid:10001636;)
-block tcp any any -> any any (msg:"Deteksi Perintah CD dalam Lalu Lintas Jaringan"; content:"cd"; content:"kern.osproductversion"; priority:2;  sid:10001637;)
-block tcp any any -> any any (msg:"Deteksi Perintah Mkdir dalam Lalu Lintas Jaringan"; content:"mkdir"; content:"kern.osproductversion"; priority:2;  sid:10001638;)
-block tcp any any -> any any (msg:"Deteksi Perintah Rm dalam Lalu Lintas Jaringan"; content:"rm"; content:"kern.osproductversion"; priority:2;  sid:10001639;)
-block tcp any any -> any any (msg:"Deteksi Perintah Rmdir dalam Lalu Lintas Jaringan"; content:"rmdir"; content:"kern.osproductversion"; priority:2;  sid:10001640;)
-block tcp any any -> any any (msg:"Deteksi Perintah Sleep dalam Lalu Lintas Jaringan"; content:"sleep"; content:"kern.osproductversion"; priority:2;  sid:10001641;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Upload"; content:"POST";  content:"Content-Disposition: form-data; name=\"file\""; priority:2;  sid:10001642;)
-
-
-block tcp any any -> any any (msg:"Deteksi Aktivitas Info CPU Frequency"; content:"hw.cpufrequency"; priority:2;  sid:10001647;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan CPU Frequency"; content:"shell";  content:"hw.cpufrequency"; priority:2;  sid:10001648;)
-block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency"; priority:2;  sid:10001649;)
-
-block tcp any any -> any any (msg:"Deteksi lock_in_cron"; content:"lock_in_cron"; priority:3; sid:10001659;)
-block tcp any any -> any any (msg:"Deteksi lock_in_launch"; content:"lock_in_launch"; priority:3; sid:10001660;)
-block tcp any any -> any any (msg:"Deteksi lock_in_dock"; content:"lock_in_dock"; priority:3; sid:10001661;)
-block tcp any any -> any any (msg:"Deteksi lock_in_rc"; content:"lock_in_rc"; priority:3; sid:10001662;)
-
-block tcp any any -> any any (msg:"Deteksi NoteStore.sqlite"; content:"NoteStore.sqlite"; priority:3;   sid:10001663;)
-
-block tcp $HOME_NET any -> any 443 (msg:"Deteksi akses ke https://sarkerrentacars.com/zshrc"; content:"/zshrc"; http_uri; priority:3; sid:10001664;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke https://turkishfurniture.blog/Previewers"; content:"GET /Previewers"; http_uri; priority:3; sid:10001665;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/zshrc2"; content:"GET /zshrc2"; http_uri; priority:1; sid:10001666;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdaterLs2"; content:"GET /VisualStudioUpdaterLs2"; http_uri; priority:1;  sid:10001667;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdater"; content:"GET /VisualStudioUpdater"; http_uri; priority:1; sid:10001668;)
-
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke maconlineoffice.com"; content:"Host\: maconlineoffice.com"; http_header; priority:1; sid:10001669;)
-block ip $HOME_NET any -> 193.29.13.167 any (msg:"Deteksi akses ke 193.29.13.167"; priority:1; sid:10001670;)
-block ip $HOME_NET any -> 88.214.26.22 any (msg:"Deteksi akses ke 88.214.26.22"; priority:1; sid:10001671;)
-block tcp $HOME_NET any -> any any (msg:"Deteksi akses HTTP ke serviceicloud.com"; content:"Host\: serviceicloud.com"; http_header;  priority:1; sid:10001672;)
-
-
-# update 22 apr 2024
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"42e21aa1131fdaa1eda366f2e20ba96f"; priority:1; sid:10001673; )
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|";  content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; priority:1; sid:10001674; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"6048b1592bd0c15efa93eaa2c8c518392bf19f1a"; priority:1; sid:10001675; )
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|";  content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; priority:1; sid:10001676; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"e523b1c3486bd9353c85d9699e5d35788dae77cbe6d3fc0fcb68cdb7fe654c27"; priority:1; sid:10001677; )
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|";  content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; priority:1;  sid:10001678; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated dengan SSDEEP"; file_data; content:"wqDUT6aSRZpqpkx6DIJ3z27Pp9pR3c9s6iZaR6PZ/6jZN6DZM6NRZR6IupZIBCER"; priority:1; sid:10001679; )
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary dengan SSDEEP"; file_data; content:"jBOJR"; priority:1;  sid:10001680; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Akses Registry Potensial ke HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"; content:"|48 4B 4C 4D 3A 5C 53 6F 66 74 77 61 72 65 5C 57 6F 77 36 34 33 32 4E 6F 64 65 5C 4D 69 63 72 6F 73 6F 66 74 5C 57 69 6E 64 6F 77 73 5C 43 75 72 72 65 6E 74 56 65 72 73 69 6F 6E 5C 55 6E 69 6E 73 74 61 6C 6C 5C 2A|"; priority:2; sid:10001681; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|40 25 44 5a 67 4a 4e 3a 7e 32 34 2c 31 25 25 44 5a 67 4a 4e 3a 7e 31 35 2c 31 25|"; priority:2;  sid:10001682; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'start GetToken.exe' dalam Batch File"; content:"|73 74 61 72 74 20 47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; content:"|73 74 61 72 74 20 47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; priority:2; sid:10001682; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah PowerShell 'Compress-Archive %locaLApPdatA%\Google\Chrome\User' dalam Batch File"; content:"|43 6f 6d 70 72 65 73 73 2d 41 72 63 68 69 76 65 20 25 6c 6f 63 61 4c 41 70 50 64 61 74 41 25 5c 47 6f 6f 67 6c 65 5c 43 68 72 6f 6d 65 5c 55 73 65 72|"; priority:2; sid:10001683; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan CompressionLevel Fastest dalam Batch File"; content:"|43 6f 6d 70 72 65 73 73 69 6f 6e 4c 65 76 65 6c 20 22 46 61 73 74 65 73 74 22|"; priority:2; sid:10001684; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'GetToken.exe' dalam Batch File"; content:"|47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; priority:2; sid:10001685; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'Attrib' dalam Batch File"; content:"|41 74 74 72 69 62|"; priority:2; sid:10001686; )
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi File Binari .NET Terkait dengan Penggunaan Perintah 'Attrib'"; content:"|4D 5A|";  content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; priority:2; sid:10001687; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan %WEBhoOk%"; content:"%WEBhoOk%"; priority:2; sid:10001688; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Perintah Kompresi"; content:"Compress-Archive %locaLApPdatA%\Google\Chrome\User Data\Default\Cookies %uSerprOfiLE%\ChromeCookies.zip"; priority:2; sid:10001689; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Variabel Lingkungan dalam HTTP"; content:"document=@'%uSerprofILe%\ChromeCookies.zip'"; priority:2; sid:10001690; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'Compress-Archive' dalam HTTP"; content:"Compress-Archive"; priority:2; sid:10001691; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Variabel Lingkungan dalam HTTP"; content:".zip %webHOOK%"; priority:2; sid:10001692; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial launcher_msa_credentials.bin"; content:"launcher_msa_credentials.bin"; priority:2; sid:10001693; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial launcher_msa_credentials"; content:"launcher_msa_credentials"; priority:2; sid:10001694; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial Eksekusi GetToken.exe"; content:"GetToken.exe"; priority:2; sid:10001695; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial GetToken.pdb"; content:"GetToken.pdb"; priority:2; sid:10001696; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Hash Batch Script"; content:"Batch Script: e523b1c3486bd9353c85d9699e5d35788dae77cbe6d3fc0fcb68cdb7fe654c27"; priority:1; sid:10001696; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Hash GetToken.exe"; content:"GetToken.exe: 6ad08fe301caae18941487412e96ceb0b561de4482da25ea4bb8eeb6c1a40983"; priority:1; sid:10001696; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Registry Run"; content:"HKCU\Software\Microsoft\Windows\CurrentVersion\Run"; priority:2; sid:10001697; )
-
-block tcp any any -> any 80 (msg:"Deteksi Pola yang Mencurigakan"; content:"<https://github.com/manasmbellani/mycode_public/blob/master/yara/win_malicious_batch_script.yar>"; priority:3; sid:10001698; )
-
-block tcp $HOME_NET any -> any any (msg:"Deteksi Potensial Serangan KRBRelayUP"; content:"<https://medium.com/system-weakness/krbrelayup-attack-and-detection-6fcd491af4fc>"; priority:3; sid:10001699; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Whoami /all"; content:"whoami /all"; priority:5; sid:10001700; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan win2016backupop"; content:"win2016backupop"; priority:5; sid:10001701; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan GptTmpl.inf"; content:"GptTmpl.inf"; priority:4; sid:10001702; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi String *S-1-5-32-544__Members = *S"; content:"*S-1-5-32-544__Members = *S"; priority:3; sid:10001703; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi KRBRelayUp - Pembuatan Akun Komputer Baru"; content:"CreateNewComputerAccount"; priority:3; sid:10001704; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - KrbRelayUp.exe"; content:"KrbRelayUp.exe"; priority:3; sid:10001705; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - KrbRelayUp.exe"; content:"c:\\Users\\Administrator\\Desktop\\opt\\lateralmovt\\windows\\KrbRelayUp.exe"; priority:3; sid:10001706; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - gpupdate /force"; content:"gpupdate /force"; priority:3; sid:10001707; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET 88 (msg:"Deteksi Potensial ASEPRoast - Permintaan Tiket TGT"; content:"KRB_AS_REQ"; content:"TGT"; priority:3; sid:10001708; )
-
-block tcp $EXTERNAL_NET any -> $HOME_NET 88 (msg:"Deteksi Potensial KRBRelayUp - Permintaan Tiket TGT untuk asepuser"; content:"KRB_AS_REQ"; content:"asepuser"; priority:5; sid:10001709; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C"; content:"gcc"; priority:5; sid:10001710; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C++"; content:"g++"; priority:5; sid:10001711; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Rustc"; content:"rustc"; priority:5; sid:10001712; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Go"; content:"go"; priority:5; sid:10001713; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Java"; content:"javac"; priority:5; sid:10001714; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C#"; content:"csc"; priority:5; sid:10001715; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Fortran"; content:"gfortran"; priority:5; sid:10001716; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Pascal"; content:"fpc"; priority:5; sid:10001717; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Ada"; content:"gnatmake"; priority:5; sid:10001718; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Assembly"; content:"nasm"; priority:5; sid:10001719; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Python"; content:"python"; priority:5; sid:10001720; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command JavaScript (Node.js)"; priority:5; content:"node"; sid:10001721; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Ruby"; content:"ruby"; priority:5; sid:10001722; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Perl"; content:"perl"; priority:5; sid:10001723; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command PHP"; content:"php"; priority:5; sid:10001724; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Bash"; content:"bash"; priority:5; sid:10001725; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command PowerShell"; content:"powershell"; priority:5; sid:10001726; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Lua"; content:"lua"; priority:5; sid:10001727; )
-block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Tcl"; content:"tclsh"; priority:5; sid:10001728; )
-block tcp any any -> any 443 (msg:"Detecting Software Execution - Cobalt Strike (T1059.001)"; content:"|4f 70 65 6e 57 69 6e 64 6f 77 20 53 65 72 76 69 63 65 73|"; priority:1; sid:10001729; )
+########################################     PRIORITY 1     ########################################
+
+alert tcp any any -> any any (msg:"Blocked sc.exe"; content:"sc.exe"; priority:1; sid:11000001;)
+alert tcp any any -> any any (msg:"Blocked net.exe"; content:"net.exe"; priority:1; sid:11000002;)
+alert tcp any any -> any any (msg:"Blocked wevtutil.exe"; content:"wevtutil.exe"; priority:1; sid:11000003;)
+alert tcp any any -> any any (msg:"Blocked takeown.exe"; content:"takeown.exe"; priority:1; sid:11000004;)
+alert tcp any any -> any any (msg:"Blocked cmd.exe"; content:"cmd.exe"; priority:1; sid:11000005;)
+alert tcp any any -> any any (msg:"Blocked bcdedit.exe"; content:"bcdedit.exe"; priority:1; sid:11000006;)
+alert tcp any any -> any any (msg:"Blocked taskkill.exe"; content:"taskkill.exe"; priority:1; sid:11000007;)
+alert tcp any any -> any any (msg:"Blocked regedit.exe"; content:"regedit.exe"; priority:1; sid:11000008;)
+alert tcp any any -> any any (msg:"Blocked rmdir command"; content:"rmdir"; priority:1; sid:11000009; rev:1;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: del"; content:"del"; priority:1; sid:11000010;)
+alert tcp any any -> any any (msg:"Blocked Command: mkdir"; content:"mkdir"; priority:1; sid:11000011;)
+# alert udp any any -> any 69 (msg:"Blocked tftp activity"; priority:1; sid:11000012;)
+alert tcp any any -> any 514 (msg:"Blocked tpmvscmgr activity"; priority:1; sid:11000013; content:"tpmvscmgr";)
+alert tcp any any -> any 514 (msg:"Blocked tracerpt activity"; priority:1; sid:11000014; content:"tracerpt";)
+alert tcp any any -> any 3389 (msg:"Blocked tscon activity"; priority:1; sid:11000015; content:"tscon";)
+alert tcp any any -> any 514 (msg:"Blocked tskill activity"; priority:1; sid:11000016; content:"tskill";)
+alert tcp any any -> any 514 (msg:"Blocked vssadmin activity"; priority:1; sid:11000017; content:"vssadmin";)
+alert tcp any any -> any 514 (msg:"Blocked wbadmin activity"; priority:1; sid:11000018; content:"wbadmin";)
+alert tcp any any -> any 514 (msg:"Blocked wdsutil activity"; priority:1; sid:11000019; content:"wdsutil";)
+alert tcp any any -> any 514 (msg:"Blocked winnt activity"; priority:1; sid:11000020; content:"winnt";)
+alert tcp any any -> any 514 (msg:"Blocked winnt32 activity"; priority:1; sid:11000021; content:"winnt32";)
+alert tcp any any -> any 514 (msg:"Blocked winrs activity"; priority:1; sid:11000022; content:"winrs";)
+alert tcp any any -> any 514 (msg:"Blocked wmic activity"; priority:1; sid:11000023; content:"wmic";)
+alert tcp any any -> any 514 (msg:"Blocked wscript activity"; priority:1; sid:11000024; content:"wscript";)
+alert tcp any any -> any 514 (msg:"Blocked xcopy activity"; priority:1; sid:11000025; content:"xcopy";)
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Penggunaan Plaintext"; content:"plaintext"; priority:1; sid:11000026;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext data detected"; content:"Plaintext"; priority:1; sid:11000027;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext data detected"; content:"Ciphertext"; priority:1; sid:11000028;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Suspicious Initialization Vector (IV)"; content:"IV"; priority:1; sid:11000029;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Symmetric encryption detected"; content:"Symmetric Encryption"; priority:1; sid:11000030;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Asymmetric encryption detected"; content:"Public Key Cryptography"; priority:1; sid:11000031;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash function usage detected"; content:"Hash Function"; priority:1;  sid:11000032;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce compromise detected"; content:"Nonce"; priority:1; sid:11000033;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key exchange detected"; content:"Key Exchange"; priority:1;   sid:11000034;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication data intercepted"; content:"Authentication"; priority:1; sid:11000035;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Meet-in-the-Middle Attack"; content:"Meet-in-the-Middle Attack"; priority:1; sid:11000036;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Elliptic Curve Cryptography (ECC)"; content:"Elliptic Curve Cryptography (ECC)"; priority:1; sid:11000037;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Initialize"; content:"Initialize"; priority:1; sid:11000038;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Encrypt"; content:"Encrypt"; priority:1; sid:11000039;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Decrypt"; content:"Decrypt"; priority:1; sid:11000040;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Substitution"; content:"Substitution"; priority:1; sid:11000041;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Permutation"; content:"Permutation"; priority:1; sid:11000042;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked XOR (Exclusive OR)"; content:"XOR (Exclusive OR)"; priority:1; sid:11000043;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Byte"; content:"Byte"; priority:1; sid:11000044;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Transformation"; content:"Transformation"; priority:1; sid:11000045;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Shift"; content:"Shift";  priority:1; sid:11000046;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Mix"; content:"Mix"; priority:1; sid:11000047;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Mode detected"; content:"Mode"; priority:1; sid:11000048;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Initialization Vector detected"; content:"Initialization Vector"; priority:1; sid:11000049;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Authentication Tag detected"; content:"Authentication Tag"; priority:1; sid:11000050;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salt detected"; content:"Salt"; priority:1; sid:11000051;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Nonce detected"; content:"Nonce"; priority:1; sid:11000052;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Plaintext detected"; content:"Plaintext"; priority:1; sid:11000053;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Ciphertext detected"; content:"Ciphertext"; priority:1; sid:11000054;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash detected"; content:"Hash"; priority:1; sid:11000055;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digest detected"; content:"Digest"; priority:1; sid:11000056;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Compression Function detected"; content:"Compression Function"; priority:1; sid:11000057;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Feistel Network detected"; content:"Feistel Network"; priority:1; sid:11000058;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Exchange detected"; content:"Key Exchange"; priority:1; sid:11000059;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Public Key detected"; content:"Public Key"; priority:1; sid:11000060;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Private Key detected"; content:"Private Key"; priority:1; sid:11000061;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Hash Function detected"; content:"Hash Function"; priority:1; sid:11000062;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy detected"; content:"Entropy"; priority:1; sid:11000063;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"#include<random>"; priority:1; sid:11000064;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Byte"; content:"Byte"; priority:1; sid:11000065;)
+block tcp any any -> any any (msg:"Potential mshta.exe Execution Detected"; flow:to_server,established; content:"mshta.exe";  classtype:trojan-activity; priority:1; sid:11000066; )
+block tcp any any -> any any (msg:"Blocking word_update.exe Execution"; flow:to_server,established; content:"word_update.exe";  classtype:trojan-activity; priority:1; sid:11000067; )
+block tcp any any -> any any (msg:"Blocking offer.docx Transfer"; flow:to_server,established; content:"offer.docx";  priority:1;  sid:11000068; )
+block tcp any any -> any any (msg:"Blocking Task_dbg.exe Execution"; flow:to_server,established; content:"Task_dbg.exe";  classtype:trojan-activity; priority:1; sid:11000069; )
+block tcp any any -> any any (msg:"Blocking libcef.dll Transfer"; flow:to_server,established; content:"libcef.dll"; priority:1;   sid:11000070; )
+block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/zshrc2"; content:"GET /zshrc2"; http_uri; priority:1; sid:11000071;)
+block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdaterLs2"; content:"GET /VisualStudioUpdaterLs2"; http_uri; priority:1;  sid:11000072;)
+block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke http://linksammosupply.com/VisualStudioUpdater"; content:"GET /VisualStudioUpdater"; http_uri; priority:1; sid:11000073;)
+block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke maconlineoffice.com"; content:"Host\: maconlineoffice.com"; http_header; priority:1; sid:11000074;)
+block ip $HOME_NET any -> 193.29.13.167 any (msg:"Deteksi akses ke 193.29.13.167"; priority:1; sid:11000075;)
+block ip $HOME_NET any -> 88.214.26.22 any (msg:"Deteksi akses ke 88.214.26.22"; priority:1; sid:11000076;)
+block tcp $HOME_NET any -> any any (msg:"Deteksi akses HTTP ke serviceicloud.com"; content:"Host\: serviceicloud.com"; http_header;  priority:1; sid:11000077;)
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"42e21aa1131fdaa1eda366f2e20ba96f"; priority:1; sid:11000078; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|";  content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; priority:1; sid:11000079; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"6048b1592bd0c15efa93eaa2c8c518392bf19f1a"; priority:1; sid:11000080; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|";  content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; priority:1; sid:11000081; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|63 6d 64 2e 65 78 65|"; content:"|2f 63 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"|63 61 6c 6c 20 2f 4f 20 65 63 68 6f 20 46 5a 4f 54 45 20 26 26|"; content:"e523b1c3486bd9353c85d9699e5d35788dae77cbe6d3fc0fcb68cdb7fe654c27"; priority:1; sid:11000082; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary"; content:"|4D 5A|";  content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; priority:1;  sid:11000083; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated dengan SSDEEP"; file_data; content:"wqDUT6aSRZpqpkx6DIJ3z27Pp9pR3c9s6iZaR6PZ/6jZN6DZM6NRZR6IupZIBCER"; priority:1; sid:11000084; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi .NET Binary dengan SSDEEP"; file_data; content:"jBOJR"; priority:1;  sid:11000085; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Hash Batch Script"; content:"Batch Script: e523b1c3486bd9353c85d9699e5d35788dae77cbe6d3fc0fcb68cdb7fe654c27"; priority:1; sid:11000086; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Hash GetToken.exe"; content:"GetToken.exe: 6ad08fe301caae18941487412e96ceb0b561de4482da25ea4bb8eeb6c1a40983"; priority:1; sid:11000087; )
+block tcp any any -> any 443 (msg:"Detecting Software Execution - Cobalt Strike (T1059.001)"; content:"|4f 70 65 6e 57 69 6e 64 6f 77 20 53 65 72 76 69 63 65 73|"; priority:1; sid:11000088; )
+
+########################################     PRIORITY 2     ########################################
+
+alert tcp any any -> any any (msg:"Blocked rsh command"; content:"rsh"; priority:2;  sid:12000001; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cipher command"; content:"cipher"; priority:2; sid:12000002; rev:1;)
+alert tcp any any -> any 514 (msg:"Blocked shutdown activity"; priority:2; sid:12000003; content:"shutdown";)
+alert tcp any any -> any 514 (msg:"Blocked taskkill activity"; priority:2; sid:12000004; content:"taskkill";)
+# alert tcp any any -> any 23 (msg:"Blocked telnet activity"; priority:2; sid:12000005;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet"; content:"Fernet("; priority:2; sid:12000006;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Fernet dengan Key"; content:"Fernet(key)"; priority:2; sid:12000007;)
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Generasi Key Fernet"; content:"Fernet.generate_key"; priority:2; sid:12000008;)
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Deteksi Enkripsi dengan Cipher Suite"; content:"cipher_suite.encrypt"; priority:2; sid:12000009;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Block cipher usage detected"; content:"Block Cipher"; priority:2; sid:12000010;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Stream cipher usage detected"; content:"Stream Cipher"; priority:2; sid:12000011;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Encryption mode identified"; content:"Encryption Mode"; priority:2;  sid:12000012;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Cryptanalysis attempt detected"; content:"Cryptanalysis"; priority:2; sid:12000013;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"PKI usage identified"; content:"Public Key Infrastructure"; priority:2; sid:12000014;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Possible Side Channel Attack"; content:"Side Channel Attacks"; priority:2; sid:12000015;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Differential Cryptanalysis"; content:"Differential Cryptanalysis"; priority:2;  sid:12000016;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Algorithm"; content:"Algorithm"; priority:2; sid:12000017;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Block"; content:"Block"; priority:2;  sid:12000018;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round"; content:"Round"; priority:2; sid:12000019;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Bit"; content:"Bit"; priority:2; sid:12000020;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial GenerateIV"; content:"GenerateIV"; priority:2; sid:12000021;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah ps dengan machdep.cpu.vendor"; content:"ps"; content:"machdep.cpu.vendor"; priority:2; sid:12000022;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah Shell dengan machdep.cpu.vendor"; content:"machdep.cpu.vendor"; content:"shell"; priority:2;  sid:12000023;)
+block tcp any any -> any any (msg:"Deteksi Perintah Shell yang Memuat String 'cd'"; content:"cd"; content:"machdep.cpu.vendor";  priority:2;  sid:12000024;)
+block tcp any any -> any any (msg:"Deteksi Perintah Shell yang Mengandung String 'mkdir'"; content:"mkdir"; content:"machdep.cpu.vendor";  priority:2;  sid:12000025;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah rm"; content:"rm"; content:"machdep.cpu.vendor";  priority:2;  sid:12000026;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah rmdir"; content:"rmdir"; content:"machdep.cpu.vendor";  priority:2;  sid:12000027;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah sleep"; content:"sleep"; content:"machdep.cpu.vendor";  priority:2;  sid:12000028;)
+block tcp any any -> any any (msg:"Deteksi Upaya Upload File"; content:"POST";  content:"upload"; content:"machdep.cpu.vendor";  priority:2;  sid:12000029;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah botkill"; content:"botkill"; content:"machdep.cpu.vendor";  priority:2;  sid:12000030;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah dialog"; content:"dialog"; content:"machdep.cpu.vendor";  priority:2;  sid:12000031;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah taskkill"; content:"taskkill"; content:"machdep.cpu.vendor";  priority:2;  sid:12000032;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah download"; content:"download"; content:"machdep.cpu.vendor";  priority:2;  sid:12000033;)
+block tcp any any -> any any (msg:"Deteksi Penggunaan Perintah ps"; content:"machdep.cpu.brand_string";  content:"ps"; priority:2;  sid:12000034;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string"; content:"shell"; priority:2; sid:12000035;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"cd"; priority:2; sid:12000036;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"mkdir"; priority:2; sid:12000037;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"rm"; priority:2; sid:12000038;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"rmdir"; priority:2; sid:12000039;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan machdep.cpu.brand_string"; content:"machdep.cpu.brand_string";  content:"sleep"; priority:2; sid:12000040;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas ps dan kern.osproductversion"; content:"ps";  content:"kern.osproductversion"; priority:2;  sid:12000041;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Shell untuk kern.osproductversion"; content:"kern.osproductversion"; priority:2;  sid:12000042;)
+block tcp any any -> any any (msg:"Deteksi Perintah CD dalam Lalu Lintas Jaringan"; content:"cd"; content:"kern.osproductversion"; priority:2;  sid:12000043;)
+block tcp any any -> any any (msg:"Deteksi Perintah Mkdir dalam Lalu Lintas Jaringan"; content:"mkdir"; content:"kern.osproductversion"; priority:2;  sid:12000044;)
+block tcp any any -> any any (msg:"Deteksi Perintah Rm dalam Lalu Lintas Jaringan"; content:"rm"; content:"kern.osproductversion"; priority:2;  sid:12000045;)
+block tcp any any -> any any (msg:"Deteksi Perintah Rmdir dalam Lalu Lintas Jaringan"; content:"rmdir"; content:"kern.osproductversion"; priority:2;  sid:12000046;)
+block tcp any any -> any any (msg:"Deteksi Perintah Sleep dalam Lalu Lintas Jaringan"; content:"sleep"; content:"kern.osproductversion"; priority:2;  sid:12000047;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Upload"; content:"POST";  content:"Content-Disposition: form-data; name=\"file\""; priority:2;  sid:12000048;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Info CPU Frequency"; content:"hw.cpufrequency"; priority:2;  sid:12000049;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas Shell dan CPU Frequency"; content:"shell";  content:"hw.cpufrequency"; priority:2;  sid:12000050;)
+block tcp any any -> any any (msg:"Deteksi Aktivitas hw.cpufrequency"; content:"hw.cpufrequency"; priority:2;  sid:12000051;)
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Akses Registry Potensial ke HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"; content:"|48 4B 4C 4D 3A 5C 53 6F 66 74 77 61 72 65 5C 57 6F 77 36 34 33 32 4E 6F 64 65 5C 4D 69 63 72 6F 73 6F 66 74 5C 57 69 6E 64 6F 77 73 5C 43 75 72 72 65 6E 74 56 65 72 73 69 6F 6E 5C 55 6E 69 6E 73 74 61 6C 6C 5C 2A|"; priority:2; sid:12000052; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Batch File Obfuscated"; content:"|40 25 44 5a 67 4a 4e 3a 7e 32 34 2c 31 25 25 44 5a 67 4a 4e 3a 7e 31 35 2c 31 25|"; priority:2;  sid:12000053; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'start GetToken.exe' dalam Batch File"; content:"|73 74 61 72 74 20 47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; content:"|73 74 61 72 74 20 47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; priority:2; sid:12000054; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah PowerShell 'Compress-Archive %locaLApPdatA%\Google\Chrome\User' dalam Batch File"; content:"|43 6f 6d 70 72 65 73 73 2d 41 72 63 68 69 76 65 20 25 6c 6f 63 61 4c 41 70 50 64 61 74 41 25 5c 47 6f 6f 67 6c 65 5c 43 68 72 6f 6d 65 5c 55 73 65 72|"; priority:2; sid:12000055; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan CompressionLevel Fastest dalam Batch File"; content:"|43 6f 6d 70 72 65 73 73 69 6f 6e 4c 65 76 65 6c 20 22 46 61 73 74 65 73 74 22|"; priority:2; sid:12000056; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'GetToken.exe' dalam Batch File"; content:"|47 65 74 54 6f 6b 65 6e 2e 65 78 65|"; priority:2; sid:12000057; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'Attrib' dalam Batch File"; content:"|41 74 74 72 69 62|"; priority:2; sid:12000058; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi File Binari .NET Terkait dengan Penggunaan Perintah 'Attrib'"; content:"|4D 5A|";  content:"|2E 4E 45 54 20 61 73 73 65 6D 62 6C 79 20 43 23|"; priority:2; sid:12000059; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan %WEBhoOk%"; content:"%WEBhoOk%"; priority:2; sid:12000060; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Perintah Kompresi"; content:"Compress-Archive %locaLApPdatA%\Google\Chrome\User Data\Default\Cookies %uSerprOfiLE%\ChromeCookies.zip"; priority:2; sid:12000061; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Variabel Lingkungan dalam HTTP"; content:"document=@'%uSerprofILe%\ChromeCookies.zip'"; priority:2; sid:12000062; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Perintah 'Compress-Archive' dalam HTTP"; content:"Compress-Archive"; priority:2; sid:12000063; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Variabel Lingkungan dalam HTTP"; content:".zip %webHOOK%"; priority:2; sid:12000064; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial launcher_msa_credentials.bin"; content:"launcher_msa_credentials.bin"; priority:2; sid:12000065; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial launcher_msa_credentials"; content:"launcher_msa_credentials"; priority:2; sid:12000066; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial Eksekusi GetToken.exe"; content:"GetToken.exe"; priority:2; sid:12000067; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial GetToken.pdb"; content:"GetToken.pdb"; priority:2; sid:12000068; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Pola yang Mirip dengan Registry Run"; content:"HKCU\Software\Microsoft\Windows\CurrentVersion\Run"; priority:2; sid:12000069; )
+
+
+########################################     PRIORITY 3     ########################################
+
+alert tcp any any -> any any (msg:"Blocked replace"; content:"replace"; priority:3; sid:13000001;)
+alert tcp any any -> any any (msg:"Blocked reset"; content:"reset"; priority:3; sid:13000002;)
+alert tcp any any -> any any (msg:"Blocked reset session"; content:"reset session"; priority:3; sid:13000003;)
+alert tcp any any -> any any (msg:"Blocked retain"; content:"retain"; priority:3; sid:13000004;)
+alert tcp any any -> any any (msg:"Blocked revert"; content:"revert"; priority:3; sid:13000005;)
+alert tcp any any -> any any (msg:"Blocked rexec command"; content:"rexec"; priority:3; sid:13000006; rev:1;)
+alert tcp any any -> any any (msg:"Blocked risetup command"; content:"risetup"; priority:3; sid:13000007; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rpcinfo command"; content:"rpcinfo"; priority:3; sid:13000008; rev:1; classtype:rpc-portmap-decode;)
+alert tcp any any -> any any (msg:"Blocked rundll32 command"; content:"rundll32"; priority:3; sid:13000009; rev:1;)
+alert tcp any any -> any any (msg:"Blocked san command"; content:"san"; priority:3; sid:13000010; rev:1;)
+alert tcp any any -> any any (msg:"Blocked arp command"; content:"arp"; priority:3; sid:13000011; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cleanmgr command"; content:"cleanmgr"; priority:3; sid:13000012; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cmd command"; content:"cmd"; priority:3; sid:13000013; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cmdkey command"; content:"cmdkey"; priority:3; sid:13000014; rev:1;)
+alert tcp any any -> any any (msg:"Blocked cmstp command"; content:"cmstp"; priority:3; sid:13000015; rev:1;)
+alert tcp any any -> any any (msg:"Blocked comp command"; content:"comp"; priority:3; sid:13000016; rev:1;)
+alert tcp any any -> any any (msg:"Blocked compact command"; content:"compact"; priority:3; sid:13000017; rev:1;)
+alert tcp any any -> any any (msg:"Blocked compact vdisk command"; content:"compact vdisk"; priority:3; sid:13000018; rev:1;)
+alert tcp any any -> any any (msg:"Blocked convert command"; content:"convert"; priority:3; sid:13000019; rev:1;)
+alert tcp any any -> any any (msg:"Blocked msiexec"; priority:3; sid:13000020;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked ntcmdprompt"; priority:3; sid:13000021;)
+alert tcp any any -> any 445 (msg:"Blocked pbadmin"; priority:3; sid:13000022;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked unusual pentnt"; priority:3; sid:13000023;)
+alert tcp any any -> any 5985:5986 (msg:"Blocked powershell"; priority:3; sid:13000024;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked powershell ise"; priority:3; sid:13000025;)
+# alert tcp any any -> any any (msg:"Blocked qappsrv"; priority:3; sid:13000026;)
+# alert tcp any any -> any 514 (msg:"Blocked rsh activity"; priority:3; sid:13000027;)
+alert tcp any any -> any 514 (msg:"Blocked shrink activity"; priority:3; sid:13000028; content:"shrink";)
+alert tcp any any -> any 514 (msg:"Blocked takeown activity"; priority:3; sid:13000029; content:"takeown";)
+alert tcp any any -> any 514 (msg:"Blocked tapicfg activity"; priority:3; sid:13000030; content:"tapicfg";)
+alert tcp any any -> any 514 (msg:"Blocked tasklist activity"; priority:3; sid:13000031; content:"tasklist";)
+alert tcp any any -> any 514 (msg:"Blocked tlntadmn activity"; priority:3; sid:13000032; content:"tlntadmn";)
+# alert icmp any any -> any any (msg:"Blocked tracert activity"; priority:3; sid:13000033; icode:0; itype:8;)
+alert tcp any any -> any 3389 (msg:"Blocked tsdiscon activity"; priority:3; sid:13000034; content:"tsdiscon";)
+alert tcp any any -> any 514 (msg:"Blocked where activity"; priority:3; sid:13000035; content:"where";)
+alert tcp any any -> any 514 (msg:"Blocked whoami activity"; priority:3; sid:13000036; content:"whoami";)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Sensitive data leak: Key"; content:"Key"; priority:3; sid:13000037;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Padding scheme detected"; content:"Padding"; priority:3;  sid:13000038;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital signature detected"; content:"Digital Signature"; priority:3; sid:13000039;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Salting operation detected"; content:"Salting"; priority:3; sid:13000040;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Integrity violation detected"; content:"Integrity"; priority:3; sid:13000041;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Confidential data breach"; content:"Confidentiality"; priority:3; sid:13000042;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"CA interaction detected"; content:"Certificate Authority"; priority:3; sid:13000043;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Certificate revocation attempt"; content:"Revocation"; priority:3; sid:13000044;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Envelope detected"; content:"Digital Envelope"; priority:3; sid:13000045;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Escrow operation detected"; content:"Key Escrow"; priority:3; sid:13000046;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Entropy Source anomaly"; content:"Entropy Source"; priority:3; sid:13000047;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Homomorphic Encryption usage detected"; content:"Homomorphic Encryption"; priority:3; sid:13000048;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Zero-Knowledge Proof exchange detected"; content:"Zero-Knowledge Proof"; priority:3; sid:13000049;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key"; content:"Key"; priority:3; sid:13000050;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Schedule"; content:"Key Schedule"; priority:3; sid:13000051;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked S-Box"; content:"S-Box"; priority:3; sid:13000052;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked P-Box"; content:"P-Box"; priority:3; sid:13000053;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Padding"; content:"Padding"; priority:3; sid:13000054;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Signature detected"; content:"Signature"; priority:3; sid:13000055;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Verifier detected"; content:"Verifier"; priority:3; sid:13000056;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Digital Certificate detected"; content:"Digital Certificate"; priority:3; sid:13000057;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"RandomNumberGenerator.Create()"; priority:3; sid:13000058;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"rng.GetBytes"; priority:3; sid:13000059;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"SecureRandom.random_bytes"; priority:3; sid:13000060;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const crypto"; priority:3; sid:13000061;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"require(\'crypto\')"; priority:3; sid:13000062;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"const randomBytes"; priority:3; sid:13000063;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"crypto.randomBytes"; priority:3; sid:13000064;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"crypto/rand\""; priority:3; sid:13000065;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"make([]byte, 16 )"; priority:3; sid:13000066;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"get_random_bytes()"; priority:3; sid:13000067;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.randint"; content:"random.randint("; priority:3; sid:13000068;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.randrange"; content:"random.randrange("; priority:3; sid:13000069;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.choice"; content:"random.choice("; priority:3; sid:13000070;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi random.shuffle"; content:"random.shuffle("; priority:3; sid:13000071;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_bytes"; content:"secrets.token_bytes("; priority:3; sid:13000072;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_hex"; content:"secrets.token_hex("; priority:3; sid:13000073;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi secrets.token_urlsafe"; content:"secrets.token_urlsafe("; priority:3; sid:13000074;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial ChaCha20SecretKey"; content:"ChaCha20SecretKey"; priority:3; sid:13000075;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial secp256r1"; content:"secp256r1"; priority:3; sid:13000076;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial 3DESSecretKey"; content:"3DESSecretKey"; priority:3; sid:13000077;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial GenerateKey"; content:"GenerateKey"; priority:3; sid:13000078;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial RSASignaturePadding"; content:"RSASignaturePadding"; priority:3; sid:13000079;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.BlockCopy"; content:"Buffer.BlockCopy";  priority:3; sid:13000080;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.SetByte"; content:"Buffer.SetByte"; priority:3; sid:13000081;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer.ByteLength"; content:"Buffer.ByteLength"; priority:3; sid:13000082;)
+block tcp any any -> any any (msg:"Deteksi lock_in_cron"; content:"lock_in_cron"; priority:3; sid:13000083;)
+block tcp any any -> any any (msg:"Deteksi lock_in_launch"; content:"lock_in_launch"; priority:3; sid:13000084;)
+block tcp any any -> any any (msg:"Deteksi lock_in_dock"; content:"lock_in_dock"; priority:3; sid:13000085;)
+block tcp any any -> any any (msg:"Deteksi lock_in_rc"; content:"lock_in_rc"; priority:3; sid:13000086;)
+block tcp any any -> any any (msg:"Deteksi NoteStore.sqlite"; content:"NoteStore.sqlite"; priority:3;   sid:13000087;)
+block tcp $HOME_NET any -> any 443 (msg:"Deteksi akses ke https://sarkerrentacars.com/zshrc"; content:"/zshrc"; http_uri; priority:3; sid:13000088;)
+block tcp $HOME_NET any -> any any (msg:"Deteksi akses ke https://turkishfurniture.blog/Previewers"; content:"GET /Previewers"; http_uri; priority:3; sid:13000089;)
+block tcp any any -> any 80 (msg:"Deteksi Pola yang Mencurigakan"; content:"<https://github.com/manasmbellani/mycode_public/blob/master/yara/win_malicious_batch_script.yar>"; priority:3; sid:13000090; )
+block tcp $HOME_NET any -> any any (msg:"Deteksi Potensial Serangan KRBRelayUP"; content:"<https://medium.com/system-weakness/krbrelayup-attack-and-detection-6fcd491af4fc>"; priority:3; sid:13000091; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi String *S-1-5-32-544__Members = *S"; content:"*S-1-5-32-544__Members = *S"; priority:3; sid:13000092; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi KRBRelayUp - Pembuatan Akun Komputer Baru"; content:"CreateNewComputerAccount"; priority:3; sid:13000093; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - KrbRelayUp.exe"; content:"KrbRelayUp.exe"; priority:3; sid:13000094; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - KrbRelayUp.exe"; content:"c:\\Users\\Administrator\\Desktop\\opt\\lateralmovt\\windows\\KrbRelayUp.exe"; priority:3; sid:13000095; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Potensial KRBRelayUp - gpupdate /force"; content:"gpupdate /force"; priority:3; sid:13000096; )
+block tcp $EXTERNAL_NET any -> $HOME_NET 88 (msg:"Deteksi Potensial ASEPRoast - Permintaan Tiket TGT"; content:"KRB_AS_REQ"; content:"TGT"; priority:3; sid:13000097; )
+
+
+########################################     PRIORITY 4     ########################################
+
+alert tcp any any -> any any (msg:"Blocked regedit"; content:"regedit"; priority:4; sid:14000001;)
+alert tcp any any -> any any (msg:"Blocked .reg"; content:".reg"; priority:4; sid:14000002;)
+alert tcp any any -> any any (msg:"Blocked reg add"; content:"reg add"; priority:4; sid:14000003;)
+alert tcp any any -> any any (msg:"Blocked reg compare"; content:"reg compare"; priority:4; sid:14000004;)
+alert tcp any any -> any any (msg:"Blocked reg copy"; content:"reg copy"; priority:4; sid:14000005;)
+alert tcp any any -> any any (msg:"Blocked reg delete"; content:"reg delete"; priority:4; sid:14000006;)
+alert tcp any any -> any any (msg:"Blocked reg export"; content:"reg export"; priority:4; sid:14000007;)
+alert tcp any any -> any any (msg:"Blocked reg import"; content:"reg import"; priority:4; sid:14000008;)
+alert tcp any any -> any any (msg:"Blocked reg load"; content:"reg load"; priority:4; sid:14000009;)
+alert tcp any any -> any any (msg:"Blocked reg query"; content:"reg query"; priority:4; sid:14000010;)
+alert tcp any any -> any any (msg:"Blocked reg restore"; content:"reg restore"; priority:4; sid:14000011;)
+alert tcp any any -> any any (msg:"Blocked reg save"; content:"reg save"; priority:4; sid:14000012;)
+alert tcp any any -> any any (msg:"Blocked reg unload"; content:"reg unload"; priority:4; sid:14000013;)
+alert tcp any any -> any any (msg:"Blocked regini"; content:"regini"; priority:4; sid:14000014;)
+alert tcp any any -> any any (msg:"Blocked regsvr32"; content:"regsvr32"; priority:4; sid:14000015;)
+alert tcp any any -> any any (msg:"Blocked relog"; content:"relog"; priority:4; sid:14000016;)
+alert tcp any any -> any any (msg:"Blocked rem"; content:"rem"; priority:4; sid:14000017;)
+alert tcp any any -> any any (msg:"Blocked remove"; content:"remove"; priority:4; sid:14000018;)
+alert tcp any any -> any any (msg:"Blocked ren"; content:"ren"; priority:4; sid:14000019;)
+alert tcp any any -> any any (msg:"Blocked rename"; content:"rename"; priority:4; sid:14000020;)
+alert tcp any any -> any any (msg:"Blocked repair"; content:"repair"; priority:4; sid:14000021;)
+alert tcp any any -> any any (msg:"Blocked repair-bde"; content:"repair-bde"; priority:4; sid:14000022;)
+alert tcp any any -> any any (msg:"Blocked robocopy command"; content:"robocopy"; priority:4; sid:14000023; rev:1;)
+alert tcp any any -> any any (msg:"Blocked route ws2008 command"; content:"route ws2008"; priority:4; sid:14000024; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rpcping command"; content:"rpcping"; priority:4; sid:14000025; rev:1; classtype:rpc-portmap-decode;)
+alert tcp any any -> any any (msg:"Blocked rundll32 printui command"; content:"rundll32 printui"; priority:4; sid:14000026; rev:1;)
+alert tcp any any -> any any (msg:"Blocked rwinsta command"; content:"rwinsta"; priority:4; sid:14000027; rev:1;)
+alert tcp any any -> any any (msg:"Blocked sc config command"; content:"sc config"; priority:4; sid:14000028; rev:1;)
+alert tcp any any -> any any (msg:"Blocked sc create command"; content:"sc create"; priority:4; sid:14000029; rev:1;)
+alert tcp any any -> any any (msg:"Blocked sc delete command"; content:"sc delete"; priority:4; sid:14000030; rev:1;)
+alert tcp any any -> any any (msg:"Blocked sc query command"; content:"sc query"; priority:4; sid:14000031; rev:1;)
+alert tcp any any -> any any (msg:"Blocked schtasks command"; content:"schtasks"; priority:4; sid:14000032; rev:1;)
+alert tcp any any -> any any (msg:"Blocked scwcmd command"; content:"scwcmd"; priority:4; sid:14000033; rev:1;)
+alert tcp any any -> any any (msg:"Blocked secedit command"; content:"secedit"; priority:4; sid:14000034; rev:1;)
+alert tcp any any -> any any (msg:"Blocked mapadmin command"; content:"mapadmin"; priority:4; sid:14000035; rev:1;)
+alert tcp any any -> any any (msg:"Blocked mount command"; content:"mount"; priority:4; sid:14000036; rev:1;)
+alert tcp any any -> any any (msg:"Blocked nfsadmin command"; content:"nfsadmin"; priority:4; sid:14000037; rev:1;)
+alert tcp any any -> any any (msg:"Blocked nfsshare command"; content:"nfsshare"; priority:4; sid:14000038; rev:1;)
+alert tcp any any -> any any (msg:"Blocked nfsstat command"; content:"nfsstat"; priority:4; sid:14000039; rev:1;)
+alert tcp any any -> any any (msg:"Blocked showmount command"; content:"showmount"; priority:4; sid:14000040; rev:1;)
+alert tcp any any -> any any (msg:"Blocked atmadn command"; content:"atmadn"; priority:4; sid:14000041; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chcp command"; content:"chcp"; priority:4; sid:14000042; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chdir command"; content:"chdir"; priority:4; sid:14000043; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chglogon command"; content:"chglogon"; priority:4; sid:14000044; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chgport command"; content:"chgport"; priority:4; sid:14000045; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chgusr command"; content:"chgusr"; priority:4; sid:14000046; rev:1;)
+alert tcp any any -> any any (msg:"Blocked CHKDSK command"; content:"CHKDSK"; priority:4; sid:14000047; rev:1;)
+alert tcp any any -> any any (msg:"Blocked chkntfs command"; content:"chkntfs"; priority:4; sid:14000048; rev:1;)
+alert tcp any any -> any any (msg:"Blocked clean command"; content:"clean"; priority:4; sid:14000049; rev:1;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: cscript"; content:"cscript"; priority:4; sid:14000050;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dcdiag"; content:"dcdiag"; priority:4;sid:14000051;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dcgpofix"; content:"dcgpofix"; priority:4; sid:14000052;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: defrag"; content:"defrag"; priority:4; sid:14000053;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: detach vdisk"; content:"detach vdisk"; priority:4; sid:14000054;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dfsdiag"; content:"dfsdiag"; priority:4; sid:14000055;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dfsrmig"; content:"dfsrmig"; priority:4; sid:14000056;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diantz"; content:"diantz"; priority:4; sid:14000057;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dir"; content:"dir"; priority:4; sid:14000058;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskcomp"; content:"diskcomp"; priority:4; sid:14000059;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskcopy"; content:"diskcopy"; priority:4; sid:14000060;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskpart"; content:"diskpart"; priority:4; sid:14000061;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskperf"; content:"diskperf"; priority:4; sid:14000062;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskraid"; content:"diskraid"; priority:4; sid:14000063;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: diskshadow"; content:"diskshadow"; priority:4; sid:14000064;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dispdiag"; content:"dispdiag"; priority:4; sid:14000065;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: dnscmd"; content:"dnscmd"; priority:4; sid:14000066;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: doskey"; content:"doskey"; priority:4; sid:14000067;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: driverquery"; content:"driverquery"; priority:4; sid:14000068;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: echo"; content:"echo"; priority:4; sid:14000069;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: endlocal"; content:"endlocal"; priority:4; sid:14000070;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: end restore"; content:"end restore"; priority:4; sid:14000071;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: erase"; content:"erase"; priority:4; sid:14000072;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: eventcreate"; content:"eventcreate"; priority:4; sid:14000073;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: Evntcmd"; content:"Evntcmd"; priority:4; sid:14000074;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: exec"; content:"exec"; priority:4; sid:14000075;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: exit"; content:"exit"; priority:4; sid:14000076;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: expand vdisk"; content:"expand vdisk"; priority:4; sid:14000077;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: expose"; content:"expose"; priority:4; sid:14000078;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: extend"; content:"extend"; priority:4; sid:14000079;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: extract"; content:"extract"; priority:4; sid:14000080;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: fc"; content:"fc"; priority:4; sid:14000081;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: filesystems"; content:"filesystems"; priority:4; sid:14000082;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: findstr"; content:"findstr"; priority:4; sid:14000083;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: finger"; content:"finger"; priority:4; sid:14000084;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: flattemp"; content:"flattemp"; priority:4; sid:14000085;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: forfiles"; content:"forfiles"; priority:4; sid:14000086;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: format"; content:"format"; priority:4; sid:14000087;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: freedisk"; content:"freedisk"; priority:4; sid:14000088;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Command: fsutil"; content:"fsutil"; priority:4; sid:14000089;)
+alert tcp any any -> any 21 (msg:"FTP Connection Detected"; priority:4; sid:14000090;)
+alert tcp any any -> any any (msg:"Blocked Command: ftype"; content:"ftype"; priority:4; sid:14000091;)
+alert tcp any any -> any any (msg:"Blocked Command: getmac"; content:"getmac"; priority:4; sid:14000092;)
+alert tcp any any -> any any (msg:"Blocked Command: ipconfig"; content:"ipconfig"; priority:4; sid:14000093;)
+alert tcp any any -> any any (msg:"Blocked Command: gpfixup"; content:"gpfixup"; priority:4; sid:14000094;)
+alert tcp any any -> any any (msg:"Blocked Command: gpresult"; content:"gpresult"; priority:4; sid:14000095;)
+alert tcp any any -> any any (msg:"Blocked Command: gpupdate"; content:"gpupdate"; priority:4; sid:14000096;)
+alert tcp any any -> any any (msg:"Blocked Command: icacls"; content:"icacls"; priority:4; sid:14000097;)
+alert tcp any any -> any any (msg:"Blocked Command: import (shadowdisk)"; content:"import (shadowdisk)"; priority:4; sid:14000098;)
+alert tcp any any -> any any (msg:"Blocked Command: import (diskpart)"; content:"import (diskpart)"; priority:4; sid:14000099;)
+alert tcp any any -> any any (msg:"Blocked Command: ipxroute"; content:"ipxroute"; priority:4; sid:14000100;)
+alert tcp any any -> any any (msg:"Blocked Command: irftp"; content:"irftp"; priority:4; sid:14000101;)
+alert tcp any any -> any any (msg:"Blocked Command: klist"; content:"klist"; priority:4; sid:14000102;)
+alert tcp any any -> any any (msg:"Blocked Command: ksetup"; content:"ksetup"; priority:4; sid:14000103;)
+alert tcp any any -> any any (msg:"Blocked Command: ktmutil"; content:"ktmutil"; priority:4; sid:14000104;)
+alert tcp any any -> any any (msg:"Blocked Command: ktpass"; content:"ktpass"; priority:4; sid:14000105;)
+alert tcp any any -> any any (msg:"Blocked Command: load metadata"; content:"load metadata"; priority:4; sid:14000106;)
+alert tcp any any -> any any (msg:"Blocked Command: lodctr"; content:"lodctr"; priority:4; sid:14000107;)
+alert tcp any any -> any any (msg:"Blocked Command: logman"; content:"logman"; priority:4; sid:14000108;)
+alert tcp any any -> any any (msg:"Blocked Command: lpr"; content:"lpr"; priority:4; sid:14000109;)
+alert tcp any any -> any any (msg:"Blocked Command: makecab"; content:"makecab"; priority:4; sid:14000110;)
+alert tcp any any -> any any (msg:"Blocked Command: md"; content:"md"; priority:4; sid:14000111;)
+alert tcp any any -> any any (msg:"Blocked Command: mklink"; content:"mklink"; priority:4; sid:14000112;)
+alert tcp any any -> any any (msg:"Blocked Command: mmc"; content:"mmc"; priority:4; sid:14000113;)
+alert tcp any any -> any any (msg:"Blocked Command: mount"; content:"mount"; priority:4; sid:14000114;)
+alert tcp any any -> any any (msg:"Blocked Command: mountvol"; content:"mountvol"; priority:4; sid:14000115;)
+alert tcp any any -> any 135 (msg:"Blocked mqtgsvc"; priority:4; sid:14000116;)
+alert tcp any any -> any any (msg:"Blocked msdt"; priority:4; sid:14000117;)
+alert tcp any any -> any 3389 (msg:"Blocked mstsc";  content:"block remote desktop protocol"; priority:4; sid:14000118;)
+alert udp any any -> any 137 (msg:"Blocked nbtstat"; priority:4; sid:14000119;)
+alert tcp any any -> any 445 (msg:"Blocked netcfg"; priority:4; sid:14000120;)
+alert tcp any any -> any 515 (msg:"Blocked net print"; priority:4; sid:14000121;)
+alert tcp any any -> any 1025:65535 (msg:"Connection to unsual port"; priority:4; sid:14000122;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked netstat"; priority:4; sid:14000123;)
+alert tcp any any -> any 2049 (msg:"Blocked nfsadmin"; priority:4; sid:14000124;)
+alert tcp any any -> any 2049 (msg:"Blocked nfsshare"; priority:4; sid:14000125;)
+alert tcp any any -> any 2049 (msg:"Blocked nfsstat"; priority:4; sid:14000126;)
+alert tcp any any -> any 137:139 (msg:"Blocked nlbmgr"; priority:4; sid:14000127;)
+alert udp any any -> any 53 (msg:"Blocked nslookup"; priority:4; sid:14000128;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked ntbackup"; priority:4; sid:14000129;)
+#alert tcp any any -> any 1025:65535 (msg:"Blocked ntfrsutl"; priority:4; sid:14000130;)
+alert tcp any any -> any 135 (msg:"Blocked openfiles"; priority:4; sid:14000131;)
+alert tcp any any -> any any (msg:"Blocked path"; priority:4; sid:14000132;)
+alert icmp any any -> any any (msg:"Blocked pathping"; priority:4; sid:14000133;)
+alert tcp any any -> any 445 (msg:"Blocked perfmon"; priority:4; sid:14000134;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked pktmon"; priority:4; sid:14000135;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked pnpunattend"; priority:4; sid:14000136;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked pnputil"; priority:4; sid:14000137;)
+alert tcp any any -> any any (msg:"Blocked popd"; priority:4; sid:14000138;)
+# alert tcp any any -> any 515 (msg:"Blocked print"; priority:4; sid:14000139;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prncnfg"; priority:4; sid:14000140;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prndrvr"; priority:4; sid:14000141;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prnjobs"; priority:4; sid:14000142;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prnmngr"; priority:4; sid:14000143;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prnport"; priority:4; sid:14000144;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked prnqctl"; priority:4; sid:14000145;)
+alert tcp any any -> any any (msg:"Blocked prompt"; priority:4; sid:14000146;)
+# alert tcp any any -> any 515 (msg:"Blocked pubprn"; priority:4; sid:14000147;)
+# alert tcp any any -> any any (msg:"Blocked pushd"; priority:4; sid:14000148;)
+# alert tcp any any -> any any (msg:"Blocked pwlauncher"; priority:4; sid:14000149;)
+# alert tcp any any -> any any (msg:"Blocked qprocess"; priority:4; sid:14000150;)
+# alert tcp any any -> any any (msg:"Blocked query"; priority:4; sid:14000151;)
+# alert tcp any any -> any any (msg:"Blocked quser"; priority:4; sid:14000152;)
+# alert tcp any any -> any any (msg:"Blocked qwinsta"; priority:4; sid:14000153;)
+# alert tcp any any -> any 3389 (msg:"Blocked rd"; priority:4; sid:14000154;)
+# alert tcp any any -> any 3389 (msg:"Blocked rdpsign"; priority:4; sid:14000155;)
+# alert tcp any any -> any 445 (msg:"Blocked refsutil"; priority:4; sid:14000156;)
+# alert tcp any any -> any 1025:65535 (msg:"Blocked reg"; priority:4; sid:14000157;)
+alert tcp any any -> any 135 (msg:"Blocked setx activity"; priority:4; sid:14000158; content:"setx";)
+alert tcp any any -> any 1025 (msg:"Blocked sfc activity"; priority:4; sid:14000159; content:"sfc";)
+alert tcp any any -> any 514 (msg:"Blocked shadow activity"; priority:4; sid:14000160; content:"shadow";)
+alert tcp any any -> any 514 (msg:"Blocked simulate restore activity"; priority:4; sid:14000161; content:"simulate restore";)
+alert tcp any any -> any 514 (msg:"Blocked subst activity"; priority:4; sid:14000162; content:"subst";)
+alert tcp any any -> any 514 (msg:"Blocked sxstrace activity"; priority:4; sid:14000163; content:"sxstrace";)
+alert tcp any any -> any 514 (msg:"Blocked sysocmgr activity"; priority:4; sid:14000164; content:"sysocmgr";)
+alert tcp any any -> any 514 (msg:"Blocked systeminfo activity"; priority:4; sid:14000165; content:"systeminfo";)
+alert tcp any any -> any 514 (msg:"Blocked tcmsetup activity"; priority:4; sid:14000166; content:"tcmsetup";)
+alert tcp any any -> any 514 (msg:"Blocked tpmtool activity"; priority:4; sid:14000167; content:"tpmtool";)
+alert tcp any any -> any 514 (msg:"Blocked tsecimp activity"; priority:4; sid:14000168; content:"tsecimp";)
+alert tcp any any -> any 514 (msg:"Blocked tsprof activity"; priority:4; sid:14000169; content:"tsprof";)
+alert tcp any any -> any 514 (msg:"Blocked tzutil activity"; priority:4; sid:14000170; content:"tzutil";)
+alert tcp any any -> any 514 (msg:"Blocked unlodctr activity"; priority:4; sid:14000171; content:"unlodctr";)
+alert tcp any any -> any 514 (msg:"Blocked ver activity"; priority:4; sid:14000172; content:"ver";)
+alert tcp any any -> any 514 (msg:"Blocked wecutil activity"; priority:4; sid:14000173; content:"wecutil";)
+alert tcp any any -> any 514 (msg:"Blocked wevtutil activity"; priority:4; sid:14000174; content:"wevtutil";)
+alert tcp any any -> any 514 (msg:"Blocked winsat mem activity"; priority:4; sid:14000175; content:"winsat mem";)
+alert tcp any any -> any 514 (msg:"Blocked winsat mfmedia activity"; priority:4; sid:14000176; content:"winsat mfmedia";)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key generation event"; content:"Key Generation"; priority:4; sid:14000177;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key length anomaly"; content:"Key Length"; priority:4; sid:14000178;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Key Stretching"; content:"Key Stretching"; priority:4; sid:14000179;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Entropy Pool"; content:"Entropy Pool"; priority:4; sid:14000180;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Quantum Cryptography"; content:"Quantum Cryptography"; priority:4; sid:14000181;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Expansion"; content:"Expansion"; priority:4; sid:14000182;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Subkey"; content:"Subkey"; priority:4; sid:14000183;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Key"; content:"Round Key"; priority:4; sid:14000184;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Blocked Round Function"; content:"Round Function"; priority:4; sid:14000185;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Key Length detected"; content:"Key Length"; priority:4; sid:14000186;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"new byte["; content:"secureRandom.nextBytes"; priority:4; sid:14000187;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"stdlib.h"; priority:4; sid:14000188;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"randomBytes"; priority:4; sid:14000189;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial SafeEvpPKeyHandle"; content:"SafeEvpPKeyHandle"; priority:4; sid:14000190;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial swEncrypt.Write"; content:"swEncrypt.Write"; priority:4; sid:14000191;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial AesCcm"; content:"AesCcm"; priority:4; sid:14000192;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Buffer."; content:"Buffer."; priority:4; sid:14000193;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial This array is to be modified and displayed"; content:"This array is to be modified and displayed"; priority:4; sid:14000194;)
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan GptTmpl.inf"; content:"GptTmpl.inf"; priority:4; sid:14000195; )
+
+
+########################################     PRIORITY 5     ########################################
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"$randomBytes"; priority:5; sid:15000001;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Potensial Penggunaan Byte Acak"; content:"\"fmt\""; priority:5; sid:15000002;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial AES256Key1234567890"; content:"AES256Key1234567890"; priority:5; sid:15000003;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial RSA.generateKeyPair()"; content:"RSA.generateKeyPair()"; priority:5; sid:15000004;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial BlowfishSecretKey"; content:"BlowfishSecretKey"; priority:5; sid:15000005;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial SuperSecretDESKey"; content:"SuperSecretDESKey"; priority:5; sid:15000006;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial Create()"; content:"Create()"; priority:5; sid:15000007;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi potensial ReadOnlySpan<Byte>"; content:"ReadOnlySpan<Byte>"; priority:5; sid:15000008;)
+alert udp any any -> any 1194 (msg:"OpenVPN Traffic Detected"; priority:5; sid:15000009;)
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan Whoami /all"; content:"whoami /all"; priority:5; sid:15000010; )
+block tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"Deteksi Penggunaan win2016backupop"; content:"win2016backupop"; priority:5; sid:15000011; )
+block tcp $EXTERNAL_NET any -> $HOME_NET 88 (msg:"Deteksi Potensial KRBRelayUp - Permintaan Tiket TGT untuk asepuser"; content:"KRB_AS_REQ"; content:"asepuser"; priority:5; sid:15000012; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C"; content:"gcc"; priority:5; sid:15000013; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C++"; content:"g++"; priority:5; sid:15000014; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Rustc"; content:"rustc"; priority:5; sid:15000015; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Go"; content:"go"; priority:5; sid:15000016; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Java"; content:"javac"; priority:5; sid:15000017; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command C#"; content:"csc"; priority:5; sid:15000018; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Fortran"; content:"gfortran"; priority:5; sid:15000019; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Pascal"; content:"fpc"; priority:5; sid:15000020; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Ada"; content:"gnatmake"; priority:5; sid:15000021; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Assembly"; content:"nasm"; priority:5; sid:15000022; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Python"; content:"python"; priority:5; sid:15000023; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command JavaScript (Node.js)"; priority:5; content:"node"; sid:15000024; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Ruby"; content:"ruby"; priority:5; sid:15000025; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Perl"; content:"perl"; priority:5; sid:15000026; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command PHP"; content:"php"; priority:5; sid:15000027; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Bash"; content:"bash"; priority:5; sid:15000028; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command PowerShell"; content:"powershell"; priority:5; sid:15000029; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Lua"; content:"lua"; priority:5; sid:15000030; )
+block any $EXTERNAL_NET any -> $HOME_NET any (msg:"Block Command Tcl"; content:"tclsh"; priority:5; sid:15000031; )
